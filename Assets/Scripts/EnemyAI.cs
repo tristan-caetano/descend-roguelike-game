@@ -69,8 +69,6 @@ public class EnemyAI : MonoBehaviour {
             currentWaypoint ++;
         }
 
-        Debug.Log("Curr Speed: " + currSpeed);
-
         animator.SetFloat("Horizontal", rb.velocity.x);
         animator.SetFloat("Vertical", rb.velocity.y);
         animator.SetFloat("Speed", currSpeed);
