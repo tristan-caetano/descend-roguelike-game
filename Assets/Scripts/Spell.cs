@@ -5,6 +5,7 @@ using UnityEngine;
 public class Spell : MonoBehaviour
 {
 
+public GameObject impactEffect;
 public float speed = 20f;
 public Rigidbody2D rb;
 
@@ -20,8 +21,12 @@ void Start(){
             enemy.TakeDamage(50);
         }
 
+        Debug.Log("Hit");
+
+        Instantiate(impactEffect, transform.position, transform.rotation);
+
         Debug.Log(hitInfo.name);
 
-        Destroy(gameObject, 5f);
+        Destroy(gameObject);
     }
 }

@@ -18,8 +18,9 @@ public class Mouse_Pointer : MonoBehaviour
     public Vector3 mouseInput;
     private float timeBtwSpell;
     public float startTimeBtwSpell;
-
     public Transform attackPos;
+    public float cooldownDuration = 1f;
+    public bool isAvailable = true;
 
     // Start is called before the first frame update
     void Start(){
@@ -39,20 +40,34 @@ public class Mouse_Pointer : MonoBehaviour
         Vector3 difference = target - player.transform.position;
         float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
 
-        if(Input.GetMouseButtonDown(0)){
-            animator.SetFloat("LastH", difference.x);
-            animator.SetFloat("LastV", difference.y);
-            animator.SetTrigger("Cast");
-            float distance = difference.magnitude;
-            Vector2 direction = difference / distance;
-            direction.Normalize();
-            playerBody.velocity = Vector3.zero;
-            fireBullet(direction, rotationZ);
+        if(isAvailable){
+
+            
+
+            if(Input.GetMouseButtonDown(0)){
+                animator.SetFloat("LastH", difference.x);
+                animator.SetFloat("LastV", difference.y);
+                animator.SetTrigger("Cast");
+                float distance = difference.magnitude;
+                Vector2 direction = difference / distance;
+                direction.Normalize();
+                playerBody.velocity = Vector3.zero;
+                fireBullet(direction, rotationZ);
+                StartCoroutine(StartCooldown());
+            }
+        }else{
+            return;
         }
     }
 
 // Method that calculated and fires spell
     void fireBullet(Vector2 direction, float rotationZ){
         Instantiate(magicPrefab, player.transform.position, Quaternion.Euler(0.0f, 0.0f, rotationZ));
+    }
+
+    public IEnumerator StartCooldown(){
+        isAvailable = false;
+        yield return new WaitForSeconds(cooldownDuration);
+        isAvailable = true;
     }
 }

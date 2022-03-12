@@ -14,8 +14,8 @@ public class PlayerMovement : MonoBehaviour
     public Transform attackPoint;
     public float attackRange = .5f;
     public LayerMask enemyLayers;
-    private float timeBtwAttack;
-    public float startTimeBtwAttack;
+    public bool isAvailable = true;
+    public float cooldownDuration = 1.0f;
 
     // Update is called once per frame
     void Update()
@@ -42,47 +42,42 @@ public class PlayerMovement : MonoBehaviour
     {
         // Player movement
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+
+        if(isAvailable){
+            if(Input.GetKey(KeyCode.Space)){
+                Attack();
+                StartCoroutine(StartCooldown());
+            }
+            
+        }else{
+            return;
+        }
+    }
+
+    void Attack(){
+
         Vector3 target = camera.transform.GetComponent<Camera>().ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Input.mousePosition.z));
 
         // Weird rotation thing
         Vector3 difference = target - transform.position;
         float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
         Vector3 positionMouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
- 
         // make the Z position equal to the player for a fully 2D comparison
         positionMouse.z = transform.position.z;
 
-        // Debug.Log("Player: " + transform.position);
-        // Debug.Log("Mouse: " + positionMouse);
-    
-        // Vector3 towardsMouseFromPlayer = positionMouse - transform.position;
-        // Vector3 vectorAttack = towardsMouseFromPlayer.normalized;
-        // attackPoint.position = vectorAttack;
-        //= vectorAttack;
-
-        // Debug.Log("Hit: " + vectorAttack);
-        // Debug.Log("ATTX: " + attackPoint.position);
-
-        if(timeBtwAttack <= 0){
-            if(Input.GetKey(KeyCode.Space)){
-                animator.SetFloat("LastH", difference.x);
-                animator.SetFloat("LastV", difference.y);
-                rb.velocity = Vector3.zero;
-                Attack();
-        }
-            timeBtwAttack = startTimeBtwAttack;
-        }else{
-            timeBtwAttack -= Time.deltaTime;
-        }
-    }
-
-    void Attack(){
+        animator.SetFloat("LastH", difference.x);
+        animator.SetFloat("LastV", difference.y);
+        rb.velocity = Vector3.zero;
         animator.SetTrigger("Attack");
-        
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
         foreach(Collider2D enemy in hitEnemies){
-            Debug.Log("Hit!");
+
+             EnemyAttributes currEnemy = enemy.GetComponent<EnemyAttributes>();
+
+            if(currEnemy.getHealth() != null){
+                currEnemy.TakeDamage(5);
+            }
         }
     }
 
@@ -94,4 +89,11 @@ public class PlayerMovement : MonoBehaviour
 
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
+
+    public IEnumerator StartCooldown(){
+            isAvailable = false;
+            yield return new WaitForSeconds(cooldownDuration);
+            isAvailable = true;
+        }
+    
 }

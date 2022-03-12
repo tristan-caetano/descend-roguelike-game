@@ -17,6 +17,8 @@ public class EnemyAI : MonoBehaviour {
     Seeker seeker;
     Rigidbody2D rb;
     public Animator animator;
+    public EnemyAttributes enemy;
+    public Collider2D collider;
 
 
 
@@ -27,6 +29,7 @@ public class EnemyAI : MonoBehaviour {
         rb = GetComponent<Rigidbody2D>();
         
         InvokeRepeating("UpdatePath", 0f, .5f);
+        
     }
 
     void UpdatePath(){
@@ -41,38 +44,51 @@ public class EnemyAI : MonoBehaviour {
         }
     }
 
+    public Vector2 getDirection(){
+        return new Vector2(rb.velocity.x, rb.velocity.y);
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
-        
 
-        if(path == null){
-            return;
-        }
-        if(currentWaypoint >= path.vectorPath.Count){
-            reachedEndOfPath = true;
-            currSpeed = 0;
-            return;
+        Debug.Log(enemy.getHealth());
+        if(enemy.getHealth() > 0){
+
+            collider.enabled = true;
+            
+            if(path == null){
+                return;
+            }
+            if(currentWaypoint >= path.vectorPath.Count){
+                reachedEndOfPath = true;
+                currSpeed = 0;
+                return;
+            }else{
+                reachedEndOfPath = false;
+                currSpeed = speed;
+            }
+
+            Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
+            Vector2 force =  direction * speed * Time.deltaTime;
+        
+            rb.AddForce(force);
+
+            float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);    
+            
+            if(distance < nextWaypointDistance){
+                currentWaypoint ++;
+            }
+
+            animator.SetFloat("Horizontal", rb.velocity.x);
+            animator.SetFloat("Vertical", rb.velocity.y);
+            animator.SetFloat("lastMoveHorizontal", rb.velocity.x);
+            animator.SetFloat("lastMoveVertical", rb.velocity.y);
+            animator.SetFloat("Speed", currSpeed);
         }else{
-            reachedEndOfPath = false;
-            currSpeed = speed;
+            collider.enabled = false;
+            return;
         }
-
-        Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
-        Vector2 force =  direction * speed * Time.deltaTime;
-     
-        rb.AddForce(force);
-
-        float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);    
-        
-        if(distance < nextWaypointDistance){
-            currentWaypoint ++;
-        }
-
-        animator.SetFloat("Horizontal", rb.velocity.x);
-        animator.SetFloat("Vertical", rb.velocity.y);
-        animator.SetFloat("Speed", currSpeed);
-
         
     }
 }
