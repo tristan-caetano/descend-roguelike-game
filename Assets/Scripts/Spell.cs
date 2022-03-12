@@ -11,22 +11,29 @@ public Rigidbody2D rb;
 
 void Start(){
     rb.velocity = transform.right * speed;
+
+    Destroy(gameObject, 10f);
 }
 
     void OnTriggerEnter2D(Collider2D hitInfo){
 
         EnemyAttributes enemy = hitInfo.GetComponent<EnemyAttributes>();
 
-        if(enemy != null){
-            enemy.TakeDamage(50);
+        if(enemy.tag != "Player"){
+
+            if(enemy != null){
+                enemy.TakeDamage(10);
+            }
+
+            Debug.Log("Hit");
+
+            Instantiate(impactEffect, transform.position, transform.rotation);
+
+            Debug.Log(hitInfo.name);
+
+            Destroy(gameObject, .1f);
+        } else{
+            return;
         }
-
-        Debug.Log("Hit");
-
-        Instantiate(impactEffect, transform.position, transform.rotation);
-
-        Debug.Log(hitInfo.name);
-
-        Destroy(gameObject);
     }
 }
