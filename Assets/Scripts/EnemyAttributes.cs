@@ -1,50 +1,63 @@
+// Tristan Caetano, Samuel Rouillard, Elijah Karpf
+// Descend Project
+// CIS 464 Project 1
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Simple script for enemy health, hit, and death animations
 public class EnemyAttributes : MonoBehaviour
 {
+
+    // Enemy health
     public int health = 100;
-    public Rigidbody2D rb;
+
+    // Animating when the player is hit or dead
     public Animator animator;
+
+    // Makes the enemy red for a short time after getting hit
     float flashMime = .5f;
-    public EnemyAI enemy;
     Color originalColor;
     public SpriteRenderer renderer;
-    void Start()
-    {
-        originalColor = renderer.color;
-    }
-    void FlashRed()
-    {
-        renderer.color = Color.red;
-        Invoke("ResetColor", flashMime);
-    }
-    void ResetColor()
-    {
-        renderer.color = originalColor;
-    }
+
+    // Getting the original sprite color
+    void Start(){originalColor = renderer.color;}
+
+    // Making the sprite red
+    void FlashRed(){renderer.color = Color.red; Invoke("ResetColor", flashMime);}
+
+    // Resetting the sprite back to the original color
+    void ResetColor(){renderer.color = originalColor;}
+
+    // If the enemy is hit, they take damage
     public void TakeDamage(int damage){
 
+        // Removes damage from health
         health -= damage;
+
+        // Flashes the enemy red
         FlashRed();
 
+        // If the enemy dies, call die method
         if(health <= 0){
             Die();
-        }else{
-            animator.SetTrigger("isHit");
-        }
         
+        // If they are alive, play the hit animation
+        }
+        else{animator.SetTrigger("isHit");}
     }
 
+    // Enemy plays dead animation, and is removed from the scene
     void Die(){
+
+        // Death animation is called
         animator.SetTrigger("isDead");
         
+        // Enemy is removed from scene after 5 seconds
         Destroy(gameObject, 5f);
     }
 
-    public int getHealth(){
-        return health;
-    }
-
+    // Getter for enemy health
+    public int getHealth(){return health;}
 }

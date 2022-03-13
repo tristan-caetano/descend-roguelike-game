@@ -1,34 +1,46 @@
+// Tristan Caetano, Samuel Rouillard, Elijah Karpf
+// Descend Project
+// CIS 464 Project 1
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 
+// Script that controls the enemy AI
 public class EnemyAI : MonoBehaviour {
 
+    // Player variables to change player health, identify, and track the player
+    public PlayerAttributes playerAtt;
+    public LayerMask playerLayers;
     public Transform target;
+    GameObject mainPlayer;
+
+    // Denotes the top speed and current speed of the enemy
     public float speed = 200f;
     float currSpeed;
-    public float nextWaypointDistance = 3f;
-
+    
+    // Variables that allow the enemy to track the player
     Path path;
     int currentWaypoint = 0;
     bool reachedEndOfPath = false;
-
+    public float nextWaypointDistance = 3f;
     Seeker seeker;
+
+    // Standard attributes of the enemy so that it can move, animate, hit, and check health
+    public EnemyAttributes enemy;
     Rigidbody2D rb;
     public Animator animator;
-    public EnemyAttributes enemy;
     public Collider2D collider;
     public Transform enemyAttackPoint;
     public float enemyAttackRange = .5f;
-    public LayerMask playerLayers;
-    public bool isReady = true;
+    
+    // Gets the player info and does damage
     Collider2D hitInfoLocal = null;
-    public PlayerAttributes playerAtt;
+    public int enemyAttack = 5;
+    
 
-
-
-    // Start is called before the first frame update
+    // Gets the rigidbody and seeker for tracking, starts tracking
     void Start()
     {
         seeker = GetComponent<Seeker>();
@@ -38,6 +50,7 @@ public class EnemyAI : MonoBehaviour {
         
     }
 
+    // Methods relating to pathing.
     void UpdatePath(){
         if (seeker.IsDone())
             seeker.StartPath(rb.position, target.position, OnPathComplete);
@@ -54,24 +67,26 @@ public class EnemyAI : MonoBehaviour {
         return new Vector2(rb.velocity.x, rb.velocity.y);
     }
 
-    // Update is called once per frame
+    // Method that is called regularly to update pathing waypoints, check enemy health, check for player collision, etc
     void FixedUpdate()
     {
-        
-        Debug.Log(enemy.getHealth());
-        
-        if(enemy.getHealth() > 0){
 
-            float pythagDis = Mathf.Sqrt(Mathf.Pow(Mathf.Abs(target.position.x - rb.position.x) + Mathf.Abs(target.position.y - rb.position.y), 2f));
+        // Finds the hypotenuse to check the distance between the player and enemy
+        float pythagDis = Mathf.Sqrt(Mathf.Pow(Mathf.Abs(target.position.x - rb.position.x) + Mathf.Abs(target.position.y - rb.position.y), 2f));
 
-            if(enemy.getHealth() > 0 && playerAtt.getHealth() > 0){
-                if (pythagDis < 1.5f){
-                    animator.SetTrigger("isAttack");
-                    Attack(hitInfoLocal);
-                }
-            }
+        // If the player is close enough and the enemy is alive
+        if(enemy.getHealth() > 0 && pythagDis < 10){
+
+            // Enabling the collider if the player is close enough and the enemy is alive
             collider.enabled = true;
-            
+
+            // Attacks player if they are close enough
+            if (enemy.getHealth() > 0 && playerAtt.getHealth() > 0 && pythagDis < 1.5f){
+                animator.SetTrigger("isAttack");
+                Attack(hitInfoLocal);
+            }
+
+            // Pathing code
             if(path == null){
                 return;
             }
@@ -95,6 +110,7 @@ public class EnemyAI : MonoBehaviour {
                 currentWaypoint ++;
             }
 
+            // Activating animation to show the enemy moving
             animator.SetFloat("Horizontal", rb.velocity.x);
             animator.SetFloat("Vertical", rb.velocity.y);
             animator.SetFloat("lastMoveHorizontal", rb.velocity.x);
@@ -102,48 +118,53 @@ public class EnemyAI : MonoBehaviour {
             animator.SetFloat("Speed", currSpeed);
         
         }else{
+
+            // Disabling the collider if the enemy is dead or if the player is too far
             collider.enabled = false;
             return;
         }
-        
     }
 
+    // Initializing the player as a gameobject so that the enemy can recognize and track the player
+    void Update(){
+
+        // Keeps checking if the player value is still null
+        if(mainPlayer == null){
+            mainPlayer = GameObject.Find("Main_Player");
+            target  = mainPlayer.transform;
+            playerAtt = mainPlayer.GetComponent<PlayerAttributes>();
+        }else{
+            return;
+        }
+    }
+
+    // Gets hit info if the collider is triggered
     void OnTriggerEnter2D(Collider2D hitInfo){hitInfoLocal = hitInfo;}
 
-void Attack(Collider2D hitInfo){
+    // Sends collider info to this method if the enemy successfully hit the player
+    void Attack(Collider2D hitInfo){
 
-    if(hitInfo == null){return;}
+        // Makes sure the collider info contains the player
+        if(hitInfo == null){return;}
 
-    if(enemy.getHealth() > 0){
+        // Making sure only to attack if the enemy is alive
+        if(enemy.getHealth() > 0){
 
-            Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(enemyAttackPoint.position, enemyAttackRange, playerLayers);
+                Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(enemyAttackPoint.position, enemyAttackRange, playerLayers);
 
-            foreach(Collider2D player in hitPlayer){
-                PlayerAttributes currPlayer = hitInfo.GetComponent<PlayerAttributes>();
-                if(currPlayer.getHealth() != null){
-                    currPlayer.TakeDamage(50);
-                }
+                // Actually damaging the player if they are found in the collider
+                foreach(Collider2D player in hitPlayer){
+                    PlayerAttributes currPlayer = hitInfo.GetComponent<PlayerAttributes>();
+                    if(currPlayer.getHealth() != null){
+                        currPlayer.TakeDamage(enemyAttack);
+                    }
+            }
+
+        }else{
+
+            // Turning off the collider if the enemy is dead
+            collider.enabled = false;
+            return;
         }
-
-    }else{
-        collider.enabled = false;
-        return;
     }
 }
-
-}
-
-// ⢀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⣠⣤⣶⣶
-// ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⢰⣿⣿⣿⣿
-// ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⣀⣀⣾⣿⣿⣿⣿
-// ⣿⣿⣿⣿⣿⡏⠉⠛⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⣿
-// ⣿⣿⣿⣿⣿⣿⠀⠀⠀⠈⠛⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠛⠉⠁⠀⣿
-// ⣿⣿⣿⣿⣿⣿⣧⡀⠀⠀⠀⠀⠙⠿⠿⠿⠻⠿⠿⠟⠿⠛⠉⠀⠀⠀⠀⠀⣸⣿
-// ⣿⣿⣿⣿⣿⣿⣿⣷⣄⠀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⣿⣿
-// ⣿⣿⣿⣿⣿⣿⣿⣿⣿⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠠⣴⣿⣿⣿⣿
-// ⣿⣿⣿⣿⣿⣿⣿⣿⡟⠀⠀⢰⣹⡆⠀⠀⠀⠀⠀⠀⣭⣷⠀⠀⠀⠸⣿⣿⣿⣿
-// ⣿⣿⣿⣿⣿⣿⣿⣿⠃⠀⠀⠈⠉⠀⠀⠤⠄⠀⠀⠀⠉⠁⠀⠀⠀⠀⢿⣿⣿⣿
-// ⣿⣿⣿⣿⣿⣿⣿⣿⢾⣿⣷⠀⠀⠀⠀⡠⠤⢄⠀⠀⠀⠠⣿⣿⣷⠀⢸⣿⣿⣿
-// ⣿⣿⣿⣿⣿⣿⣿⣿⡀⠉⠀⠀⠀⠀⠀⢄⠀⢀⠀⠀⠀⠀⠉⠉⠁⠀⠀⣿⣿⣿
-// ⣿⣿⣿⣿⣿⣿⣿⣿⣧⠀⠀⠀⠀⠀⠀⠀⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⣿⣿
-// ⣿⣿⣿⣿⣿⣿⣿⣿⣿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿

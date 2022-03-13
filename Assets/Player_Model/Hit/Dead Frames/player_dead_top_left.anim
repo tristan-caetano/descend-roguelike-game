@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: player_hit_top_left
+  m_Name: player_dead_top_left
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -26,7 +26,7 @@ AnimationClip:
     - time: 0.2857143
       value: {fileID: 21300000, guid: 0782eb0b84a99ef43b7670c99b4e8419, type: 3}
     - time: 0.42857143
-      value: {fileID: 21300000, guid: 6154843bd6554244096d126922c54a8f, type: 3}
+      value: {fileID: 21300000, guid: 9cf11caadb1167e479ace6f2aa2bd1d7, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -49,7 +49,7 @@ AnimationClip:
     - {fileID: 21300000, guid: 24033de631aa02149852ca89c8692ffb, type: 3}
     - {fileID: 21300000, guid: 6154843bd6554244096d126922c54a8f, type: 3}
     - {fileID: 21300000, guid: 0782eb0b84a99ef43b7670c99b4e8419, type: 3}
-    - {fileID: 21300000, guid: 6154843bd6554244096d126922c54a8f, type: 3}
+    - {fileID: 21300000, guid: 9cf11caadb1167e479ace6f2aa2bd1d7, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
@@ -60,7 +60,7 @@ AnimationClip:
     m_Level: 0
     m_CycleOffset: 0
     m_HasAdditiveReferencePose: 0
-    m_LoopTime: 1
+    m_LoopTime: 0
     m_LoopBlend: 0
     m_LoopBlendOrientation: 0
     m_LoopBlendPositionY: 0
