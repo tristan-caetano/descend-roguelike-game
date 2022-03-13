@@ -213,13 +213,13 @@ namespace Edgar.Unity
             }
 
             // Do not execute the effect if there is no instance of the script
-            if (FogOfWar.Instance == null)
+            if (FogOfWarGrid2D.Instance == null)
             {
                 return;
             }
 
             // Do not execute the effect if the FogOfWar instance is disabled
-            if (!FogOfWar.Instance.enabled)
+            if (!FogOfWarGrid2D.Instance.enabled)
             {
                 return;
             }
@@ -230,7 +230,7 @@ namespace Edgar.Unity
                 return;
             }
 
-            var material = FogOfWar.Instance.GetMaterial(renderingData.cameraData.camera);
+            var material = FogOfWarGrid2D.Instance.GetMaterial(renderingData.cameraData.camera);
 
             if (material == null)
             {
