@@ -21,6 +21,7 @@ public class Mouse_Pointer : MonoBehaviour
     public Transform attackPos;
     public float cooldownDuration = 1f;
     public bool isAvailable = true;
+    public PlayerAttributes playerAtt;
 
     // Start is called before the first frame update
     void Start(){
@@ -42,9 +43,7 @@ public class Mouse_Pointer : MonoBehaviour
 
         if(isAvailable){
 
-            
-
-            if(Input.GetMouseButtonDown(0)){
+            if(Input.GetMouseButtonDown(0) && playerAtt.getHealth() > 0){
                 animator.SetFloat("LastH", difference.x);
                 animator.SetFloat("LastV", difference.y);
                 animator.SetTrigger("Cast");

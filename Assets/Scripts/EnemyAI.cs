@@ -24,6 +24,7 @@ public class EnemyAI : MonoBehaviour {
     public LayerMask playerLayers;
     public bool isReady = true;
     Collider2D hitInfoLocal = null;
+    public PlayerAttributes playerAtt;
 
 
 
@@ -63,7 +64,7 @@ public class EnemyAI : MonoBehaviour {
 
             float pythagDis = Mathf.Sqrt(Mathf.Pow(Mathf.Abs(target.position.x - rb.position.x) + Mathf.Abs(target.position.y - rb.position.y), 2f));
 
-            if(enemy.getHealth() > 0){
+            if(enemy.getHealth() > 0 && playerAtt.getHealth() > 0){
                 if (pythagDis < 1.5f){
                     animator.SetTrigger("isAttack");
                     Attack(hitInfoLocal);
@@ -120,7 +121,7 @@ void Attack(Collider2D hitInfo){
             foreach(Collider2D player in hitPlayer){
                 PlayerAttributes currPlayer = hitInfo.GetComponent<PlayerAttributes>();
                 if(currPlayer.getHealth() != null){
-                    currPlayer.TakeDamage(5);
+                    currPlayer.TakeDamage(50);
                 }
         }
 

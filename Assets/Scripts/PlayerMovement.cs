@@ -16,41 +16,47 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask enemyLayers;
     public bool isAvailable = true;
     public float cooldownDuration = 1.0f;
+    public PlayerAttributes player;
 
     // Update is called once per frame
     void Update()
     {
-        // Sprint when user holds down left shift
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            moveSpeed = 10f;
-        }else{
-            moveSpeed = 5f;
+
+        if(player.getHealth() > 0){
+            // Sprint when user holds down left shift
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                moveSpeed = 10f;
+            }else{
+                moveSpeed = 5f;
+            }
+
+            // Player movement input
+            movement.x = Input.GetAxisRaw("Horizontal");
+            movement.y = Input.GetAxisRaw("Vertical");
+
+            //Animation applied to movement (not implemented)
+            animator.SetFloat("Horizontal", movement.x);
+            animator.SetFloat("Vertical", movement.y);
+            animator.SetFloat("Speed", movement.sqrMagnitude);
         }
-
-        // Player movement input
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
-
-        //Animation applied to movement (not implemented)
-        animator.SetFloat("Horizontal", movement.x);
-        animator.SetFloat("Vertical", movement.y);
-        animator.SetFloat("Speed", movement.sqrMagnitude);
     }
 
     void FixedUpdate()
     {
-        // Player movement
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        if(player.getHealth() > 0){ 
+            // Player movement
+            rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
 
-        if(isAvailable){
-            if(Input.GetKey(KeyCode.Space)){
-                Attack();
-                StartCoroutine(StartCooldown());
+            if(isAvailable){
+                if(Input.GetKey(KeyCode.Space)){
+                    Attack();
+                    StartCoroutine(StartCooldown());
+                }
+                
+            }else{
+                return;
             }
-            
-        }else{
-            return;
         }
     }
 

@@ -27,18 +27,20 @@ public class PlayerAttributes : MonoBehaviour
     }
     public void TakeDamage(int damage){
 
-        StartCoroutine(StartCooldown());
-        health -= damage;
-        FlashRed();
-        if(health <= 0){
-            Die();
-        }else{
-            animator.SetTrigger("isHit");
+        if(health > 0){
+            StartCoroutine(StartCooldown());
+            health -= damage;
+            FlashRed();
+            if(health <= 0){
+                Die();
+            }else{
+                animator.SetTrigger("Hit");
+            }
         }
     }
 
     void Die(){
-        animator.SetTrigger("isDead");
+        animator.SetTrigger("Dead");
         
         //Destroy(gameObject, 5f);
     }
