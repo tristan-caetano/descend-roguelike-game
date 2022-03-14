@@ -33,7 +33,7 @@ public class EnemyAI : MonoBehaviour {
     public Animator animator;
     public Collider2D collider;
     public Transform enemyAttackPoint;
-    public float enemyAttackRange = .5f;
+    public float enemyAttackRange = 1f;
     
     // Gets the player info and does damage
     Collider2D hitInfoLocal = null;
