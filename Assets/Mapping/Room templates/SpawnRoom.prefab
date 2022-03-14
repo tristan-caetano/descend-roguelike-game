@@ -2955,9 +2955,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5995459334284054844}
     - target: {fileID: 7205377627562473182, guid: 98f5612bc067aa24182e59b61ee05929, type: 3}
+      propertyPath: healSpell
+      value: 
+      objectReference: {fileID: 1761518636370957221, guid: ce43d28a399e4cf4d87423d55e3dcbc1, type: 3}
+    - target: {fileID: 7205377627562473182, guid: 98f5612bc067aa24182e59b61ee05929, type: 3}
       propertyPath: attackPoint
       value: 
       objectReference: {fileID: 4960598386111965308}
+    - target: {fileID: 7205377627562473182, guid: 98f5612bc067aa24182e59b61ee05929, type: 3}
+      propertyPath: attackRange
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7205377627562473182, guid: 98f5612bc067aa24182e59b61ee05929, type: 3}
+      propertyPath: attackDamage
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7205377627562473182, guid: 98f5612bc067aa24182e59b61ee05929, type: 3}
+      propertyPath: enemyLayers.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7205377627562473183, guid: 98f5612bc067aa24182e59b61ee05929, type: 3}
       propertyPath: m_Name
       value: Main_Player
@@ -3960,6 +3976,10 @@ PrefabInstance:
       propertyPath: attackPoint
       value: 
       objectReference: {fileID: 4960598386111965308}
+    - target: {fileID: 2756778913362625507, guid: feb95e9a7d2b9704294307252352802d, type: 3}
+      propertyPath: m_ClearFlags
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2756778913362625507, guid: feb95e9a7d2b9704294307252352802d, type: 3}
       propertyPath: m_BackGroundColor.b
       value: 0

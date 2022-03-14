@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
 
     // Making sure the player can move and is animated
      Vector2 movement;
-    public float moveSpeed = 5f;
+    public float moveSpeed = 3f;
     public Rigidbody2D rb;
     public Animator animator;
 
@@ -29,6 +29,12 @@ public class PlayerMovement : MonoBehaviour
     public bool isAvailable = true;
     public float cooldownDuration = 1.0f;
     public int attackDamage = 5;
+
+    // Heal prefab and cooldown
+    public bool canHeal = true;
+    public GameObject healSpell;
+    public float healCoolDuration = 30f; 
+    public int healAmt = 30;
     
 
     // Getting player input, making sure the player is alive, and animating the player
@@ -45,6 +51,18 @@ public class PlayerMovement : MonoBehaviour
             // }else{
             //     moveSpeed = 5f;
             // }
+
+            // Heal when user presses f
+            if (Input.GetKey(KeyCode.F) && player.getHealth() < player.maxHealth && canHeal)
+            {
+                StartCoroutine(HealCooldown());
+                animator.SetFloat("Horizontal", movement.x);
+                animator.SetFloat("Vertical", movement.y);
+                animator.SetTrigger("Cast");
+                player.Heal(healAmt);
+                Destroy(healSpell, 2f);
+                Instantiate(healSpell, player.transform.position, Quaternion.Euler(0.0f, 0.0f, 0.0f));
+            }
 
             // Player movement input
             movement.x = Input.GetAxisRaw("Horizontal");
@@ -119,6 +137,13 @@ public class PlayerMovement : MonoBehaviour
             isAvailable = false;
             yield return new WaitForSeconds(cooldownDuration);
             isAvailable = true;
+        }
+
+    // Timer for heal cooldown
+    public IEnumerator HealCooldown(){
+            canHeal = false;
+            yield return new WaitForSeconds(healCoolDuration);
+            canHeal = true;
         }
     
 }

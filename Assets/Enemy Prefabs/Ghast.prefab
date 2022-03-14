@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2876003196483816989}
     m_Modifications:
+    - target: {fileID: 5919308459163516465, guid: 6ef87b26122533c42b49485b9cc6036c, type: 3}
+      propertyPath: m_SortingOrder
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 5919308459163516478, guid: 6ef87b26122533c42b49485b9cc6036c, type: 3}
       propertyPath: m_Name
       value: GhastGFX
@@ -62,6 +66,16 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5919308459163516478, guid: 6ef87b26122533c42b49485b9cc6036c, type: 3}
   m_PrefabInstance: {fileID: 96527562927758978}
   m_PrefabAsset: {fileID: 0}
+--- !u!212 &6013278433213161651 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 5919308459163516465, guid: 6ef87b26122533c42b49485b9cc6036c, type: 3}
+  m_PrefabInstance: {fileID: 96527562927758978}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &6013278433213161650 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5919308459163516464, guid: 6ef87b26122533c42b49485b9cc6036c, type: 3}
+  m_PrefabInstance: {fileID: 96527562927758978}
+  m_PrefabAsset: {fileID: 0}
 --- !u!58 &6303225764149524641
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -92,11 +106,11 @@ PrefabInstance:
     - target: {fileID: 3587912464029853884, guid: b9ad633df43426d488ff2cd9ce5cf8d9, type: 3}
       propertyPath: animator
       value: 
-      objectReference: {fileID: 5919308459163516464, guid: 6ef87b26122533c42b49485b9cc6036c, type: 3}
+      objectReference: {fileID: 6013278433213161650}
     - target: {fileID: 3587912464029853884, guid: b9ad633df43426d488ff2cd9ce5cf8d9, type: 3}
       propertyPath: renderer
       value: 
-      objectReference: {fileID: 5919308459163516465, guid: 6ef87b26122533c42b49485b9cc6036c, type: 3}
+      objectReference: {fileID: 6013278433213161651}
     - target: {fileID: 3587912464029853885, guid: b9ad633df43426d488ff2cd9ce5cf8d9, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -141,13 +155,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3587912464029853887, guid: b9ad633df43426d488ff2cd9ce5cf8d9, type: 3}
+      propertyPath: m_SortingOrder
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 3587912464029853888, guid: b9ad633df43426d488ff2cd9ce5cf8d9, type: 3}
       propertyPath: animator
       value: 
-      objectReference: {fileID: 5919308459163516464, guid: 6ef87b26122533c42b49485b9cc6036c, type: 3}
+      objectReference: {fileID: 6013278433213161650}
     - target: {fileID: 3587912464029853888, guid: b9ad633df43426d488ff2cd9ce5cf8d9, type: 3}
       propertyPath: enemyAttack
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3587912464029853891, guid: b9ad633df43426d488ff2cd9ce5cf8d9, type: 3}
       propertyPath: m_IsTrigger

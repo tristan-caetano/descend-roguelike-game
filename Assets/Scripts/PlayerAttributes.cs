@@ -11,6 +11,7 @@ public class PlayerAttributes : MonoBehaviour
 {
     // Player health
     public int health = 100;
+    public int maxHealth = 100;
 
     // Health Bar initialize
     public HealthBar healthBar;
@@ -29,11 +30,11 @@ public class PlayerAttributes : MonoBehaviour
     // Getting the original sprite color
     void Start(){
         originalColor = renderer.color;
-        healthBar.SetMaxHealth(100);
+        healthBar.SetMaxHealth(maxHealth);
     }
 
     // Making the sprite red
-    void FlashRed(){renderer.color = Color.red; Invoke("ResetColor", flashTime);}
+    void FlashColor(Color color){renderer.color = color; Invoke("ResetColor", flashTime);}
 
     // Resetting the sprite back to the original color
     void ResetColor(){renderer.color = originalColor;}
@@ -51,7 +52,7 @@ public class PlayerAttributes : MonoBehaviour
             health -= damage;
 
             // Player flashes red
-            FlashRed();
+            FlashColor(Color.red);
 
             // If the player dies, call the die method
             if(health <= 0){
@@ -59,6 +60,30 @@ public class PlayerAttributes : MonoBehaviour
             // If they are alive, play the hit animation
             }
             else{animator.SetTrigger("Hit");}
+        }
+    }
+
+    // If the player heals, they gain health and flash white
+    public void Heal(int healAmt){
+
+        // If the player is alive
+        if(health > 0){
+
+            // Damage is subtracted from health
+            health += healAmt;
+
+            // Keeping health at max
+            if(health > maxHealth){
+                health = maxHealth;
+            }
+
+            Color healColor = Color.cyan;
+            healColor.a = .9f;
+
+            // Player flashes red
+            FlashColor(healColor);
+
+            animator.SetTrigger("Cast");
         }
     }
 

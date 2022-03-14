@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 9137905112570307780}
   - component: {fileID: 9137905112570307779}
   - component: {fileID: 9137905112570307778}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ghlug
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 9
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -151,14 +151,14 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   target: {fileID: 0}
-  speed: 200
+  speed: 150
   nextWaypointDistance: 3
   enemy: {fileID: 9137905112570307780}
   animator: {fileID: 9137905114388045077}
   collider: {fileID: 9137905112570307782}
   enemyAttackPoint: {fileID: 9137905113498332741}
   enemyAttackRange: 1
-  enemyAttack: 5
+  enemyAttack: 20
 --- !u!114 &9137905112570307780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,7 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2364c1c040ade9459bec793f9b105eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 300
   animator: {fileID: 9137905114388045077}
   renderer: {fileID: 9137905114388045074}
 --- !u!50 &9137905112570307779
@@ -254,6 +254,10 @@ PrefabInstance:
     - target: {fileID: 5523018588596383808, guid: 861b13aef87d72441a8274ec981ec913, type: 3}
       propertyPath: m_Name
       value: GhlugGFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 5523018588596383811, guid: 861b13aef87d72441a8274ec981ec913, type: 3}
+      propertyPath: m_SortingOrder
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5523018588596383813, guid: 861b13aef87d72441a8274ec981ec913, type: 3}
       propertyPath: m_RootOrder
