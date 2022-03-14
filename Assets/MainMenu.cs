@@ -5,6 +5,22 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour{
 
+    public GameObject mainMenuUI;
+    public GameObject pauseMenuUI;
+    PauseMenu pauseInstance;
+
+    void Start() {
+        Time.timeScale = 0f;
+        pauseInstance = pauseMenuUI.GetComponent<PauseMenu>();
+        pauseInstance.GameIsPaused = true;
+    }
+
+    public void StartGame() {
+        Time.timeScale = 1f;
+        pauseInstance.GameIsPaused = false;
+        mainMenuUI.SetActive(false);
+    }
+
     public void LoadOptionsMenu() {
         Debug.Log("Loading options...");
 

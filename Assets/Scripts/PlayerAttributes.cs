@@ -12,6 +12,9 @@ public class PlayerAttributes : MonoBehaviour
     // Player health
     public int health = 100;
 
+    // Health Bar initialize
+    public HealthBar healthBar;
+
     // Animating when the player is hit or dead
     public Animator animator;
 
@@ -24,7 +27,10 @@ public class PlayerAttributes : MonoBehaviour
     public Collider2D playerCollider;
     
     // Getting the original sprite color
-    void Start(){originalColor = renderer.color;}
+    void Start(){
+        originalColor = renderer.color;
+        healthBar.SetMaxHealth(100);
+    }
 
     // Making the sprite red
     void FlashRed(){renderer.color = Color.red; Invoke("ResetColor", flashTime);}
@@ -54,6 +60,10 @@ public class PlayerAttributes : MonoBehaviour
             }
             else{animator.SetTrigger("Hit");}
         }
+    }
+
+    void FixedUpdate(){
+        healthBar.SetHealth(health);
     }
 
     // Player plays death animation and is removed from the scene
