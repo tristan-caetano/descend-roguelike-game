@@ -3,29 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour{
+public class MainMenu : MonoBehaviour {
 
     public GameObject mainMenuUI;
-    public GameObject pauseMenuUI;
-    PauseMenu pauseInstance;
 
     void Start() {
         Time.timeScale = 0f;
-        pauseInstance = pauseMenuUI.GetComponent<PauseMenu>();
-        pauseInstance.GameIsPaused = true;
+        mainMenuUI.SetActive(true);
+    }
+
+    public void startAppear() {
+        Time.timeScale = 0f;
+        mainMenuUI.SetActive(true);
     }
 
     public void StartGame() {
         Time.timeScale = 1f;
-        pauseInstance.GameIsPaused = false;
         mainMenuUI.SetActive(false);
     }
 
     public void LoadOptionsMenu() {
         Debug.Log("Loading options...");
-
-        // Loading the options scene
-        SceneManager.LoadScene("Options");
+        mainMenuUI.SetActive(false);
     }
 
     public void QuitGame() {

@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ControlsMenu : MonoBehaviour
-{
+public class ControlsMenu : MonoBehaviour {
+    public GameObject controlsMenuUI;
+    public void controlsAppear() {
+        Time.timeScale = 0f;
+        controlsMenuUI.SetActive(true);
+    }
     public void CloseControls() {
         Debug.Log("Closing controls menu...");
-
-        // Loading the title screen scene
-        SceneManager.LoadScene("Options");
+        controlsMenuUI.SetActive(false);
     }
 }

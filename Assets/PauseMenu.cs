@@ -8,13 +8,20 @@ public class PauseMenu : MonoBehaviour {
 
     public GameObject pauseMenuUI;
 
+    GameObject mainMenuInstance;
+    GameObject settingsMenuInstance;
+    GameObject controlsMenuInstance;
+
     void Update() {
-        if(Input.GetKeyDown(KeyCode.Escape)) {
-            Debug.Log("lmao pressed the key idiot");
-            if(GameIsPaused) {
-                Resume();
-            } else {
-                Pause();
+    if(mainMenuInstance == null) {
+        mainMenuInstance = GameObject.Find("MainMenu");
+    } else {
+            if (!mainMenuInstance.activeSelf && Input.GetKeyDown(KeyCode.Escape)) {
+                if(GameIsPaused) {
+                    Resume();
+                } else {
+                    Pause();
+                }
             }
         }
     }
@@ -36,9 +43,9 @@ public class PauseMenu : MonoBehaviour {
         // specific run and bring the player back to main menu.
         // The main menu "quit" will quit the entire game.
         Debug.Log("Quitting game...");
+        pauseMenuUI.SetActive(false);
 
-        // Loading the title screen scene
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("Mapping");
     }
 
 }

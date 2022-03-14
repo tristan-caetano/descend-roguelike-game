@@ -11,6 +11,8 @@ public class SettingsMenu : MonoBehaviour {
 
     public Dropdown resolutionDropdown;
 
+    public GameObject settingsMenuUI;
+
     Resolution[] resolutions;
 
     void Start() {
@@ -30,10 +32,14 @@ public class SettingsMenu : MonoBehaviour {
                 currentResolutionIndex = i;
             }
         }
-
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
+    }
+
+    public void settingsAppear() {
+        Time.timeScale = 0f;
+        settingsMenuUI.SetActive(true);
     }
 
     public void SetResolution (int resolutionIndex) {
@@ -57,16 +63,14 @@ public class SettingsMenu : MonoBehaviour {
     }
 
     public void CloseOptions() {
+        Time.timeScale = 0f;
         Debug.Log("Closing options menu...");
-
-        // Loading the title screen scene
-        SceneManager.LoadScene("MainMenu");
+        settingsMenuUI.SetActive(false);
     }
 
     public void OpenControls() {
+        Time.timeScale = 0f;
         Debug.Log("Opening controls menu...");
-
-        // Loading the title screen scene
-        SceneManager.LoadScene("ControlsMenu");
+        settingsMenuUI.SetActive(false);
     }
 }
