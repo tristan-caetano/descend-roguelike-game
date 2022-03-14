@@ -385,7 +385,7 @@ MonoBehaviour:
   - {fileID: 7055976260160724494, guid: 95c2c059ba7c2a943beff34cdd90f2d0, type: 3}
   - {fileID: 1963992281076462523, guid: 5dce89e838636444392f0cc7dafccf80, type: 3}
   - {fileID: 3443435214016116510, guid: d9e89c65c9877a243beae27b2ad4747b, type: 3}
-  - {fileID: 3123836722413176935, guid: dc46fe3cc46bc7f4a9ac5259eb1dc035, type: 3}
+  - {fileID: 8891133085259122201, guid: b4b7099f0f6247c4487679ea2c453cbb, type: 3}
   - {fileID: 5891494565288230856, guid: 65b851a02268d364587664ba04ba7b01, type: 3}
   - {fileID: 2939291133708153517, guid: 27490d2e205e8e94f985b4f531e9ae8c, type: 3}
   CorridorRoomTemplateSets: []
