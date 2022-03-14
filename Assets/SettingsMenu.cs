@@ -62,4 +62,11 @@ public class SettingsMenu : MonoBehaviour {
         // Loading the title screen scene
         SceneManager.LoadScene("MainMenu");
     }
+
+    public void OpenControls() {
+        Debug.Log("Opening controls menu...");
+
+        // Loading the title screen scene
+        SceneManager.LoadScene("ControlsMenu");
+    }
 }
