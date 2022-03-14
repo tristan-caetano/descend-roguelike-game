@@ -1,3 +1,7 @@
+// Samuel Rouillard, Tristan Caetano, Elijah Karpf
+// Descend Project
+// CIS 464 Project 1
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,6 +19,7 @@ public class SettingsMenu : MonoBehaviour {
 
     Resolution[] resolutions;
 
+    // Passing found resolutions to an array and saving selected value.
     void Start() {
         resolutions = Screen.resolutions;
 
@@ -37,40 +42,52 @@ public class SettingsMenu : MonoBehaviour {
         resolutionDropdown.RefreshShownValue();
     }
 
+    // Enabling the options menu.
     public void settingsAppear() {
         Time.timeScale = 0f;
         settingsMenuUI.SetActive(true);
     }
 
+    // Finding compatible resolutions for monitor.
     public void SetResolution (int resolutionIndex) {
+        FindObjectOfType<AudioManager>().Play("Click");
         Resolution resolution = resolutions[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
     }
 
-    public void SetMaster (float master) {
-        audioMixer.SetFloat("masterVolume", master);
-    }
+//    public void SetMaster (float master) {
+//        audioMixer.SetFloat("masterVolume", master);
+//    }
+
+    // Float for sound effects slider value.
     public void SetSound (float sound) {
         audioMixer.SetFloat("soundVolume", sound);
     }
 
+    // Float for music slider value.
     public void SetMusic (float music) {
         audioMixer.SetFloat("musicVolume", music);
     }
 
+    // Boolean for full screen activation.
     public void SetFullScreen (bool isFullscreen) {
+        FindObjectOfType<AudioManager>().Play("Click");
         Screen.fullScreen = isFullscreen;
     }
 
+    // Closing options menu.
     public void CloseOptions() {
         Time.timeScale = 0f;
         Debug.Log("Closing options menu...");
         settingsMenuUI.SetActive(false);
+        FindObjectOfType<AudioManager>().Play("Click");
     }
 
+    // Opening the controls menu.
     public void OpenControls() {
         Time.timeScale = 0f;
         Debug.Log("Opening controls menu...");
         settingsMenuUI.SetActive(false);
+        FindObjectOfType<AudioManager>().Play("Click");
     }
 }
