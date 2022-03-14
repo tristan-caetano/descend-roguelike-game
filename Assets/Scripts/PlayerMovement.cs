@@ -5,6 +5,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 // Script for player movement and melee attack
 public class PlayerMovement : MonoBehaviour
@@ -35,6 +36,9 @@ public class PlayerMovement : MonoBehaviour
     public GameObject healSpell;
     public float healCoolDuration = 30f; 
     public int healAmt = 30;
+    int startTime;
+    int currTime;
+    int diffTime = 30;
     
 
     // Getting player input, making sure the player is alive, and animating the player
@@ -52,9 +56,16 @@ public class PlayerMovement : MonoBehaviour
             //     moveSpeed = 5f;
             // }
 
+            // Values for mana 
+            currTime = System.DateTime.Now.Second;
+            if(diffTime < 30){ diffTime = currTime - startTime; if(diffTime < 0){diffTime = diffTime + 60;}}
+            if(diffTime >= 30){diffTime = 30;}
+            Debug.Log("Diff: " + diffTime + " Curr: " + currTime + " Start: " + startTime);
+            
             // Heal when user presses f
             if (Input.GetKey(KeyCode.F) && player.getHealth() < player.maxHealth && canHeal)
             {
+                startTime = System.DateTime.Now.Second;
                 StartCoroutine(HealCooldown());
                 animator.SetFloat("Horizontal", movement.x);
                 animator.SetFloat("Vertical", movement.y);
@@ -142,6 +153,7 @@ public class PlayerMovement : MonoBehaviour
     // Timer for heal cooldown
     public IEnumerator HealCooldown(){
             canHeal = false;
+            diffTime = 0;
             yield return new WaitForSeconds(healCoolDuration);
             canHeal = true;
         }
