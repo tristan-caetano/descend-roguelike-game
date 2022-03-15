@@ -20,6 +20,8 @@ public class PlayerMovement : MonoBehaviour
     // Getting health of the player
     public PlayerAttributes player;
 
+    public ManaBar manaBar;
+
     // The camera allows us to get the mouse position so we know what direction to attack in
     public GameObject camera;
    
@@ -39,6 +41,10 @@ public class PlayerMovement : MonoBehaviour
     int startTime;
     int currTime;
     int diffTime = 30;
+
+    void Start() {
+        manaBar.SetMaxMana(30);
+    }
     
 
     // Getting player input, making sure the player is alive, and animating the player
@@ -60,11 +66,13 @@ public class PlayerMovement : MonoBehaviour
             currTime = System.DateTime.Now.Second;
             if(diffTime < 30){ diffTime = currTime - startTime; if(diffTime < 0){diffTime = diffTime + 60;}}
             if(diffTime >= 30){diffTime = 30;}
+            manaBar.SetMana(diffTime);
             Debug.Log("Diff: " + diffTime + " Curr: " + currTime + " Start: " + startTime);
             
             // Heal when user presses f
             if (Input.GetKey(KeyCode.F) && player.getHealth() < player.maxHealth && canHeal)
             {
+                FindObjectOfType<AudioManager>().Play("Healing");
                 startTime = System.DateTime.Now.Second;
                 StartCoroutine(HealCooldown());
                 animator.SetFloat("Horizontal", movement.x);
@@ -133,6 +141,7 @@ public class PlayerMovement : MonoBehaviour
             // If the enemy hit, it takes damage   
             if(currEnemy.getHealth() != null){
                 currEnemy.TakeDamage(attackDamage);
+                FindObjectOfType<AudioManager>().Play("Knife Hit");
             }
         }
     }

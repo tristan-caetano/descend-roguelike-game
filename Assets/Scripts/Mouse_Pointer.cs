@@ -51,6 +51,7 @@ public class Mouse_Pointer : MonoBehaviour
                 animator.SetFloat("LastH", difference.x);
                 animator.SetFloat("LastV", difference.y);
                 animator.SetTrigger("Cast");
+                FindObjectOfType<AudioManager>().Play("Shoot Spell");
 
                 // Get the direction and distance from the mouse click
                 float distance = difference.magnitude;

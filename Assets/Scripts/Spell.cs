@@ -38,6 +38,7 @@ public Rigidbody2D rb;
             // If an enemy is found, they take damage
             if(enemy != null){
                 enemy.TakeDamage(10);
+                FindObjectOfType<AudioManager>().Play("Spell Hit");
             }
 
             // When the player is hit, the explosion effect plays on the impact location

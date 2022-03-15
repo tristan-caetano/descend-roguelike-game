@@ -60,6 +60,7 @@ public class PlayerAttributes : MonoBehaviour
             // If they are alive, play the hit animation
             }
             else{animator.SetTrigger("Hit");}
+            FindObjectOfType<AudioManager>().Play("Player Get Hit");
         }
     }
 
