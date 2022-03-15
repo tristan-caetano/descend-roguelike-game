@@ -75,7 +75,7 @@ public class EnemyAI : MonoBehaviour {
         float pythagDis = Mathf.Sqrt(Mathf.Pow(Mathf.Abs(target.position.x - rb.position.x) + Mathf.Abs(target.position.y - rb.position.y), 2f));
 
         // If the player is close enough and the enemy is alive
-        if(enemy.getHealth() > 0 && pythagDis < 10){
+        if(enemy.getHealth() > 0 && pythagDis < 20){
 
             // Enabling the collider if the player is close enough and the enemy is alive
             collider.enabled = true;

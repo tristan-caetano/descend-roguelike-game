@@ -12,6 +12,7 @@ public class PlayerAttributes : MonoBehaviour
     // Player health
     public int health = 100;
     public int maxHealth = 100;
+    bool canBeDamaged = true;
 
     // Health Bar initialize
     public HealthBar healthBar;
@@ -43,7 +44,7 @@ public class PlayerAttributes : MonoBehaviour
     public void TakeDamage(int damage){
 
         // If the player is alive
-        if(health > 0){
+        if(health > 0 && canBeDamaged){
 
             // Cooldown begins for iframes
             StartCoroutine(StartCooldown());
@@ -104,9 +105,9 @@ public class PlayerAttributes : MonoBehaviour
     // Cooldown for player iframes
     public IEnumerator StartCooldown()
      {
-         playerCollider.enabled = false;
-         yield return new WaitForSeconds(2f);
-         playerCollider.enabled = true;
+        canBeDamaged = false;
+        yield return new WaitForSeconds(2f);
+        canBeDamaged = true;
      }
 
 }

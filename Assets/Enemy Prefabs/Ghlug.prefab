@@ -158,7 +158,7 @@ MonoBehaviour:
   collider: {fileID: 9137905112570307782}
   enemyAttackPoint: {fileID: 9137905113498332741}
   enemyAttackRange: 1
-  enemyAttack: 20
+  enemyAttack: 25
 --- !u!114 &9137905112570307780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,7 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2364c1c040ade9459bec793f9b105eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 300
+  health: 250
   animator: {fileID: 9137905114388045077}
   renderer: {fileID: 9137905114388045074}
 --- !u!50 &9137905112570307779

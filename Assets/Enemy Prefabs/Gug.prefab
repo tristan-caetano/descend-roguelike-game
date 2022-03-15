@@ -165,14 +165,14 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   target: {fileID: 0}
-  speed: 500
+  speed: 550
   nextWaypointDistance: 3
   enemy: {fileID: 6017569226793986053}
   animator: {fileID: 6017569225650196000}
   collider: {fileID: 6017569226793986054}
   enemyAttackPoint: {fileID: 6017569225748025692}
   enemyAttackRange: 1
-  enemyAttack: 10
+  enemyAttack: 15
 --- !u!114 &6017569226793986053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,7 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2364c1c040ade9459bec793f9b105eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 200
+  health: 150
   animator: {fileID: 6017569225650196000}
   renderer: {fileID: 6017569225650196005}
 --- !u!50 &6017569226793986052
