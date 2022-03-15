@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
 {
 
     // Making sure the player can move and is animated
-     Vector2 movement;
+    Vector2 movement;
     public float moveSpeed = 3f;
     public Rigidbody2D rb;
     public Animator animator;
@@ -43,6 +43,10 @@ public class PlayerMovement : MonoBehaviour
     int currTime;
     int diffTime = 30;
 
+    // Make sure the player can win
+    public GameObject winPoint;
+    public GameObject winMenuUI;
+
     // Setting mana
     void Start() {
         manaBar.SetMaxMana(30);
@@ -52,8 +56,21 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
 
+        if(winPoint == null){
+            winPoint = GameObject.Find("WinPoint");
+        }
+
         // Making sure the player is alive
         if(player.getHealth() > 0){
+
+            // Finds the hypotenuse to check the distance between the player and enemy
+            float winDis = Mathf.Sqrt(Mathf.Pow(Mathf.Abs(winPoint.transform.position.x - rb.position.x) + Mathf.Abs(winPoint.transform.position.y - rb.position.y), 2f));
+
+            if(winDis < 1.5f){
+                FindObjectOfType<AudioManager>().Play("Win");
+                winMenuUI.SetActive(true);
+                Time.timeScale = 0f;
+            }
 
             // Sprint when user holds down left shift
             // if (Input.GetKey(KeyCode.LeftShift))

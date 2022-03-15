@@ -99,6 +99,7 @@ public class PlayerAttributes : MonoBehaviour
     // Player plays death animation and is removed from the scene
     void Die(){
         animator.SetTrigger("Dead");
+        FindObjectOfType<AudioManager>().Play("Death");
         deathMenuUI.SetActive(true);
         //Destroy(gameObject, 5f);
 }
