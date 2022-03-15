@@ -10,6 +10,9 @@ using Pathfinding;
 // Script that controls the enemy AI
 public class EnemyAI : MonoBehaviour {
 
+    // Attack sound for enemy
+    //public string AttackSound;
+
     // Player variables to change player health, identify, and track the player
     public PlayerAttributes playerAtt;
     public LayerMask playerLayers;
@@ -82,6 +85,7 @@ public class EnemyAI : MonoBehaviour {
 
             // Attacks player if they are close enough
             if (enemy.getHealth() > 0 && playerAtt.getHealth() > 0 && pythagDis < 1.5f){
+            //    FindObjectOfType<AudioManager>().Play(AttackSound);
                 animator.SetTrigger("isAttack");
                 Attack(hitInfoLocal);
             }

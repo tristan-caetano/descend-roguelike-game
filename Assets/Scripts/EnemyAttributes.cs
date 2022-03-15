@@ -9,6 +9,9 @@ using UnityEngine;
 // Simple script for enemy health, hit, and death animations
 public class EnemyAttributes : MonoBehaviour
 {
+    // Enemy sounds
+    public string HitSound;
+    public string DeathSound;
 
     // Enemy health
     public int health = 100;
@@ -45,7 +48,10 @@ public class EnemyAttributes : MonoBehaviour
         
         // If they are alive, play the hit animation
         }
-        else{animator.SetTrigger("isHit");}
+        else {
+            FindObjectOfType<AudioManager>().Play(HitSound);
+            animator.SetTrigger("isHit");
+        }
     }
 
     // Enemy plays dead animation, and is removed from the scene
@@ -53,6 +59,9 @@ public class EnemyAttributes : MonoBehaviour
 
         // Death animation is called
         animator.SetTrigger("isDead");
+
+        // Death sound
+        FindObjectOfType<AudioManager>().Play(DeathSound);
         
         // Enemy is removed from scene after 5 seconds
         Destroy(gameObject, 5f);

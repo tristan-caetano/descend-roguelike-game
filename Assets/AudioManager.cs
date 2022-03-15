@@ -14,6 +14,8 @@ using System;
 
 public class AudioManager : MonoBehaviour {
     public Sound[] sounds;
+    public AudioMixerGroup musicMixerGroup;
+    public AudioMixerGroup soundEffectsMixerGroup;
 
     public static AudioManager instance;
 
@@ -37,13 +39,23 @@ public class AudioManager : MonoBehaviour {
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
+
+            switch(s.audioType) {
+                case Sound.AudioTypes.soundEffect:
+                    s.source.outputAudioMixerGroup = soundEffectsMixerGroup;
+                    break;
+                
+                case Sound.AudioTypes.music:
+                    s.source.outputAudioMixerGroup = musicMixerGroup;
+                    break;
+            }
         }
     }
 
-// This method is a basic method for static background music.
-//    void Start() {
-//        Play("Theme");
-//    }
+    // This method is a basic method for static background music.
+    void Start() {
+        Play("Lonesome");
+    }
 
     // Playing the respective sound.
     public void Play(string name) {

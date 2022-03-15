@@ -11,11 +11,17 @@ using UnityEngine.SceneManagement;
 
 public class SettingsMenu : MonoBehaviour {
 
+    // Audio mixer creation.
     public AudioMixer audioMixer;
 
+    // Dropdown for resolution picker.
     public Dropdown resolutionDropdown;
 
+    // UI game objects.
     public GameObject settingsMenuUI;
+    public GameObject creditsMenuUI;
+    public GameObject deathMenuUI;
+    public GameObject winMenuUI;
 
     Resolution[] resolutions;
 
@@ -89,5 +95,33 @@ public class SettingsMenu : MonoBehaviour {
         Debug.Log("Opening controls menu...");
         settingsMenuUI.SetActive(false);
         FindObjectOfType<AudioManager>().Play("Click");
+    }
+
+    // Closing credits menu.
+    public void CloseCredits() {
+        Time.timeScale = 0f;
+        creditsMenuUI.SetActive(false);
+        FindObjectOfType<AudioManager>().Play("Click");
+    }
+
+    // Opening credits menu.
+    public void OpenCredits() {
+        Time.timeScale = 0f;
+        creditsMenuUI.SetActive(true);
+        FindObjectOfType<AudioManager>().Play("Click");
+    }
+
+    // Closing the death sequence.
+    public void CloseDeath() {
+        deathMenuUI.SetActive(false);
+        FindObjectOfType<AudioManager>().Play("Click");
+        SceneManager.LoadScene("Mapping");
+    }
+
+    // Closing the win sequence.
+    public void CloseWin() {
+        winMenuUI.SetActive(false);
+        FindObjectOfType<AudioManager>().Play("Click");
+        SceneManager.LoadScene("Mapping");
     }
 }

@@ -9,6 +9,9 @@ using UnityEngine;
 // Simple script for player health, hit, and death animations
 public class PlayerAttributes : MonoBehaviour
 {
+    // Death screen object
+    public GameObject deathMenuUI;
+
     // Player health
     public int health = 100;
     public int maxHealth = 100;
@@ -96,6 +99,7 @@ public class PlayerAttributes : MonoBehaviour
     // Player plays death animation and is removed from the scene
     void Die(){
         animator.SetTrigger("Dead");
+        deathMenuUI.SetActive(true);
         //Destroy(gameObject, 5f);
 }
 
