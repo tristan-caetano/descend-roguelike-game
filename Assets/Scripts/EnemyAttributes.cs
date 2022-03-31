@@ -24,6 +24,9 @@ public class EnemyAttributes : MonoBehaviour
     Color originalColor;
     public SpriteRenderer renderer;
 
+    // Potions
+    public GameObject healthPotion;
+
     // Getting the original sprite color
     void Start(){originalColor = renderer.color;}
 
@@ -65,6 +68,9 @@ public class EnemyAttributes : MonoBehaviour
         
         // Enemy is removed from scene after 5 seconds
         Destroy(gameObject, 5f);
+
+        // When the player is hit, the explosion effect plays on the impact location
+        Instantiate(healthPotion, transform.position, transform.rotation);
     }
 
     // Getter for enemy health

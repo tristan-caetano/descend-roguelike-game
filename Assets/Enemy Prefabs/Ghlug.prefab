@@ -146,7 +146,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 968dd4fb3a59c3840a2e02fe6e4331a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackSound: Ghlug Attack
   playerAtt: {fileID: 0}
   playerLayers:
     serializedVersion: 2
@@ -177,6 +176,7 @@ MonoBehaviour:
   health: 250
   animator: {fileID: 9137905114388045077}
   renderer: {fileID: 9137905114388045074}
+  healthPotion: {fileID: 2921825873372370470, guid: 4dc89b85330a48643a160513a944db5f, type: 3}
 --- !u!50 &9137905112570307779
 Rigidbody2D:
   serializedVersion: 4

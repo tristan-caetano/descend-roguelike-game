@@ -160,7 +160,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 968dd4fb3a59c3840a2e02fe6e4331a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackSound: Gug Attack
   playerAtt: {fileID: 0}
   playerLayers:
     serializedVersion: 2
@@ -191,6 +190,7 @@ MonoBehaviour:
   health: 150
   animator: {fileID: 6017569225650196000}
   renderer: {fileID: 6017569225650196005}
+  healthPotion: {fileID: 2921825873372370470, guid: 4dc89b85330a48643a160513a944db5f, type: 3}
 --- !u!50 &6017569226793986052
 Rigidbody2D:
   serializedVersion: 4
