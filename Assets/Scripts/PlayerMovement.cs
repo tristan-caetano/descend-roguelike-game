@@ -20,9 +20,6 @@ public class PlayerMovement : MonoBehaviour
     // Getting health of the player
     public PlayerAttributes player;
 
-    // Getting mana of the player
-    public ManaBar manaBar;
-
     // The camera allows us to get the mouse position so we know what direction to attack in
     public GameObject camera;
    
@@ -35,22 +32,13 @@ public class PlayerMovement : MonoBehaviour
     public int attackDamage = 5;
 
     // Heal prefab and cooldown
-    public bool canHeal = true;
     public GameObject healSpell;
-    public float healCoolDuration = 30f; 
     public int healAmt = 30;
-    int startTime;
-    int currTime;
-    int diffTime = 30;
 
     // Make sure the player can win
     public GameObject winPoint;
     public GameObject winMenuUI;
 
-    // Setting mana
-    void Start() {
-        manaBar.SetMaxMana(30);
-    }
     
     // Getting player input, making sure the player is alive, and animating the player
     void Update()
@@ -61,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Making sure the player is alive
-        if(player.getHealth() > 0){
+        if(player.health > 0){
 
             // Finds the hypotenuse to check the distance between the player and enemy
             float winDis = Mathf.Sqrt(Mathf.Pow(Mathf.Abs(winPoint.transform.position.x - rb.position.x) + Mathf.Abs(winPoint.transform.position.y - rb.position.y), 2f));
@@ -82,17 +70,16 @@ public class PlayerMovement : MonoBehaviour
 
 
             // Values for mana 
-            currTime = System.DateTime.Now.Second;
-            if(diffTime < 30){ diffTime = currTime - startTime; if(diffTime < 0){diffTime = diffTime + 60;}}
-            if(diffTime >= 30){diffTime = 30;}
-            manaBar.SetMana(diffTime);
+            // currTime = System.DateTime.Now.Second;
+            // if(diffTime < 30){ diffTime = currTime - startTime; if(diffTime < 0){diffTime = diffTime + 60;}}
+            // if(diffTime >= 30){diffTime = 30;}
+            // manaBar.SetMana(diffTime);
             
             // Heal when user presses f
-            if (Input.GetKey(KeyCode.F) && player.getHealth() < player.maxHealth && canHeal)
+            if (Input.GetKey(KeyCode.F) && player.health < player.maxHealth && player.mana > 20)
             {
                 FindObjectOfType<AudioManager>().Play("Healing");
-                startTime = System.DateTime.Now.Second;
-                StartCoroutine(HealCooldown());
+                player.UseMana(20);
                 animator.SetFloat("Horizontal", movement.x);
                 animator.SetFloat("Vertical", movement.y);
                 animator.SetTrigger("Cast");
@@ -116,7 +103,7 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         // Making sure the player is alive
-        if(player.getHealth() > 0){ 
+        if(player.health > 0){ 
 
             // Player movement using the rigidbody
             rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
@@ -157,7 +144,7 @@ public class PlayerMovement : MonoBehaviour
             EnemyAttributes currEnemy = enemy.GetComponent<EnemyAttributes>();
 
             // If the enemy hit, it takes damage   
-            if(currEnemy.getHealth() != null){
+            if(currEnemy.health != null){
                 currEnemy.TakeDamage(attackDamage);
                 FindObjectOfType<AudioManager>().Play("Knife Hit");
             }
@@ -175,14 +162,6 @@ public class PlayerMovement : MonoBehaviour
             isAvailable = false;
             yield return new WaitForSeconds(cooldownDuration);
             isAvailable = true;
-        }
-
-    // Timer for heal cooldown
-    public IEnumerator HealCooldown(){
-            canHeal = false;
-            diffTime = 0;
-            yield return new WaitForSeconds(healCoolDuration);
-            canHeal = true;
         }
     
 }

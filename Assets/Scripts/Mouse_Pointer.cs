@@ -45,7 +45,7 @@ public class Mouse_Pointer : MonoBehaviour
         if(isAvailable){
 
             // If the mouse is clicked and the player is alive
-            if(Input.GetMouseButtonDown(0) && playerAtt.getHealth() > 0){
+            if(Input.GetMouseButtonDown(0) && playerAtt.health > 0 && playerAtt.mana > 5){
 
                 // Animate the casting
                 animator.SetFloat("LastH", difference.x);
@@ -58,6 +58,9 @@ public class Mouse_Pointer : MonoBehaviour
                 Vector2 direction = difference / distance;
                 direction.Normalize();
                 playerBody.velocity = Vector3.zero;
+
+                // Reduces mana
+                playerAtt.UseMana(5);
 
                 // Cast the spell
                 fireBullet(direction, rotationZ);

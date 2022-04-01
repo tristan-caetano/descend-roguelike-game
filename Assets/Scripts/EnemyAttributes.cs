@@ -26,6 +26,7 @@ public class EnemyAttributes : MonoBehaviour
 
     // Potions
     public GameObject healthPotion;
+    public GameObject manaPotion;
 
     // Getting the original sprite color
     void Start(){originalColor = renderer.color;}
@@ -69,10 +70,20 @@ public class EnemyAttributes : MonoBehaviour
         // Enemy is removed from scene after 5 seconds
         Destroy(gameObject, 5f);
 
-        // When the player is hit, the explosion effect plays on the impact location
-        Instantiate(healthPotion, transform.position, transform.rotation);
-    }
+        // Determines if an enemy drops an item or not
+        var rand = new System.Random();
+        int num = rand.Next(1,11);
 
-    // Getter for enemy health
-    public int getHealth(){return health;}
+        if(num > 5){
+            num = rand.Next(1,3);
+
+            if(num > 1){
+                // Potion is placed where the enemy dies
+                Instantiate(healthPotion, transform.position, transform.rotation);
+            }else{
+                // Potion is placed where the enemy dies
+                Instantiate(manaPotion, transform.position, transform.rotation);
+            }
+        }
+    }
 }

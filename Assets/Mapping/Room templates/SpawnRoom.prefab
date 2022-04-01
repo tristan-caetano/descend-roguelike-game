@@ -4834,7 +4834,10 @@ MonoBehaviour:
   deathMenuUI: {fileID: 2307819262111546498}
   health: 100
   maxHealth: 100
+  maxMana: 100
+  mana: 100
   healthBar: {fileID: 4496364723814959104}
+  manabar: {fileID: 4920102891551251043}
   animator: {fileID: 7687004482281667450}
   renderer: {fileID: 7687004482281667448}
   playerCollider: {fileID: 8014377357743647244}

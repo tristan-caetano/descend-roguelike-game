@@ -173,10 +173,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HitSound: Ghlug Attack
   DeathSound: Ghlug Death
-  health: 250
+  health: 150
   animator: {fileID: 9137905114388045077}
   renderer: {fileID: 9137905114388045074}
   healthPotion: {fileID: 2921825873372370470, guid: 4dc89b85330a48643a160513a944db5f, type: 3}
+  manaPotion: {fileID: 7765763372643908701, guid: 4e8f3684372f9134582ae686a5b1109b, type: 3}
 --- !u!50 &9137905112570307779
 Rigidbody2D:
   serializedVersion: 4

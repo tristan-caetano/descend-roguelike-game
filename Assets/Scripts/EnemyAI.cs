@@ -78,13 +78,13 @@ public class EnemyAI : MonoBehaviour {
         float pythagDis = Mathf.Sqrt(Mathf.Pow(Mathf.Abs(target.position.x - rb.position.x) + Mathf.Abs(target.position.y - rb.position.y), 2f));
 
         // If the player is close enough and the enemy is alive
-        if(enemy.getHealth() > 0 && pythagDis < 20){
+        if(enemy.health > 0 && pythagDis < 20){
 
             // Enabling the collider if the player is close enough and the enemy is alive
             collider.enabled = true;
 
             // Attacks player if they are close enough
-            if (enemy.getHealth() > 0 && playerAtt.getHealth() > 0 && pythagDis < 1.5f){
+            if (enemy.health > 0 && playerAtt.health > 0 && pythagDis < 1.5f){
             //    FindObjectOfType<AudioManager>().Play(AttackSound);
                 animator.SetTrigger("isAttack");
                 Attack(hitInfoLocal);
@@ -152,14 +152,14 @@ public class EnemyAI : MonoBehaviour {
         if(hitInfo == null){return;}
 
         // Making sure only to attack if the enemy is alive
-        if(enemy.getHealth() > 0){
+        if(enemy.health > 0){
 
                 Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(enemyAttackPoint.position, enemyAttackRange, playerLayers);
 
                 // Actually damaging the player if they are found in the collider
                 foreach(Collider2D player in hitPlayer){
                     PlayerAttributes currPlayer = hitInfo.GetComponent<PlayerAttributes>();
-                    if(currPlayer.getHealth() != null){
+                    if(currPlayer.health != null){
                         currPlayer.TakeDamage(enemyAttack);
                     }
             }

@@ -12,13 +12,17 @@ public class PlayerAttributes : MonoBehaviour
     // Death screen object
     public GameObject deathMenuUI;
 
-    // Player health
+    // Player health and mana
     public int health = 100;
     public int maxHealth = 100;
     bool canBeDamaged = true;
+    public int maxMana = 100;
+    public int mana = 100;
 
-    // Health Bar initialize
+    // Health and Mana Bar initialize
     public HealthBar healthBar;
+    public ManaBar manabar;
+
 
     // Animating when the player is hit or dead
     public Animator animator;
@@ -35,6 +39,7 @@ public class PlayerAttributes : MonoBehaviour
     void Start(){
         originalColor = renderer.color;
         healthBar.SetMaxHealth(maxHealth);
+        manabar.SetMana(maxMana);
     }
 
     // Making the sprite red
@@ -68,6 +73,16 @@ public class PlayerAttributes : MonoBehaviour
         }
     }
 
+    // If the player casts a spell, it uses mana
+    public void UseMana(int usedMana){
+
+        // Make sure the player is alive
+        if(health > 0){
+            mana -= usedMana;
+
+        }
+    }
+
     // If the player heals, they gain health and flash white
     public void Heal(int healAmt){
 
@@ -92,8 +107,33 @@ public class PlayerAttributes : MonoBehaviour
         }
     }
 
+    // If the player picks up mana potion
+    public void RegenerateMana(int manaRegenAmt){
+
+        // If the player is alive
+        if(mana < maxMana){
+
+            // Damage is subtracted from health
+            mana += manaRegenAmt;
+
+            // Keeping health at max
+            if(mana > maxMana){
+                mana = maxMana;
+            }
+
+            // Setting color for visual feedback
+            Color regenManaColor = Color.green;
+            regenManaColor.a = .9f;
+
+            // Player flashes red
+            FlashColor(regenManaColor);
+        }
+
+    }
+
     void FixedUpdate(){
         healthBar.SetHealth(health);
+        manabar.SetMana(mana);
     }
 
     // Player plays death animation and is removed from the scene
@@ -103,9 +143,6 @@ public class PlayerAttributes : MonoBehaviour
         deathMenuUI.SetActive(true);
         //Destroy(gameObject, 5f);
 }
-
-    // Getter for player health
-    public int getHealth(){return health;}
 
     // Cooldown for player iframes
     public IEnumerator StartCooldown()
