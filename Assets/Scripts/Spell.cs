@@ -16,6 +16,15 @@ public GameObject impactEffect;
 // Speed of the spell
 public float speed = 20f;
 
+// How much mana the spell uses
+public int manaUsage;
+
+// How much damage the spell uses
+public int damage;
+
+// Determines how long the spell lasts for
+public bool collateral;
+
 // Spell's rigidbody
 public Rigidbody2D rb;
 
@@ -37,15 +46,17 @@ public Rigidbody2D rb;
 
             // If an enemy is found, they take damage
             if(enemy != null){
-                enemy.TakeDamage(10);
+                enemy.TakeDamage(damage);
                 FindObjectOfType<AudioManager>().Play("Spell Hit");
             }
 
             // When the player is hit, the explosion effect plays on the impact location
             Instantiate(impactEffect, transform.position, transform.rotation);
 
-            // Destroys the spell
-            Destroy(gameObject, .1f);
+            if(!collateral){
+                // Destroys the spell
+                Destroy(gameObject, .1f);
+            }
             
         } else{
             return;

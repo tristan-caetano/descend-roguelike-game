@@ -60,7 +60,7 @@ public class Mouse_Pointer : MonoBehaviour
                 playerBody.velocity = Vector3.zero;
 
                 // Reduces mana
-                playerAtt.UseMana(5);
+                playerAtt.UseMana(magicPrefab.GetComponent<Spell>().manaUsage);
 
                 // Cast the spell
                 fireBullet(direction, rotationZ);

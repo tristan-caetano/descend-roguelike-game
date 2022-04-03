@@ -5923,6 +5923,10 @@ PrefabInstance:
       propertyPath: attackPoint
       value: 
       objectReference: {fileID: 4960598386111965308}
+    - target: {fileID: 2756778913362625506, guid: feb95e9a7d2b9704294307252352802d, type: 3}
+      propertyPath: magicPrefab
+      value: 
+      objectReference: {fileID: 1392900737321380472, guid: 4729b068bdb59844aaedc02f201a3a10, type: 3}
     - target: {fileID: 2756778913362625507, guid: feb95e9a7d2b9704294307252352802d, type: 3}
       propertyPath: m_ClearFlags
       value: 1
