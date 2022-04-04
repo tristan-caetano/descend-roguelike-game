@@ -4696,6 +4696,7 @@ MonoBehaviour:
   manaUsage: 5
   damage: 10
   collateral: 0
+  spellAliveDur: 5
   rb: {fileID: 8477325607102422900}
 --- !u!58 &8477325607102422907
 CircleCollider2D:
