@@ -34,68 +34,77 @@ public class PlayerMovement : MonoBehaviour
     // Heal prefab and cooldown
     public GameObject healSpell;
     public int healAmt = 30;
+    bool canHeal = true;
 
     // Make sure the player can win
     public GameObject winPoint;
     public GameObject winMenuUI;
 
+    // Make sure player can't move when game is paused
+    bool canMove = false;
     
     // Getting player input, making sure the player is alive, and animating the player
     void Update()
     {
 
-        if(winPoint == null){
-            winPoint = GameObject.Find("WinPoint");
-        }
+        if(canMove){
 
-        // Making sure the player is alive
-        if(player.health > 0){
-
-            // Finds the hypotenuse to check the distance between the player and enemy
-            float winDis = Mathf.Sqrt(Mathf.Pow(Mathf.Abs(winPoint.transform.position.x - rb.position.x) + Mathf.Abs(winPoint.transform.position.y - rb.position.y), 2f));
-
-            if(winDis < 1.5f){
-                FindObjectOfType<AudioManager>().Play("Win");
-                winMenuUI.SetActive(true);
-                Time.timeScale = 0f;
+            if(winPoint == null){
+                winPoint = GameObject.Find("WinPoint");
             }
 
-            // Sprint when user holds down left shift
-            // if (Input.GetKey(KeyCode.LeftShift))
-            // {
-            //     moveSpeed = 10f;
-            // }else{
-            //     moveSpeed = 5f;
-            // }
+            // Making sure the player is alive
+            if(player.health > 0){
+
+                // Finds the hypotenuse to check the distance between the player and enemy
+                float winDis = Mathf.Sqrt(Mathf.Pow(Mathf.Abs(winPoint.transform.position.x - rb.position.x) + Mathf.Abs(winPoint.transform.position.y - rb.position.y), 2f));
+
+                if(winDis < 1.5f){
+                    FindObjectOfType<AudioManager>().Play("Win");
+                    winMenuUI.SetActive(true);
+                    Time.timeScale = 0f;
+                }
+
+                // Sprint when user holds down left shift
+                // if (Input.GetKey(KeyCode.LeftShift))
+                // {
+                //     moveSpeed = 10f;
+                // }else{
+                //     moveSpeed = 5f;
+                // }
 
 
-            // Values for mana 
-            // currTime = System.DateTime.Now.Second;
-            // if(diffTime < 30){ diffTime = currTime - startTime; if(diffTime < 0){diffTime = diffTime + 60;}}
-            // if(diffTime >= 30){diffTime = 30;}
-            // manaBar.SetMana(diffTime);
-            
-            // Heal when user presses f
-            if (Input.GetKey(KeyCode.F) && player.health < player.maxHealth && player.mana > 20)
-            {
-                FindObjectOfType<AudioManager>().Play("Healing");
-                player.UseMana(20);
+                // Values for mana 
+                // currTime = System.DateTime.Now.Second;
+                // if(diffTime < 30){ diffTime = currTime - startTime; if(diffTime < 0){diffTime = diffTime + 60;}}
+                // if(diffTime >= 30){diffTime = 30;}
+                // manaBar.SetMana(diffTime);
+                
+                // Heal when user presses f
+                if (Input.GetKey(KeyCode.F) && player.health < player.maxHealth && player.mana > 20 && canHeal)
+                {
+                    FindObjectOfType<AudioManager>().Play("Healing");
+                    player.UseMana(20);
+                    animator.SetFloat("Horizontal", movement.x);
+                    animator.SetFloat("Vertical", movement.y);
+                    animator.SetTrigger("Cast");
+                    player.Heal(healAmt);
+                    Destroy(healSpell, 2f);
+                    Instantiate(healSpell, player.transform.position, Quaternion.Euler(0.0f, 0.0f, 0.0f));
+                    StartCoroutine(HealCooldown());
+                }
+
+                // Player movement input
+                movement.x = Input.GetAxisRaw("Horizontal");
+                movement.y = Input.GetAxisRaw("Vertical");
+
+                // Animation applied to movement
                 animator.SetFloat("Horizontal", movement.x);
                 animator.SetFloat("Vertical", movement.y);
-                animator.SetTrigger("Cast");
-                player.Heal(healAmt);
-                Destroy(healSpell, 2f);
-                Instantiate(healSpell, player.transform.position, Quaternion.Euler(0.0f, 0.0f, 0.0f));
+                animator.SetFloat("Speed", movement.sqrMagnitude);
             }
-
-            // Player movement input
-            movement.x = Input.GetAxisRaw("Horizontal");
-            movement.y = Input.GetAxisRaw("Vertical");
-
-            // Animation applied to movement
-            animator.SetFloat("Horizontal", movement.x);
-            animator.SetFloat("Vertical", movement.y);
-            animator.SetFloat("Speed", movement.sqrMagnitude);
+        } else {
+            StartCoroutine(StartGameCooldown());
         }
     }
 
@@ -112,6 +121,7 @@ public class PlayerMovement : MonoBehaviour
             if(isAvailable){
                 if(Input.GetKey(KeyCode.Space)){
                     Attack();
+                    isAvailable = false;
                     StartCoroutine(StartCooldown());
                 }
             } 
@@ -144,7 +154,7 @@ public class PlayerMovement : MonoBehaviour
             EnemyAttributes currEnemy = enemy.GetComponent<EnemyAttributes>();
 
             // If the enemy hit, it takes damage   
-            if(currEnemy.health != null){
+            if(currEnemy.health > 0){
                 currEnemy.TakeDamage(attackDamage);
                 FindObjectOfType<AudioManager>().Play("Knife Hit");
             }
@@ -163,5 +173,19 @@ public class PlayerMovement : MonoBehaviour
             yield return new WaitForSeconds(cooldownDuration);
             isAvailable = true;
         }
+
+    // Cooldown timer
+    public IEnumerator StartGameCooldown(){
+        canMove = false;
+        yield return new WaitForSeconds(.1f);
+        canMove = true;
+    }
+
+    // Cooldown timer
+    public IEnumerator HealCooldown(){
+        canHeal = false;
+        yield return new WaitForSeconds(2f);
+        canHeal = true;
+    }
     
 }

@@ -26,7 +26,6 @@ public class EnemyAI : MonoBehaviour {
     // Variables that allow the enemy to track the player
     Path path;
     int currentWaypoint = 0;
-    bool reachedEndOfPath = false;
     public float nextWaypointDistance = 3f;
     Seeker seeker;
 
@@ -95,11 +94,9 @@ public class EnemyAI : MonoBehaviour {
                 return;
             }
             if(currentWaypoint >= path.vectorPath.Count){
-                reachedEndOfPath = true;
                 currSpeed = 0;
                 return;
             }else{
-                reachedEndOfPath = false;
                 currSpeed = speed;
             }
 
@@ -159,7 +156,7 @@ public class EnemyAI : MonoBehaviour {
                 // Actually damaging the player if they are found in the collider
                 foreach(Collider2D player in hitPlayer){
                     PlayerAttributes currPlayer = hitInfo.GetComponent<PlayerAttributes>();
-                    if(currPlayer.health != null){
+                    if(currPlayer.health > 0){
                         currPlayer.TakeDamage(enemyAttack);
                     }
             }

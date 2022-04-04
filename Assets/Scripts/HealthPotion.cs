@@ -42,7 +42,7 @@ public class HealthPotion : MonoBehaviour
             float pythagDis = Mathf.Sqrt(Mathf.Pow(Mathf.Abs(target.position.x - rb.position.x) + Mathf.Abs(target.position.y - rb.position.y), 2f));
 
             if(pythagDis < 1 && playerAtt.health
-             < 100 && !used){
+             < 100 && !used && Input.GetKey(KeyCode.E)){
                 playerAtt.Heal(heal);
                 used = true;
                 Destroy(gameObject, .1f);

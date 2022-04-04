@@ -245,9 +245,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.036816776, y: -0.16772108}
+  m_Offset: {x: -0.016767561, y: -0.1677211}
   serializedVersion: 2
-  m_Radius: 0.47729057
+  m_Radius: 0.4973398
 --- !u!1001 &8708377350006901410
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -255,13 +255,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6017569226793986049}
     m_Modifications:
+    - target: {fileID: 3123506219835966592, guid: b55ed6fb84ed6df418370887d6220bdc, type: 3}
+      propertyPath: m_Radius
+      value: 0.28686816
+      objectReference: {fileID: 0}
+    - target: {fileID: 3123506219835966592, guid: b55ed6fb84ed6df418370887d6220bdc, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.0067427754
+      objectReference: {fileID: 0}
     - target: {fileID: 3123506219835966593, guid: b55ed6fb84ed6df418370887d6220bdc, type: 3}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3123506219835966593, guid: b55ed6fb84ed6df418370887d6220bdc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.007
       objectReference: {fileID: 0}
     - target: {fileID: 3123506219835966593, guid: b55ed6fb84ed6df418370887d6220bdc, type: 3}
       propertyPath: m_LocalPosition.y

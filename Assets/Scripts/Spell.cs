@@ -25,13 +25,30 @@ public int damage;
 // Determines how long the spell lasts for
 public bool collateral;
 
+// Used to make sure if the spell hits a wall it doesnt go through it
+float initSpeed;
+
 // Spell's rigidbody
 public Rigidbody2D rb;
 
     // Making sure the spell flies in the right direction, and then destroys it if it hasnt hit anything in 10 seconds
     void Start(){
         rb.velocity = transform.right * speed;
-        Destroy(gameObject, 10f);
+        initSpeed = rb.velocity.magnitude;
+        Destroy(gameObject, 5f);
+    }
+
+    void Update(){
+        if(rb.velocity.magnitude < initSpeed){
+            // When the player is hit, the explosion effect plays on the impact location
+            GameObject impact = Instantiate(impactEffect, transform.position, transform.rotation);
+            Destroy(impact, 5f);
+
+            if(!collateral){
+                // Destroys the spell
+                Destroy(gameObject);
+            }
+        }
     }
 
     // If the spell hits something
@@ -51,7 +68,8 @@ public Rigidbody2D rb;
             }
 
             // When the player is hit, the explosion effect plays on the impact location
-            Instantiate(impactEffect, transform.position, transform.rotation);
+            GameObject impact = Instantiate(impactEffect, transform.position, transform.rotation);
+            Destroy(impact, 5f);
 
             if(!collateral){
                 // Destroys the spell
