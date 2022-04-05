@@ -16,8 +16,13 @@ public class EnemyAttributes : MonoBehaviour
     // Enemy health
     public int health = 100;
 
+    public int maxHealth = 100;
+
     // Animating when the player is hit or dead
     public Animator animator;
+
+    // Health Bar initialize
+    public HealthBar healthBar;
 
     // Makes the enemy red for a short time after getting hit
     float flashMime = .5f;
@@ -29,7 +34,10 @@ public class EnemyAttributes : MonoBehaviour
     public GameObject manaPotion;
 
     // Getting the original sprite color
-    void Start(){originalColor = renderer.color;}
+    void Start(){
+        originalColor = renderer.color;
+        healthBar.SetMaxHealth(maxHealth);
+    }
 
     // Making the sprite red
     void FlashRed(){renderer.color = Color.red; Invoke("ResetColor", flashMime);}
@@ -56,6 +64,10 @@ public class EnemyAttributes : MonoBehaviour
             FindObjectOfType<AudioManager>().Play(HitSound);
             animator.SetTrigger("isHit");
         }
+    }
+
+    void FixedUpdate(){
+        healthBar.SetHealth(health);
     }
 
     // Enemy plays dead animation, and is removed from the scene

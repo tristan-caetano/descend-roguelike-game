@@ -4100,6 +4100,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ghast
       objectReference: {fileID: 0}
+    - target: {fileID: 6803073513646548860, guid: 8f6fba69740e6c74992dc5049f81967a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -690.1426
+      objectReference: {fileID: 0}
+    - target: {fileID: 6803073513646548860, guid: 8f6fba69740e6c74992dc5049f81967a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -288.67596
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f6fba69740e6c74992dc5049f81967a, type: 3}
 --- !u!4 &8704195897483261470 stripped

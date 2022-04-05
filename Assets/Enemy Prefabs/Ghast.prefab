@@ -76,6 +76,17 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 5919308459163516464, guid: 6ef87b26122533c42b49485b9cc6036c, type: 3}
   m_PrefabInstance: {fileID: 96527562927758978}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5599859956935939718 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5539530589713860612, guid: 6ef87b26122533c42b49485b9cc6036c, type: 3}
+  m_PrefabInstance: {fileID: 96527562927758978}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5096cf99cc44c948bbb000a827180ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!58 &6303225764149524641
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -119,6 +130,10 @@ PrefabInstance:
       propertyPath: renderer
       value: 
       objectReference: {fileID: 6013278433213161651}
+    - target: {fileID: 3587912464029853884, guid: b9ad633df43426d488ff2cd9ce5cf8d9, type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 5599859956935939718}
     - target: {fileID: 3587912464029853884, guid: b9ad633df43426d488ff2cd9ce5cf8d9, type: 3}
       propertyPath: DeathSound
       value: Ghast Death
