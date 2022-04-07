@@ -151,7 +151,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   target: {fileID: 0}
-  speed: 150
+  speed: 300
   nextWaypointDistance: 3
   enemy: {fileID: 9137905112570307780}
   animator: {fileID: 9137905114388045077}
@@ -174,7 +174,9 @@ MonoBehaviour:
   HitSound: Ghlug Attack
   DeathSound: Ghlug Death
   health: 150
+  maxHealth: 100
   animator: {fileID: 9137905114388045077}
+  healthBar: {fileID: 0}
   renderer: {fileID: 9137905114388045074}
   healthPotion: {fileID: 2921825873372370470, guid: 4dc89b85330a48643a160513a944db5f, type: 3}
   manaPotion: {fileID: 7765763372643908701, guid: 4e8f3684372f9134582ae686a5b1109b, type: 3}

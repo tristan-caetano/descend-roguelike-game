@@ -56,7 +56,7 @@ public class Mouse_Pointer : MonoBehaviour
                 magicName = spellPickup.magicName;
 
                 // If the mouse is clicked and the player is alive
-                if(Input.GetMouseButtonDown(0) && playerAtt.health > 0 && playerAtt.mana > 5){
+                if(Input.GetMouseButtonDown(0) && playerAtt.health > 0 && playerAtt.mana > 5 && spellPickup != null){
 
                     // Animate the casting
                     animator.SetFloat("LastH", difference.x);
@@ -90,7 +90,7 @@ public class Mouse_Pointer : MonoBehaviour
     void fireBullet(Vector2 direction, float rotationZ){Instantiate(spellPickup.spell, player.transform.position, Quaternion.Euler(0.0f, 0.0f, rotationZ));}
 
     public void replaceSpell(GameObject newSpell){  
-        if(canPickup){
+        if(canPickup && currMagicDrop != null){
             currMagicDrop.SetActive(true);
             currMagicDrop.transform.position = player.transform.position;
             currMagicDrop = newSpell;
@@ -98,6 +98,9 @@ public class Mouse_Pointer : MonoBehaviour
 
             // Start cooldown
             StartCoroutine(StartCooldown());
+        }else if(canPickup && currMagicDrop == null){
+            currMagicDrop = newSpell;
+            currMagicDrop.SetActive(false);
         }
     }
 

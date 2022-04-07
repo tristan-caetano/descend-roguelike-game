@@ -32,7 +32,7 @@ public class SpellPickup : MonoBehaviour
             // Pythagorean expression to determine distance to player
             float pythagDis = Mathf.Sqrt(Mathf.Pow(Mathf.Abs(target.position.x - rb.position.x) + Mathf.Abs(target.position.y - rb.position.y), 2f));
 
-            if(pythagDis < 1 && mousePoint.magicName != magicName && Input.GetKey(KeyCode.E)){
+            if(pythagDis < 1.5 && mousePoint.magicName != magicName && Input.GetKey(KeyCode.E)){
 
                 mousePoint.replaceSpell(gameObject);
             }

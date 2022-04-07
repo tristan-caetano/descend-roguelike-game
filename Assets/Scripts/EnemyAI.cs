@@ -91,10 +91,11 @@ public class EnemyAI : MonoBehaviour {
 
             // Pathing code
             if(path == null){
+                currSpeed = speed;
                 return;
             }
             if(currentWaypoint >= path.vectorPath.Count){
-                currSpeed = 0;
+                currSpeed = speed;
                 return;
             }else{
                 currSpeed = speed;
