@@ -4725,10 +4725,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   impactEffect: {fileID: 0}
+  thisCollider: {fileID: 0}
+  playerCollider: {fileID: 0}
   speed: 0.5
   manaUsage: 15
   damage: 2
   collateral: 1
   linger: 1
-  spellAliveDur: 15
+  spellAliveDur: 10
   rb: {fileID: 8983299562466095376}
+  bounce: 0
