@@ -1,0 +1,237 @@
+fileFormatVersion: 2
+guid: 4efa99a88f1257d458a3226aad03b6ee
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2340438107901048119
+    second: Mythos_Ritual_5_0
+  - first:
+      213: 3922458087502957565
+    second: Mythos_Ritual_5_1
+  - first:
+      213: 3363663145129580846
+    second: Mythos_Ritual_5_2
+  - first:
+      213: -8537853969703212185
+    second: Mythos_Ritual_5_3
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 215
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Mythos_Ritual_5_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 215
+        width: 214
+        height: 214
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 72, y: 55}
+        - {x: 27, y: 93}
+        - {x: 56, y: 89}
+        - {x: 83, y: 107}
+        - {x: 107, y: 107}
+        - {x: 107, y: 66}
+      - - {x: -62, y: -107}
+        - {x: -63, y: -73}
+        - {x: -101, y: -37}
+        - {x: -94, y: -11}
+        - {x: -58, y: -25}
+        - {x: -38, y: -6}
+        - {x: -19, y: -32}
+        - {x: -39, y: -52}
+        - {x: -42, y: -107}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 735ba381f08ea7020800000000000000
+      internalID: 2340438107901048119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mythos_Ritual_5_1
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 214.5
+        width: 214.5
+        height: 214.5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 80.75, y: -106.75}
+        - {x: 76.75, y: 63.25}
+        - {x: -107.25, y: 69.25}
+        - {x: -107.25, y: 107.25}
+        - {x: 100.75, y: 107.25}
+        - {x: 99.75, y: -107.25}
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfbc8f739de5f6630800000000000000
+      internalID: 3922458087502957565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mythos_Ritual_5_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0.5
+        width: 214.5
+        height: 214.5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -62.25, y: -107.25}
+        - {x: -63.25, y: 107.25}
+        - {x: -39.25, y: 107.25}
+        - {x: -39.25, y: -22.75}
+        - {x: 107.25, y: -25.75}
+        - {x: 107.25, y: -107.25}
+      tessellationDetail: 0
+      bones: []
+      spriteID: e29958d1fc12eae20800000000000000
+      internalID: 3363663145129580846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mythos_Ritual_5_3
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 0.5
+        width: 214.5
+        height: 214.5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -107.25, y: -107.25}
+        - {x: -107.25, y: -24.75}
+        - {x: 78.75, y: -26.75}
+        - {x: 78.75, y: 107.25}
+        - {x: 99.75, y: 107.25}
+        - {x: 100.75, y: -107.25}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76b6eafcc03738980800000000000000
+      internalID: -8537853969703212185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

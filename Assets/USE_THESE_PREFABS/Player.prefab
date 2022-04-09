@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 6
   m_Sprite: {fileID: 21300000, guid: 8929352ba7917604ba128e4cb667bf9a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -143,6 +143,8 @@ MonoBehaviour:
   moveSpeed: 5
   rb: {fileID: 4845205256634802241}
   animator: {fileID: 4845205256634802240}
+  player: {fileID: 4845205256634802252}
+  manaBar: {fileID: 0}
   camera: {fileID: 0}
   attackPoint: {fileID: 4845205257781443617}
   attackRange: 1
@@ -151,7 +153,13 @@ MonoBehaviour:
     m_Bits: 8
   isAvailable: 1
   cooldownDuration: 1
-  player: {fileID: 4845205256634802252}
+  attackDamage: 5
+  canHeal: 1
+  healSpell: {fileID: 0}
+  healCoolDuration: 30
+  healAmt: 30
+  winPoint: {fileID: 0}
+  winMenuUI: {fileID: 0}
 --- !u!58 &4845205256634802253
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -180,12 +188,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66cf2400bf7a5274d9b7a8247f9fdfb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathMenuUI: {fileID: 0}
   health: 100
-  rb: {fileID: 4845205256634802241}
+  maxHealth: 100
+  healthBar: {fileID: 0}
   animator: {fileID: 4845205256634802240}
-  player: {fileID: 4845205256634802243}
-  playerCollider: {fileID: 4845205256634802253}
   renderer: {fileID: 4845205256634802254}
+  playerCollider: {fileID: 4845205256634802253}
 --- !u!1 &4845205257781443616
 GameObject:
   m_ObjectHideFlags: 0
