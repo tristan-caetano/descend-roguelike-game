@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
    
     // Making sure the player can attack the enemy and attack cooldown
     public Transform attackPoint;
-    public float attackRange = .5f;
+    public float attackRange = 10f;
     public LayerMask enemyLayers;
     public bool isAvailable = true;
     public float cooldownDuration = 1.0f;
@@ -120,12 +120,11 @@ public class PlayerMovement : MonoBehaviour
             // If the attack is not in cooldown, pressing space will attack
             if(isAvailable){
                 if(Input.GetKey(KeyCode.Space)){
-                    Attack();
                     isAvailable = false;
                     StartCoroutine(StartCooldown());
+                    Attack();
                 }
             } 
-            else {return;}
         }
     }
 

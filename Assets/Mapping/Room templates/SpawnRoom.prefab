@@ -4874,7 +4874,7 @@ PrefabInstance:
       objectReference: {fileID: 4960598386111965308}
     - target: {fileID: 7205377627562473182, guid: 98f5612bc067aa24182e59b61ee05929, type: 3}
       propertyPath: attackRange
-      value: 0.7
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 7205377627562473182, guid: 98f5612bc067aa24182e59b61ee05929, type: 3}
       propertyPath: attackDamage

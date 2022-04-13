@@ -75,7 +75,7 @@ public class EnemyAttributes : MonoBehaviour
         if(boss > 0){
             // Determines if an enemy drops an item or not
             var rand = new System.Random();
-            int num = rand.Next(1,16);
+            int num = rand.Next(1,21);
             Debug.Log("CHANCE: " + num);
 
             if(num < 2){

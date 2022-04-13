@@ -4692,12 +4692,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   impactEffect: {fileID: 2525388304877557434, guid: 81daad2ef6c8a5549b478202855b3a22, type: 3}
+  thisCollider: {fileID: 0}
+  playerCollider: {fileID: 0}
   speed: 20
   manaUsage: 5
   damage: 10
   collateral: 0
+  linger: 0
   spellAliveDur: 5
   rb: {fileID: 8477325607102422900}
+  bounce: 0
 --- !u!58 &8477325607102422907
 CircleCollider2D:
   m_ObjectHideFlags: 0

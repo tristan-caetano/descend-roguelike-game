@@ -42,6 +42,11 @@ public class EnemyAI : MonoBehaviour {
     // Gets the player info and does damage
     Collider2D hitInfoLocal = null;
     public int enemyAttack = 5;
+
+    // Boss magic info
+    public GameObject magicSpell;
+    int x = 0;
+    bool readyToFire = true;
     
 
     // Gets the rigidbody and seeker for tracking, starts tracking
@@ -95,6 +100,20 @@ public class EnemyAI : MonoBehaviour {
                 Attack(hitInfoLocal);
             }
 
+            // Attacks player if they are close enough
+            if (enemy.health > 0 && playerAtt.health > 0 && pythagDis > 5 && boss == 1){
+            //    FindObjectOfType<AudioManager>().Play(AttackSound);
+                
+                if(readyToFire){
+                    animator.SetTrigger("isAttack");
+                    for(x = 0; x < 10; x ++){
+                        shootAOE();
+                   }
+                    readyToFire = false;
+                    StartCoroutine(StartCooldown());
+                }
+            }
+
             // Pathing code
             if(path == null){
                 currSpeed = speed;
@@ -142,6 +161,7 @@ public class EnemyAI : MonoBehaviour {
             target  = mainPlayer.transform;
             playerAtt = mainPlayer.GetComponent<PlayerAttributes>();
         }else{
+            
             return;
         }
     }
@@ -174,5 +194,37 @@ public class EnemyAI : MonoBehaviour {
             collider.enabled = false;
             return;
         }
+    }
+
+    // Enemy shooting spell
+    void shootAOE(){
+
+        // Getting the direction of the mouseclick for firing the spell and playing the correct animation
+        Vector3 difference = target.transform.position - gameObject.transform.position;
+        float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+
+            // If the mouse is clicked and the player is alive
+            if(enemy.health > 0){
+
+                // Animate the casting
+                
+                FindObjectOfType<AudioManager>().Play("Shoot Spell");
+
+                // Get the direction and distance from the mouse click
+                float distance = difference.magnitude;
+                Vector2 direction = difference / distance;
+                direction.Normalize();
+                rb.velocity = Vector3.zero;
+
+                // Cast the spell
+                Instantiate(magicSpell, gameObject.transform.position, Quaternion.Euler(0.0f, 0.0f, rotationZ));
+            }
+    }
+
+    // Cooldown timer
+    public IEnumerator StartCooldown(){
+        readyToFire = false;
+        yield return new WaitForSeconds(2.5f);
+        readyToFire = true;
     }
 }

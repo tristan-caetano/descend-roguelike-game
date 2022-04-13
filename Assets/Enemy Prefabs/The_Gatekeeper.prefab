@@ -130,9 +130,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0030864717, y: 0.04937897}
+  m_Offset: {x: -0.009840393, y: 0.033618927}
   serializedVersion: 2
-  m_Radius: 0.55250204
+  m_Radius: 0.6515602
 --- !u!50 &193368074418465699
 Rigidbody2D:
   serializedVersion: 4
@@ -146,7 +146,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 1
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
@@ -180,6 +180,7 @@ MonoBehaviour:
   enemyAttackRange: 200
   boss: 1
   enemyAttack: 20
+  magicSpell: {fileID: 8362788612473781797, guid: 9e75f873892c6b9499b2af893d2e621a, type: 3}
 --- !u!114 &-3133308328400391875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,14 +195,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HitSound: 
   DeathSound: 
-  health: 500
-  maxHealth: 500
+  health: 400
+  maxHealth: 400
   animator: {fileID: 193368074829510648}
   healthBar: {fileID: 0}
   renderer: {fileID: 193368074829510651}
   healthPotion: {fileID: 2921825873372370470, guid: 4dc89b85330a48643a160513a944db5f, type: 3}
   manaPotion: {fileID: 7765763372643908701, guid: 4e8f3684372f9134582ae686a5b1109b, type: 3}
   enemyAI: {fileID: -4648684423004966407}
+  boss: 0
 --- !u!1 &193368074829510645
 GameObject:
   m_ObjectHideFlags: 0
