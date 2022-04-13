@@ -8,7 +8,7 @@ using UnityEngine;
 using Pathfinding;
 
 // Script that controls the enemy AI
-public class EnemyAI : MonoBehaviour {
+public class BossAI : MonoBehaviour {
 
     // Attack sound for enemy
     //public string AttackSound;
@@ -28,16 +28,14 @@ public class EnemyAI : MonoBehaviour {
     int currentWaypoint = 0;
     public float nextWaypointDistance = 3f;
     Seeker seeker;
-    float enemyDis = 1.5f;
 
     // Standard attributes of the enemy so that it can move, animate, hit, and check health
-    public EnemyAttributes enemy;
+    public BossAttributes enemy;
     Rigidbody2D rb;
     public Animator animator;
     public Collider2D collider;
     public Transform enemyAttackPoint;
     public float enemyAttackRange = 1f;
-    public byte boss = 0;
     
     // Gets the player info and does damage
     Collider2D hitInfoLocal = null;
@@ -51,10 +49,6 @@ public class EnemyAI : MonoBehaviour {
         rb = GetComponent<Rigidbody2D>();
         
         InvokeRepeating("UpdatePath", 0f, .5f);
-
-        if(boss > 0){
-            enemyDis *= 2f;
-        }
         
     }
 
@@ -89,7 +83,7 @@ public class EnemyAI : MonoBehaviour {
             collider.enabled = true;
 
             // Attacks player if they are close enough
-            if (enemy.health > 0 && playerAtt.health > 0 && pythagDis < enemyDis){
+            if (enemy.health > 0 && playerAtt.health > 0 && pythagDis < 1.5f){
             //    FindObjectOfType<AudioManager>().Play(AttackSound);
                 animator.SetTrigger("isAttack");
                 Attack(hitInfoLocal);

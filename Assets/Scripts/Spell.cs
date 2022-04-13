@@ -119,9 +119,10 @@ EnemyAttributes lingerEnemy;
             } else{
                 return;
             }
-            
+            // TODO: implement linger for boss
         } else {
             // Getting the enemy info
+            lingerEnemy = hitInfo.GetComponent<EnemyAttributes>();
             lingerEnemy = hitInfo.GetComponent<EnemyAttributes>();
             lingerTimer = true;
         }

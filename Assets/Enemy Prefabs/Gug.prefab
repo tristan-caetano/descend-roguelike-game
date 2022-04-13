@@ -172,6 +172,7 @@ MonoBehaviour:
   collider: {fileID: 6017569226793986054}
   enemyAttackPoint: {fileID: 6017569225748025692}
   enemyAttackRange: 1
+  boss: 0
   enemyAttack: 15
 --- !u!114 &6017569226793986053
 MonoBehaviour:
@@ -194,6 +195,7 @@ MonoBehaviour:
   renderer: {fileID: 6017569225650196005}
   healthPotion: {fileID: 2921825873372370470, guid: 4dc89b85330a48643a160513a944db5f, type: 3}
   manaPotion: {fileID: 7765763372643908701, guid: 4e8f3684372f9134582ae686a5b1109b, type: 3}
+  enemyAI: {fileID: 6017569226793986050}
 --- !u!50 &6017569226793986052
 Rigidbody2D:
   serializedVersion: 4

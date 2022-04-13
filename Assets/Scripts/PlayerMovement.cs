@@ -152,10 +152,15 @@ public class PlayerMovement : MonoBehaviour
         foreach(Collider2D enemy in hitEnemies){
 
             EnemyAttributes currEnemy = enemy.GetComponent<EnemyAttributes>();
+            BossAttributes currBoss = enemy.GetComponent<BossAttributes>();
 
             // If the enemy hit, it takes damage   
             if(currEnemy.health > 0){
                 currEnemy.TakeDamage(attackDamage);
+                FindObjectOfType<AudioManager>().Play("Knife Hit");
+            }
+            if(currBoss.health > 0){
+                currBoss.TakeDamage(attackDamage);
                 FindObjectOfType<AudioManager>().Play("Knife Hit");
             }
         }

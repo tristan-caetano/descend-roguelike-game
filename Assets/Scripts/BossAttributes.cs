@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // Simple script for enemy health, hit, and death animations
-public class EnemyAttributes : MonoBehaviour
+public class BossAttributes : MonoBehaviour
 {
     // Enemy sounds
     public string HitSound;
@@ -22,7 +22,7 @@ public class EnemyAttributes : MonoBehaviour
     public Animator animator;
 
     // Health Bar initialize
-    public HealthBar healthBar;
+    //public HealthBar healthBar;
 
     // Makes the enemy red for a short time after getting hit
     float flashMime = .5f;
@@ -33,14 +33,10 @@ public class EnemyAttributes : MonoBehaviour
     public GameObject healthPotion;
     public GameObject manaPotion;
 
-    // AI Script
-    public EnemyAI enemyAI;
-    public byte boss;
-
     // Getting the original sprite color
     void Start(){
         originalColor = renderer.color;
-        healthBar.SetMaxHealth(maxHealth);
+        //healthBar.SetMaxHealth(maxHealth);
     }
 
     // Making the sprite red
@@ -51,9 +47,6 @@ public class EnemyAttributes : MonoBehaviour
 
     // If the enemy is hit, they take damage
     public void TakeDamage(int damage){
-
-        // Getting boss val
-        boss = enemyAI.boss;
 
         // Removes damage from health
         health -= damage;
@@ -71,29 +64,10 @@ public class EnemyAttributes : MonoBehaviour
             FindObjectOfType<AudioManager>().Play(HitSound);
             animator.SetTrigger("isHit");
         }
-
-        if(boss > 0){
-            // Determines if an enemy drops an item or not
-            var rand = new System.Random();
-            int num = rand.Next(1,16);
-            Debug.Log("CHANCE: " + num);
-
-            if(num < 2){
-                num = rand.Next(1,3);
-
-                if(num > 1){
-                    // Potion is placed where the enemy dies
-                    Instantiate(healthPotion, transform.position, transform.rotation);
-                }else{
-                    // Potion is placed where the enemy dies
-                    Instantiate(manaPotion, transform.position, transform.rotation);
-                }
-            }
-        }
     }
 
     void FixedUpdate(){
-        healthBar.SetHealth(health);
+        //healthBar.SetHealth(health);
     }
 
     // Enemy plays dead animation, and is removed from the scene
