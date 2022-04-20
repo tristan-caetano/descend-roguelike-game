@@ -85,17 +85,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8074dc491ddc34f4e83332d9eae76980, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Position: {x: 754, y: 346}
+  Position: {x: 753, y: 346}
   Name: L2Room
   IndividualRoomTemplates:
-  - {fileID: 6401863802428127048, guid: dd45223f2158d9149bc67d621a76f76c, type: 3}
-  - {fileID: 3764683038888899721, guid: 00492e15b3f64cd4f8cb60884304ae0a, type: 3}
   - {fileID: 260391035515577735, guid: d5ac84ef82d7ede4484be714a68362de, type: 3}
   - {fileID: 5330620436600287782, guid: 7249f475f2af5204e834d79fc86a88dc, type: 3}
   - {fileID: 1174156584323986150, guid: f6a01ef2a5f39f146bc587fb21779960, type: 3}
-  - {fileID: 1731155399286357730, guid: 58b64d0130cbd6e4796ec54b673f98ff, type: 3}
-  - {fileID: 709836743867282808, guid: 4af16681ff1ac8e4a9811904ca6a766f, type: 3}
-  - {fileID: 7366578286043125562, guid: d35701ce4fa91b44bb2cde6ec3ec7479, type: 3}
   RoomTemplateSets: []
 --- !u!114 &-7511348763158378355
 MonoBehaviour:
@@ -112,10 +107,6 @@ MonoBehaviour:
   Position: {x: 101, y: 61}
   Name: L1Room
   IndividualRoomTemplates:
-  - {fileID: 9085269301535886878, guid: 7fd01cc64534b2e4497782f6adc3e914, type: 3}
-  - {fileID: 1280679948544591850, guid: 97a7a8b33c1ceb74f9e6d0e3a7e09b3e, type: 3}
-  - {fileID: 8695736506244458332, guid: 23501212996a27443b424c2d2bb383c3, type: 3}
-  - {fileID: 6445084285471483537, guid: bacb3a1cbcafa2d438a2f43ed02e295f, type: 3}
   - {fileID: 4094954845790842966, guid: 7e5cd81c4733fd94eaa5226a9bb6a3e9, type: 3}
   - {fileID: 4875395942943355244, guid: 4a39ef814824cdc45a9a19c97fa7546b, type: 3}
   - {fileID: 6683367630947189595, guid: a75349cf218046e4494c50ac8a712874, type: 3}
@@ -189,15 +180,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8074dc491ddc34f4e83332d9eae76980, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Position: {x: 226, y: 529}
+  Position: {x: 225, y: 528}
   Name: L1Room
   IndividualRoomTemplates:
   - {fileID: 9085269301535886878, guid: 7fd01cc64534b2e4497782f6adc3e914, type: 3}
-  - {fileID: 1280679948544591850, guid: 97a7a8b33c1ceb74f9e6d0e3a7e09b3e, type: 3}
-  - {fileID: 8695736506244458332, guid: 23501212996a27443b424c2d2bb383c3, type: 3}
-  - {fileID: 6445084285471483537, guid: bacb3a1cbcafa2d438a2f43ed02e295f, type: 3}
-  - {fileID: 4094954845790842966, guid: 7e5cd81c4733fd94eaa5226a9bb6a3e9, type: 3}
-  - {fileID: 4875395942943355244, guid: 4a39ef814824cdc45a9a19c97fa7546b, type: 3}
   - {fileID: 6683367630947189595, guid: a75349cf218046e4494c50ac8a712874, type: 3}
   - {fileID: 4747604798054361566, guid: e6aaea1a363be1b4aa566c970501866d, type: 3}
   RoomTemplateSets: []
@@ -230,8 +216,6 @@ MonoBehaviour:
   Position: {x: 1326, y: 162}
   Name: L3Room
   IndividualRoomTemplates:
-  - {fileID: 1637133367158706987, guid: a4c362542ff01d643bc92532553a4f7b, type: 3}
-  - {fileID: 8726923651504133261, guid: b424d20766788aa46b491e51e36f3373, type: 3}
   - {fileID: 639796352199755007, guid: 8d8d72c68d9903e458da19549d008b17, type: 3}
   - {fileID: 4766261116092495508, guid: 295e3b6346b1bc240831c8092ef9d833, type: 3}
   RoomTemplateSets: []
@@ -250,14 +234,9 @@ MonoBehaviour:
   Position: {x: 703, y: 711}
   Name: L2Room
   IndividualRoomTemplates:
-  - {fileID: 6401863802428127048, guid: dd45223f2158d9149bc67d621a76f76c, type: 3}
-  - {fileID: 3764683038888899721, guid: 00492e15b3f64cd4f8cb60884304ae0a, type: 3}
-  - {fileID: 260391035515577735, guid: d5ac84ef82d7ede4484be714a68362de, type: 3}
   - {fileID: 5330620436600287782, guid: 7249f475f2af5204e834d79fc86a88dc, type: 3}
   - {fileID: 1174156584323986150, guid: f6a01ef2a5f39f146bc587fb21779960, type: 3}
   - {fileID: 1731155399286357730, guid: 58b64d0130cbd6e4796ec54b673f98ff, type: 3}
-  - {fileID: 709836743867282808, guid: 4af16681ff1ac8e4a9811904ca6a766f, type: 3}
-  - {fileID: 7366578286043125562, guid: d35701ce4fa91b44bb2cde6ec3ec7479, type: 3}
   RoomTemplateSets: []
 --- !u!114 &-5955045733234741653
 MonoBehaviour:
@@ -293,8 +272,6 @@ MonoBehaviour:
   IndividualRoomTemplates:
   - {fileID: 1637133367158706987, guid: a4c362542ff01d643bc92532553a4f7b, type: 3}
   - {fileID: 8726923651504133261, guid: b424d20766788aa46b491e51e36f3373, type: 3}
-  - {fileID: 639796352199755007, guid: 8d8d72c68d9903e458da19549d008b17, type: 3}
-  - {fileID: 4766261116092495508, guid: 295e3b6346b1bc240831c8092ef9d833, type: 3}
   RoomTemplateSets: []
 --- !u!114 &-5776399274964681053
 MonoBehaviour:
@@ -355,12 +332,7 @@ MonoBehaviour:
   IndividualRoomTemplates:
   - {fileID: 6401863802428127048, guid: dd45223f2158d9149bc67d621a76f76c, type: 3}
   - {fileID: 3764683038888899721, guid: 00492e15b3f64cd4f8cb60884304ae0a, type: 3}
-  - {fileID: 260391035515577735, guid: d5ac84ef82d7ede4484be714a68362de, type: 3}
-  - {fileID: 5330620436600287782, guid: 7249f475f2af5204e834d79fc86a88dc, type: 3}
-  - {fileID: 1174156584323986150, guid: f6a01ef2a5f39f146bc587fb21779960, type: 3}
-  - {fileID: 1731155399286357730, guid: 58b64d0130cbd6e4796ec54b673f98ff, type: 3}
   - {fileID: 709836743867282808, guid: 4af16681ff1ac8e4a9811904ca6a766f, type: 3}
-  - {fileID: 7366578286043125562, guid: d35701ce4fa91b44bb2cde6ec3ec7479, type: 3}
   RoomTemplateSets: []
 --- !u!114 &-5202568624812857075
 MonoBehaviour:
@@ -378,11 +350,6 @@ MonoBehaviour:
   Name: L1Room
   IndividualRoomTemplates:
   - {fileID: 9085269301535886878, guid: 7fd01cc64534b2e4497782f6adc3e914, type: 3}
-  - {fileID: 1280679948544591850, guid: 97a7a8b33c1ceb74f9e6d0e3a7e09b3e, type: 3}
-  - {fileID: 8695736506244458332, guid: 23501212996a27443b424c2d2bb383c3, type: 3}
-  - {fileID: 6445084285471483537, guid: bacb3a1cbcafa2d438a2f43ed02e295f, type: 3}
-  - {fileID: 4094954845790842966, guid: 7e5cd81c4733fd94eaa5226a9bb6a3e9, type: 3}
-  - {fileID: 4875395942943355244, guid: 4a39ef814824cdc45a9a19c97fa7546b, type: 3}
   - {fileID: 6683367630947189595, guid: a75349cf218046e4494c50ac8a712874, type: 3}
   - {fileID: 4747604798054361566, guid: e6aaea1a363be1b4aa566c970501866d, type: 3}
   RoomTemplateSets: []
@@ -432,11 +399,6 @@ MonoBehaviour:
   - {fileID: 9085269301535886878, guid: 7fd01cc64534b2e4497782f6adc3e914, type: 3}
   - {fileID: 1280679948544591850, guid: 97a7a8b33c1ceb74f9e6d0e3a7e09b3e, type: 3}
   - {fileID: 8695736506244458332, guid: 23501212996a27443b424c2d2bb383c3, type: 3}
-  - {fileID: 6445084285471483537, guid: bacb3a1cbcafa2d438a2f43ed02e295f, type: 3}
-  - {fileID: 4094954845790842966, guid: 7e5cd81c4733fd94eaa5226a9bb6a3e9, type: 3}
-  - {fileID: 4875395942943355244, guid: 4a39ef814824cdc45a9a19c97fa7546b, type: 3}
-  - {fileID: 6683367630947189595, guid: a75349cf218046e4494c50ac8a712874, type: 3}
-  - {fileID: 4747604798054361566, guid: e6aaea1a363be1b4aa566c970501866d, type: 3}
   RoomTemplateSets: []
 --- !u!114 &-4523244353084402743
 MonoBehaviour:
@@ -469,8 +431,6 @@ MonoBehaviour:
   IndividualRoomTemplates:
   - {fileID: 1637133367158706987, guid: a4c362542ff01d643bc92532553a4f7b, type: 3}
   - {fileID: 8726923651504133261, guid: b424d20766788aa46b491e51e36f3373, type: 3}
-  - {fileID: 639796352199755007, guid: 8d8d72c68d9903e458da19549d008b17, type: 3}
-  - {fileID: 4766261116092495508, guid: 295e3b6346b1bc240831c8092ef9d833, type: 3}
   RoomTemplateSets: []
 --- !u!114 &-4099492225784750499
 MonoBehaviour:
@@ -487,14 +447,9 @@ MonoBehaviour:
   Position: {x: 781, y: 215}
   Name: L2Room
   IndividualRoomTemplates:
-  - {fileID: 6401863802428127048, guid: dd45223f2158d9149bc67d621a76f76c, type: 3}
-  - {fileID: 3764683038888899721, guid: 00492e15b3f64cd4f8cb60884304ae0a, type: 3}
-  - {fileID: 260391035515577735, guid: d5ac84ef82d7ede4484be714a68362de, type: 3}
   - {fileID: 5330620436600287782, guid: 7249f475f2af5204e834d79fc86a88dc, type: 3}
   - {fileID: 1174156584323986150, guid: f6a01ef2a5f39f146bc587fb21779960, type: 3}
   - {fileID: 1731155399286357730, guid: 58b64d0130cbd6e4796ec54b673f98ff, type: 3}
-  - {fileID: 709836743867282808, guid: 4af16681ff1ac8e4a9811904ca6a766f, type: 3}
-  - {fileID: 7366578286043125562, guid: d35701ce4fa91b44bb2cde6ec3ec7479, type: 3}
   RoomTemplateSets: []
 --- !u!114 &-4060707113930504485
 MonoBehaviour:
@@ -511,14 +466,9 @@ MonoBehaviour:
   Position: {x: 85, y: 619}
   Name: L1Room
   IndividualRoomTemplates:
-  - {fileID: 9085269301535886878, guid: 7fd01cc64534b2e4497782f6adc3e914, type: 3}
-  - {fileID: 1280679948544591850, guid: 97a7a8b33c1ceb74f9e6d0e3a7e09b3e, type: 3}
-  - {fileID: 8695736506244458332, guid: 23501212996a27443b424c2d2bb383c3, type: 3}
   - {fileID: 6445084285471483537, guid: bacb3a1cbcafa2d438a2f43ed02e295f, type: 3}
   - {fileID: 4094954845790842966, guid: 7e5cd81c4733fd94eaa5226a9bb6a3e9, type: 3}
   - {fileID: 4875395942943355244, guid: 4a39ef814824cdc45a9a19c97fa7546b, type: 3}
-  - {fileID: 6683367630947189595, guid: a75349cf218046e4494c50ac8a712874, type: 3}
-  - {fileID: 4747604798054361566, guid: e6aaea1a363be1b4aa566c970501866d, type: 3}
   RoomTemplateSets: []
 --- !u!114 &-4014448099595185536
 MonoBehaviour:
@@ -535,8 +485,6 @@ MonoBehaviour:
   Position: {x: 1161, y: 150}
   Name: L3Room
   IndividualRoomTemplates:
-  - {fileID: 1637133367158706987, guid: a4c362542ff01d643bc92532553a4f7b, type: 3}
-  - {fileID: 8726923651504133261, guid: b424d20766788aa46b491e51e36f3373, type: 3}
   - {fileID: 639796352199755007, guid: 8d8d72c68d9903e458da19549d008b17, type: 3}
   - {fileID: 4766261116092495508, guid: 295e3b6346b1bc240831c8092ef9d833, type: 3}
   RoomTemplateSets: []
@@ -555,11 +503,6 @@ MonoBehaviour:
   Position: {x: 222, y: 132}
   Name: L1Room
   IndividualRoomTemplates:
-  - {fileID: 9085269301535886878, guid: 7fd01cc64534b2e4497782f6adc3e914, type: 3}
-  - {fileID: 1280679948544591850, guid: 97a7a8b33c1ceb74f9e6d0e3a7e09b3e, type: 3}
-  - {fileID: 8695736506244458332, guid: 23501212996a27443b424c2d2bb383c3, type: 3}
-  - {fileID: 6445084285471483537, guid: bacb3a1cbcafa2d438a2f43ed02e295f, type: 3}
-  - {fileID: 4094954845790842966, guid: 7e5cd81c4733fd94eaa5226a9bb6a3e9, type: 3}
   - {fileID: 4875395942943355244, guid: 4a39ef814824cdc45a9a19c97fa7546b, type: 3}
   - {fileID: 6683367630947189595, guid: a75349cf218046e4494c50ac8a712874, type: 3}
   - {fileID: 4747604798054361566, guid: e6aaea1a363be1b4aa566c970501866d, type: 3}
@@ -604,13 +547,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8074dc491ddc34f4e83332d9eae76980, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Position: {x: 1166, y: 206}
+  Position: {x: 1165, y: 206}
   Name: L3Room
   IndividualRoomTemplates:
   - {fileID: 1637133367158706987, guid: a4c362542ff01d643bc92532553a4f7b, type: 3}
   - {fileID: 8726923651504133261, guid: b424d20766788aa46b491e51e36f3373, type: 3}
-  - {fileID: 639796352199755007, guid: 8d8d72c68d9903e458da19549d008b17, type: 3}
-  - {fileID: 4766261116092495508, guid: 295e3b6346b1bc240831c8092ef9d833, type: 3}
   RoomTemplateSets: []
 --- !u!114 &-3512425328471898654
 MonoBehaviour:
@@ -700,14 +641,9 @@ MonoBehaviour:
   Position: {x: 583, y: 351}
   Name: L2Room
   IndividualRoomTemplates:
-  - {fileID: 6401863802428127048, guid: dd45223f2158d9149bc67d621a76f76c, type: 3}
-  - {fileID: 3764683038888899721, guid: 00492e15b3f64cd4f8cb60884304ae0a, type: 3}
   - {fileID: 260391035515577735, guid: d5ac84ef82d7ede4484be714a68362de, type: 3}
   - {fileID: 5330620436600287782, guid: 7249f475f2af5204e834d79fc86a88dc, type: 3}
   - {fileID: 1174156584323986150, guid: f6a01ef2a5f39f146bc587fb21779960, type: 3}
-  - {fileID: 1731155399286357730, guid: 58b64d0130cbd6e4796ec54b673f98ff, type: 3}
-  - {fileID: 709836743867282808, guid: 4af16681ff1ac8e4a9811904ca6a766f, type: 3}
-  - {fileID: 7366578286043125562, guid: d35701ce4fa91b44bb2cde6ec3ec7479, type: 3}
   RoomTemplateSets: []
 --- !u!114 &-3172582804238782611
 MonoBehaviour:
@@ -752,8 +688,6 @@ MonoBehaviour:
   Position: {x: 1106, y: 629}
   Name: L3Room
   IndividualRoomTemplates:
-  - {fileID: 1637133367158706987, guid: a4c362542ff01d643bc92532553a4f7b, type: 3}
-  - {fileID: 8726923651504133261, guid: b424d20766788aa46b491e51e36f3373, type: 3}
   - {fileID: 639796352199755007, guid: 8d8d72c68d9903e458da19549d008b17, type: 3}
   - {fileID: 4766261116092495508, guid: 295e3b6346b1bc240831c8092ef9d833, type: 3}
   RoomTemplateSets: []
@@ -769,13 +703,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8074dc491ddc34f4e83332d9eae76980, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Position: {x: 1139, y: 91}
+  Position: {x: 1138, y: 91}
   Name: L3Room
   IndividualRoomTemplates:
   - {fileID: 1637133367158706987, guid: a4c362542ff01d643bc92532553a4f7b, type: 3}
   - {fileID: 8726923651504133261, guid: b424d20766788aa46b491e51e36f3373, type: 3}
-  - {fileID: 639796352199755007, guid: 8d8d72c68d9903e458da19549d008b17, type: 3}
-  - {fileID: 4766261116092495508, guid: 295e3b6346b1bc240831c8092ef9d833, type: 3}
   RoomTemplateSets: []
 --- !u!114 &-2736134654651797504
 MonoBehaviour:
@@ -822,11 +754,6 @@ MonoBehaviour:
   IndividualRoomTemplates:
   - {fileID: 9085269301535886878, guid: 7fd01cc64534b2e4497782f6adc3e914, type: 3}
   - {fileID: 1280679948544591850, guid: 97a7a8b33c1ceb74f9e6d0e3a7e09b3e, type: 3}
-  - {fileID: 8695736506244458332, guid: 23501212996a27443b424c2d2bb383c3, type: 3}
-  - {fileID: 6445084285471483537, guid: bacb3a1cbcafa2d438a2f43ed02e295f, type: 3}
-  - {fileID: 4094954845790842966, guid: 7e5cd81c4733fd94eaa5226a9bb6a3e9, type: 3}
-  - {fileID: 4875395942943355244, guid: 4a39ef814824cdc45a9a19c97fa7546b, type: 3}
-  - {fileID: 6683367630947189595, guid: a75349cf218046e4494c50ac8a712874, type: 3}
   - {fileID: 4747604798054361566, guid: e6aaea1a363be1b4aa566c970501866d, type: 3}
   RoomTemplateSets: []
 --- !u!114 &-2309770698386096139
@@ -844,14 +771,9 @@ MonoBehaviour:
   Position: {x: 324, y: 364}
   Name: L1Room
   IndividualRoomTemplates:
-  - {fileID: 9085269301535886878, guid: 7fd01cc64534b2e4497782f6adc3e914, type: 3}
-  - {fileID: 1280679948544591850, guid: 97a7a8b33c1ceb74f9e6d0e3a7e09b3e, type: 3}
-  - {fileID: 8695736506244458332, guid: 23501212996a27443b424c2d2bb383c3, type: 3}
-  - {fileID: 6445084285471483537, guid: bacb3a1cbcafa2d438a2f43ed02e295f, type: 3}
   - {fileID: 4094954845790842966, guid: 7e5cd81c4733fd94eaa5226a9bb6a3e9, type: 3}
   - {fileID: 4875395942943355244, guid: 4a39ef814824cdc45a9a19c97fa7546b, type: 3}
   - {fileID: 6683367630947189595, guid: a75349cf218046e4494c50ac8a712874, type: 3}
-  - {fileID: 4747604798054361566, guid: e6aaea1a363be1b4aa566c970501866d, type: 3}
   RoomTemplateSets: []
 --- !u!114 &-2182907049594700247
 MonoBehaviour:
@@ -885,8 +807,6 @@ MonoBehaviour:
   Position: {x: 1029, y: 501}
   Name: L3Room
   IndividualRoomTemplates:
-  - {fileID: 1637133367158706987, guid: a4c362542ff01d643bc92532553a4f7b, type: 3}
-  - {fileID: 8726923651504133261, guid: b424d20766788aa46b491e51e36f3373, type: 3}
   - {fileID: 639796352199755007, guid: 8d8d72c68d9903e458da19549d008b17, type: 3}
   - {fileID: 4766261116092495508, guid: 295e3b6346b1bc240831c8092ef9d833, type: 3}
   RoomTemplateSets: []
@@ -922,8 +842,6 @@ MonoBehaviour:
   Position: {x: 1174, y: 512}
   Name: L3Room
   IndividualRoomTemplates:
-  - {fileID: 1637133367158706987, guid: a4c362542ff01d643bc92532553a4f7b, type: 3}
-  - {fileID: 8726923651504133261, guid: b424d20766788aa46b491e51e36f3373, type: 3}
   - {fileID: 639796352199755007, guid: 8d8d72c68d9903e458da19549d008b17, type: 3}
   - {fileID: 4766261116092495508, guid: 295e3b6346b1bc240831c8092ef9d833, type: 3}
   RoomTemplateSets: []
@@ -944,12 +862,7 @@ MonoBehaviour:
   IndividualRoomTemplates:
   - {fileID: 6401863802428127048, guid: dd45223f2158d9149bc67d621a76f76c, type: 3}
   - {fileID: 3764683038888899721, guid: 00492e15b3f64cd4f8cb60884304ae0a, type: 3}
-  - {fileID: 260391035515577735, guid: d5ac84ef82d7ede4484be714a68362de, type: 3}
-  - {fileID: 5330620436600287782, guid: 7249f475f2af5204e834d79fc86a88dc, type: 3}
-  - {fileID: 1174156584323986150, guid: f6a01ef2a5f39f146bc587fb21779960, type: 3}
-  - {fileID: 1731155399286357730, guid: 58b64d0130cbd6e4796ec54b673f98ff, type: 3}
   - {fileID: 709836743867282808, guid: 4af16681ff1ac8e4a9811904ca6a766f, type: 3}
-  - {fileID: 7366578286043125562, guid: d35701ce4fa91b44bb2cde6ec3ec7479, type: 3}
   RoomTemplateSets: []
 --- !u!114 &-1344518760654162088
 MonoBehaviour:
@@ -981,13 +894,8 @@ MonoBehaviour:
   Name: L2Room
   IndividualRoomTemplates:
   - {fileID: 6401863802428127048, guid: dd45223f2158d9149bc67d621a76f76c, type: 3}
-  - {fileID: 3764683038888899721, guid: 00492e15b3f64cd4f8cb60884304ae0a, type: 3}
-  - {fileID: 260391035515577735, guid: d5ac84ef82d7ede4484be714a68362de, type: 3}
-  - {fileID: 5330620436600287782, guid: 7249f475f2af5204e834d79fc86a88dc, type: 3}
-  - {fileID: 1174156584323986150, guid: f6a01ef2a5f39f146bc587fb21779960, type: 3}
   - {fileID: 1731155399286357730, guid: 58b64d0130cbd6e4796ec54b673f98ff, type: 3}
   - {fileID: 709836743867282808, guid: 4af16681ff1ac8e4a9811904ca6a766f, type: 3}
-  - {fileID: 7366578286043125562, guid: d35701ce4fa91b44bb2cde6ec3ec7479, type: 3}
   RoomTemplateSets: []
 --- !u!114 &-794499402785070475
 MonoBehaviour:
@@ -1018,14 +926,9 @@ MonoBehaviour:
   Position: {x: 859, y: 709}
   Name: L2Room
   IndividualRoomTemplates:
-  - {fileID: 6401863802428127048, guid: dd45223f2158d9149bc67d621a76f76c, type: 3}
-  - {fileID: 3764683038888899721, guid: 00492e15b3f64cd4f8cb60884304ae0a, type: 3}
-  - {fileID: 260391035515577735, guid: d5ac84ef82d7ede4484be714a68362de, type: 3}
   - {fileID: 5330620436600287782, guid: 7249f475f2af5204e834d79fc86a88dc, type: 3}
   - {fileID: 1174156584323986150, guid: f6a01ef2a5f39f146bc587fb21779960, type: 3}
   - {fileID: 1731155399286357730, guid: 58b64d0130cbd6e4796ec54b673f98ff, type: 3}
-  - {fileID: 709836743867282808, guid: 4af16681ff1ac8e4a9811904ca6a766f, type: 3}
-  - {fileID: 7366578286043125562, guid: d35701ce4fa91b44bb2cde6ec3ec7479, type: 3}
   RoomTemplateSets: []
 --- !u!114 &-581456460165506641
 MonoBehaviour:
@@ -1289,14 +1192,9 @@ MonoBehaviour:
   Position: {x: 244, y: 616}
   Name: L1Room
   IndividualRoomTemplates:
-  - {fileID: 9085269301535886878, guid: 7fd01cc64534b2e4497782f6adc3e914, type: 3}
-  - {fileID: 1280679948544591850, guid: 97a7a8b33c1ceb74f9e6d0e3a7e09b3e, type: 3}
-  - {fileID: 8695736506244458332, guid: 23501212996a27443b424c2d2bb383c3, type: 3}
   - {fileID: 6445084285471483537, guid: bacb3a1cbcafa2d438a2f43ed02e295f, type: 3}
   - {fileID: 4094954845790842966, guid: 7e5cd81c4733fd94eaa5226a9bb6a3e9, type: 3}
   - {fileID: 4875395942943355244, guid: 4a39ef814824cdc45a9a19c97fa7546b, type: 3}
-  - {fileID: 6683367630947189595, guid: a75349cf218046e4494c50ac8a712874, type: 3}
-  - {fileID: 4747604798054361566, guid: e6aaea1a363be1b4aa566c970501866d, type: 3}
   RoomTemplateSets: []
 --- !u!114 &414787841812792901
 MonoBehaviour:
@@ -1377,8 +1275,6 @@ MonoBehaviour:
   IndividualRoomTemplates:
   - {fileID: 1637133367158706987, guid: a4c362542ff01d643bc92532553a4f7b, type: 3}
   - {fileID: 8726923651504133261, guid: b424d20766788aa46b491e51e36f3373, type: 3}
-  - {fileID: 639796352199755007, guid: 8d8d72c68d9903e458da19549d008b17, type: 3}
-  - {fileID: 4766261116092495508, guid: 295e3b6346b1bc240831c8092ef9d833, type: 3}
   RoomTemplateSets: []
 --- !u!114 &1444917957028126964
 MonoBehaviour:
@@ -1423,8 +1319,6 @@ MonoBehaviour:
   Position: {x: 1096, y: 366}
   Name: L3Room
   IndividualRoomTemplates:
-  - {fileID: 1637133367158706987, guid: a4c362542ff01d643bc92532553a4f7b, type: 3}
-  - {fileID: 8726923651504133261, guid: b424d20766788aa46b491e51e36f3373, type: 3}
   - {fileID: 639796352199755007, guid: 8d8d72c68d9903e458da19549d008b17, type: 3}
   - {fileID: 4766261116092495508, guid: 295e3b6346b1bc240831c8092ef9d833, type: 3}
   RoomTemplateSets: []
@@ -1458,13 +1352,8 @@ MonoBehaviour:
   Name: L2Room
   IndividualRoomTemplates:
   - {fileID: 6401863802428127048, guid: dd45223f2158d9149bc67d621a76f76c, type: 3}
-  - {fileID: 3764683038888899721, guid: 00492e15b3f64cd4f8cb60884304ae0a, type: 3}
-  - {fileID: 260391035515577735, guid: d5ac84ef82d7ede4484be714a68362de, type: 3}
-  - {fileID: 5330620436600287782, guid: 7249f475f2af5204e834d79fc86a88dc, type: 3}
-  - {fileID: 1174156584323986150, guid: f6a01ef2a5f39f146bc587fb21779960, type: 3}
   - {fileID: 1731155399286357730, guid: 58b64d0130cbd6e4796ec54b673f98ff, type: 3}
   - {fileID: 709836743867282808, guid: 4af16681ff1ac8e4a9811904ca6a766f, type: 3}
-  - {fileID: 7366578286043125562, guid: d35701ce4fa91b44bb2cde6ec3ec7479, type: 3}
   RoomTemplateSets: []
 --- !u!114 &2174232544914695474
 MonoBehaviour:
@@ -1540,14 +1429,9 @@ MonoBehaviour:
   Position: {x: 603, y: 207}
   Name: L2Room
   IndividualRoomTemplates:
-  - {fileID: 6401863802428127048, guid: dd45223f2158d9149bc67d621a76f76c, type: 3}
-  - {fileID: 3764683038888899721, guid: 00492e15b3f64cd4f8cb60884304ae0a, type: 3}
-  - {fileID: 260391035515577735, guid: d5ac84ef82d7ede4484be714a68362de, type: 3}
   - {fileID: 5330620436600287782, guid: 7249f475f2af5204e834d79fc86a88dc, type: 3}
   - {fileID: 1174156584323986150, guid: f6a01ef2a5f39f146bc587fb21779960, type: 3}
   - {fileID: 1731155399286357730, guid: 58b64d0130cbd6e4796ec54b673f98ff, type: 3}
-  - {fileID: 709836743867282808, guid: 4af16681ff1ac8e4a9811904ca6a766f, type: 3}
-  - {fileID: 7366578286043125562, guid: d35701ce4fa91b44bb2cde6ec3ec7479, type: 3}
   RoomTemplateSets: []
 --- !u!114 &3757145433254428200
 MonoBehaviour:
@@ -1617,17 +1501,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8074dc491ddc34f4e83332d9eae76980, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Position: {x: 217, y: 64}
+  Position: {x: 217, y: 63}
   Name: L1Room
   IndividualRoomTemplates:
   - {fileID: 9085269301535886878, guid: 7fd01cc64534b2e4497782f6adc3e914, type: 3}
   - {fileID: 1280679948544591850, guid: 97a7a8b33c1ceb74f9e6d0e3a7e09b3e, type: 3}
   - {fileID: 8695736506244458332, guid: 23501212996a27443b424c2d2bb383c3, type: 3}
   - {fileID: 6445084285471483537, guid: bacb3a1cbcafa2d438a2f43ed02e295f, type: 3}
-  - {fileID: 4094954845790842966, guid: 7e5cd81c4733fd94eaa5226a9bb6a3e9, type: 3}
-  - {fileID: 4875395942943355244, guid: 4a39ef814824cdc45a9a19c97fa7546b, type: 3}
-  - {fileID: 6683367630947189595, guid: a75349cf218046e4494c50ac8a712874, type: 3}
-  - {fileID: 4747604798054361566, guid: e6aaea1a363be1b4aa566c970501866d, type: 3}
   RoomTemplateSets: []
 --- !u!114 &4184685370295930055
 MonoBehaviour:
@@ -1655,17 +1535,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8074dc491ddc34f4e83332d9eae76980, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Position: {x: 701, y: 139}
+  Position: {x: 700, y: 139}
   Name: L2Room
   IndividualRoomTemplates:
   - {fileID: 6401863802428127048, guid: dd45223f2158d9149bc67d621a76f76c, type: 3}
   - {fileID: 3764683038888899721, guid: 00492e15b3f64cd4f8cb60884304ae0a, type: 3}
   - {fileID: 260391035515577735, guid: d5ac84ef82d7ede4484be714a68362de, type: 3}
-  - {fileID: 5330620436600287782, guid: 7249f475f2af5204e834d79fc86a88dc, type: 3}
-  - {fileID: 1174156584323986150, guid: f6a01ef2a5f39f146bc587fb21779960, type: 3}
-  - {fileID: 1731155399286357730, guid: 58b64d0130cbd6e4796ec54b673f98ff, type: 3}
-  - {fileID: 709836743867282808, guid: 4af16681ff1ac8e4a9811904ca6a766f, type: 3}
-  - {fileID: 7366578286043125562, guid: d35701ce4fa91b44bb2cde6ec3ec7479, type: 3}
   RoomTemplateSets: []
 --- !u!114 &4227925068284183402
 MonoBehaviour:
@@ -1710,14 +1585,9 @@ MonoBehaviour:
   Position: {x: 71, y: 457}
   Name: L1Room
   IndividualRoomTemplates:
-  - {fileID: 9085269301535886878, guid: 7fd01cc64534b2e4497782f6adc3e914, type: 3}
   - {fileID: 1280679948544591850, guid: 97a7a8b33c1ceb74f9e6d0e3a7e09b3e, type: 3}
   - {fileID: 8695736506244458332, guid: 23501212996a27443b424c2d2bb383c3, type: 3}
   - {fileID: 6445084285471483537, guid: bacb3a1cbcafa2d438a2f43ed02e295f, type: 3}
-  - {fileID: 4094954845790842966, guid: 7e5cd81c4733fd94eaa5226a9bb6a3e9, type: 3}
-  - {fileID: 4875395942943355244, guid: 4a39ef814824cdc45a9a19c97fa7546b, type: 3}
-  - {fileID: 6683367630947189595, guid: a75349cf218046e4494c50ac8a712874, type: 3}
-  - {fileID: 4747604798054361566, guid: e6aaea1a363be1b4aa566c970501866d, type: 3}
   RoomTemplateSets: []
 --- !u!114 &5027866127666979020
 MonoBehaviour:
@@ -1734,8 +1604,6 @@ MonoBehaviour:
   Position: {x: 1251, y: 267}
   Name: L3Room
   IndividualRoomTemplates:
-  - {fileID: 1637133367158706987, guid: a4c362542ff01d643bc92532553a4f7b, type: 3}
-  - {fileID: 8726923651504133261, guid: b424d20766788aa46b491e51e36f3373, type: 3}
   - {fileID: 639796352199755007, guid: 8d8d72c68d9903e458da19549d008b17, type: 3}
   - {fileID: 4766261116092495508, guid: 295e3b6346b1bc240831c8092ef9d833, type: 3}
   RoomTemplateSets: []
@@ -1774,11 +1642,6 @@ MonoBehaviour:
   - {fileID: 6401863802428127048, guid: dd45223f2158d9149bc67d621a76f76c, type: 3}
   - {fileID: 3764683038888899721, guid: 00492e15b3f64cd4f8cb60884304ae0a, type: 3}
   - {fileID: 260391035515577735, guid: d5ac84ef82d7ede4484be714a68362de, type: 3}
-  - {fileID: 5330620436600287782, guid: 7249f475f2af5204e834d79fc86a88dc, type: 3}
-  - {fileID: 1174156584323986150, guid: f6a01ef2a5f39f146bc587fb21779960, type: 3}
-  - {fileID: 1731155399286357730, guid: 58b64d0130cbd6e4796ec54b673f98ff, type: 3}
-  - {fileID: 709836743867282808, guid: 4af16681ff1ac8e4a9811904ca6a766f, type: 3}
-  - {fileID: 7366578286043125562, guid: d35701ce4fa91b44bb2cde6ec3ec7479, type: 3}
   RoomTemplateSets: []
 --- !u!114 &5519397557304831973
 MonoBehaviour:
@@ -1795,14 +1658,9 @@ MonoBehaviour:
   Position: {x: 816, y: 563}
   Name: L2Room
   IndividualRoomTemplates:
-  - {fileID: 6401863802428127048, guid: dd45223f2158d9149bc67d621a76f76c, type: 3}
-  - {fileID: 3764683038888899721, guid: 00492e15b3f64cd4f8cb60884304ae0a, type: 3}
-  - {fileID: 260391035515577735, guid: d5ac84ef82d7ede4484be714a68362de, type: 3}
-  - {fileID: 5330620436600287782, guid: 7249f475f2af5204e834d79fc86a88dc, type: 3}
   - {fileID: 1174156584323986150, guid: f6a01ef2a5f39f146bc587fb21779960, type: 3}
   - {fileID: 1731155399286357730, guid: 58b64d0130cbd6e4796ec54b673f98ff, type: 3}
   - {fileID: 709836743867282808, guid: 4af16681ff1ac8e4a9811904ca6a766f, type: 3}
-  - {fileID: 7366578286043125562, guid: d35701ce4fa91b44bb2cde6ec3ec7479, type: 3}
   RoomTemplateSets: []
 --- !u!114 &5583631043176609271
 MonoBehaviour:
@@ -1849,12 +1707,7 @@ MonoBehaviour:
   IndividualRoomTemplates:
   - {fileID: 6401863802428127048, guid: dd45223f2158d9149bc67d621a76f76c, type: 3}
   - {fileID: 3764683038888899721, guid: 00492e15b3f64cd4f8cb60884304ae0a, type: 3}
-  - {fileID: 260391035515577735, guid: d5ac84ef82d7ede4484be714a68362de, type: 3}
-  - {fileID: 5330620436600287782, guid: 7249f475f2af5204e834d79fc86a88dc, type: 3}
-  - {fileID: 1174156584323986150, guid: f6a01ef2a5f39f146bc587fb21779960, type: 3}
-  - {fileID: 1731155399286357730, guid: 58b64d0130cbd6e4796ec54b673f98ff, type: 3}
   - {fileID: 709836743867282808, guid: 4af16681ff1ac8e4a9811904ca6a766f, type: 3}
-  - {fileID: 7366578286043125562, guid: d35701ce4fa91b44bb2cde6ec3ec7479, type: 3}
   RoomTemplateSets: []
 --- !u!114 &5898998413181809785
 MonoBehaviour:
@@ -1887,8 +1740,6 @@ MonoBehaviour:
   IndividualRoomTemplates:
   - {fileID: 1637133367158706987, guid: a4c362542ff01d643bc92532553a4f7b, type: 3}
   - {fileID: 8726923651504133261, guid: b424d20766788aa46b491e51e36f3373, type: 3}
-  - {fileID: 639796352199755007, guid: 8d8d72c68d9903e458da19549d008b17, type: 3}
-  - {fileID: 4766261116092495508, guid: 295e3b6346b1bc240831c8092ef9d833, type: 3}
   RoomTemplateSets: []
 --- !u!114 &6538602864811399751
 MonoBehaviour:
@@ -1952,8 +1803,6 @@ MonoBehaviour:
   IndividualRoomTemplates:
   - {fileID: 1637133367158706987, guid: a4c362542ff01d643bc92532553a4f7b, type: 3}
   - {fileID: 8726923651504133261, guid: b424d20766788aa46b491e51e36f3373, type: 3}
-  - {fileID: 639796352199755007, guid: 8d8d72c68d9903e458da19549d008b17, type: 3}
-  - {fileID: 4766261116092495508, guid: 295e3b6346b1bc240831c8092ef9d833, type: 3}
   RoomTemplateSets: []
 --- !u!114 &6988799463845801043
 MonoBehaviour:
@@ -1971,10 +1820,6 @@ MonoBehaviour:
   Name: L1Room
   IndividualRoomTemplates:
   - {fileID: 9085269301535886878, guid: 7fd01cc64534b2e4497782f6adc3e914, type: 3}
-  - {fileID: 1280679948544591850, guid: 97a7a8b33c1ceb74f9e6d0e3a7e09b3e, type: 3}
-  - {fileID: 8695736506244458332, guid: 23501212996a27443b424c2d2bb383c3, type: 3}
-  - {fileID: 6445084285471483537, guid: bacb3a1cbcafa2d438a2f43ed02e295f, type: 3}
-  - {fileID: 4094954845790842966, guid: 7e5cd81c4733fd94eaa5226a9bb6a3e9, type: 3}
   - {fileID: 4875395942943355244, guid: 4a39ef814824cdc45a9a19c97fa7546b, type: 3}
   - {fileID: 6683367630947189595, guid: a75349cf218046e4494c50ac8a712874, type: 3}
   - {fileID: 4747604798054361566, guid: e6aaea1a363be1b4aa566c970501866d, type: 3}
@@ -2014,14 +1859,9 @@ MonoBehaviour:
   Position: {x: 826, y: 484}
   Name: L2Room
   IndividualRoomTemplates:
-  - {fileID: 6401863802428127048, guid: dd45223f2158d9149bc67d621a76f76c, type: 3}
   - {fileID: 3764683038888899721, guid: 00492e15b3f64cd4f8cb60884304ae0a, type: 3}
   - {fileID: 260391035515577735, guid: d5ac84ef82d7ede4484be714a68362de, type: 3}
   - {fileID: 5330620436600287782, guid: 7249f475f2af5204e834d79fc86a88dc, type: 3}
-  - {fileID: 1174156584323986150, guid: f6a01ef2a5f39f146bc587fb21779960, type: 3}
-  - {fileID: 1731155399286357730, guid: 58b64d0130cbd6e4796ec54b673f98ff, type: 3}
-  - {fileID: 709836743867282808, guid: 4af16681ff1ac8e4a9811904ca6a766f, type: 3}
-  - {fileID: 7366578286043125562, guid: d35701ce4fa91b44bb2cde6ec3ec7479, type: 3}
   RoomTemplateSets: []
 --- !u!114 &7213653965846131886
 MonoBehaviour:
@@ -2077,17 +1917,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8074dc491ddc34f4e83332d9eae76980, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Position: {x: 296, y: 215}
+  Position: {x: 296, y: 214}
   Name: L1Room
   IndividualRoomTemplates:
-  - {fileID: 9085269301535886878, guid: 7fd01cc64534b2e4497782f6adc3e914, type: 3}
-  - {fileID: 1280679948544591850, guid: 97a7a8b33c1ceb74f9e6d0e3a7e09b3e, type: 3}
   - {fileID: 8695736506244458332, guid: 23501212996a27443b424c2d2bb383c3, type: 3}
   - {fileID: 6445084285471483537, guid: bacb3a1cbcafa2d438a2f43ed02e295f, type: 3}
   - {fileID: 4094954845790842966, guid: 7e5cd81c4733fd94eaa5226a9bb6a3e9, type: 3}
-  - {fileID: 4875395942943355244, guid: 4a39ef814824cdc45a9a19c97fa7546b, type: 3}
-  - {fileID: 6683367630947189595, guid: a75349cf218046e4494c50ac8a712874, type: 3}
-  - {fileID: 4747604798054361566, guid: e6aaea1a363be1b4aa566c970501866d, type: 3}
   RoomTemplateSets: []
 --- !u!114 &7895609719636089702
 MonoBehaviour:
@@ -2118,8 +1953,6 @@ MonoBehaviour:
   Position: {x: 1255, y: 374}
   Name: L3Room
   IndividualRoomTemplates:
-  - {fileID: 1637133367158706987, guid: a4c362542ff01d643bc92532553a4f7b, type: 3}
-  - {fileID: 8726923651504133261, guid: b424d20766788aa46b491e51e36f3373, type: 3}
   - {fileID: 639796352199755007, guid: 8d8d72c68d9903e458da19549d008b17, type: 3}
   - {fileID: 4766261116092495508, guid: 295e3b6346b1bc240831c8092ef9d833, type: 3}
   RoomTemplateSets: []
@@ -2194,14 +2027,9 @@ MonoBehaviour:
   Position: {x: 233, y: 451}
   Name: L1Room
   IndividualRoomTemplates:
-  - {fileID: 9085269301535886878, guid: 7fd01cc64534b2e4497782f6adc3e914, type: 3}
   - {fileID: 1280679948544591850, guid: 97a7a8b33c1ceb74f9e6d0e3a7e09b3e, type: 3}
   - {fileID: 8695736506244458332, guid: 23501212996a27443b424c2d2bb383c3, type: 3}
   - {fileID: 6445084285471483537, guid: bacb3a1cbcafa2d438a2f43ed02e295f, type: 3}
-  - {fileID: 4094954845790842966, guid: 7e5cd81c4733fd94eaa5226a9bb6a3e9, type: 3}
-  - {fileID: 4875395942943355244, guid: 4a39ef814824cdc45a9a19c97fa7546b, type: 3}
-  - {fileID: 6683367630947189595, guid: a75349cf218046e4494c50ac8a712874, type: 3}
-  - {fileID: 4747604798054361566, guid: e6aaea1a363be1b4aa566c970501866d, type: 3}
   RoomTemplateSets: []
 --- !u!114 &8324084230097020874
 MonoBehaviour:
@@ -2249,14 +2077,10 @@ MonoBehaviour:
   Position: {x: 472, y: 66}
   Name: L1Room
   IndividualRoomTemplates:
-  - {fileID: 9085269301535886878, guid: 7fd01cc64534b2e4497782f6adc3e914, type: 3}
   - {fileID: 1280679948544591850, guid: 97a7a8b33c1ceb74f9e6d0e3a7e09b3e, type: 3}
   - {fileID: 8695736506244458332, guid: 23501212996a27443b424c2d2bb383c3, type: 3}
   - {fileID: 6445084285471483537, guid: bacb3a1cbcafa2d438a2f43ed02e295f, type: 3}
   - {fileID: 4094954845790842966, guid: 7e5cd81c4733fd94eaa5226a9bb6a3e9, type: 3}
-  - {fileID: 4875395942943355244, guid: 4a39ef814824cdc45a9a19c97fa7546b, type: 3}
-  - {fileID: 6683367630947189595, guid: a75349cf218046e4494c50ac8a712874, type: 3}
-  - {fileID: 4747604798054361566, guid: e6aaea1a363be1b4aa566c970501866d, type: 3}
   RoomTemplateSets: []
 --- !u!114 &8655994323158969714
 MonoBehaviour:
@@ -2290,11 +2114,6 @@ MonoBehaviour:
   - {fileID: 6401863802428127048, guid: dd45223f2158d9149bc67d621a76f76c, type: 3}
   - {fileID: 3764683038888899721, guid: 00492e15b3f64cd4f8cb60884304ae0a, type: 3}
   - {fileID: 260391035515577735, guid: d5ac84ef82d7ede4484be714a68362de, type: 3}
-  - {fileID: 5330620436600287782, guid: 7249f475f2af5204e834d79fc86a88dc, type: 3}
-  - {fileID: 1174156584323986150, guid: f6a01ef2a5f39f146bc587fb21779960, type: 3}
-  - {fileID: 1731155399286357730, guid: 58b64d0130cbd6e4796ec54b673f98ff, type: 3}
-  - {fileID: 709836743867282808, guid: 4af16681ff1ac8e4a9811904ca6a766f, type: 3}
-  - {fileID: 7366578286043125562, guid: d35701ce4fa91b44bb2cde6ec3ec7479, type: 3}
   RoomTemplateSets: []
 --- !u!114 &8893552507949299367
 MonoBehaviour:
@@ -2328,12 +2147,7 @@ MonoBehaviour:
   Position: {x: 152, y: 367}
   Name: L1Room
   IndividualRoomTemplates:
-  - {fileID: 9085269301535886878, guid: 7fd01cc64534b2e4497782f6adc3e914, type: 3}
-  - {fileID: 1280679948544591850, guid: 97a7a8b33c1ceb74f9e6d0e3a7e09b3e, type: 3}
-  - {fileID: 8695736506244458332, guid: 23501212996a27443b424c2d2bb383c3, type: 3}
-  - {fileID: 6445084285471483537, guid: bacb3a1cbcafa2d438a2f43ed02e295f, type: 3}
   - {fileID: 4094954845790842966, guid: 7e5cd81c4733fd94eaa5226a9bb6a3e9, type: 3}
   - {fileID: 4875395942943355244, guid: 4a39ef814824cdc45a9a19c97fa7546b, type: 3}
   - {fileID: 6683367630947189595, guid: a75349cf218046e4494c50ac8a712874, type: 3}
-  - {fileID: 4747604798054361566, guid: e6aaea1a363be1b4aa566c970501866d, type: 3}
   RoomTemplateSets: []
