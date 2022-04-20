@@ -11132,7 +11132,7 @@ GameObject:
   - component: {fileID: 6580727896078179548}
   - component: {fileID: 3753864942417699094}
   m_Layer: 0
-  m_Name: BossRoom
+  m_Name: OLD_BossRoom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
