@@ -170,9 +170,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2364c1c040ade9459bec793f9b105eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HitSound: 
+  DeathSound: 
   health: 100
+  maxHealth: 100
   animator: {fileID: 0}
+  healthBar: {fileID: 0}
   renderer: {fileID: 0}
+  healthPotion: {fileID: 0}
+  manaPotion: {fileID: 0}
 --- !u!95 &3587912464029853886
 Animator:
   serializedVersion: 3

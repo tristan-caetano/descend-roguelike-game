@@ -160,7 +160,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 968dd4fb3a59c3840a2e02fe6e4331a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackSound: Ghul Attack
   playerAtt: {fileID: 0}
   playerLayers:
     serializedVersion: 2
@@ -173,6 +172,7 @@ MonoBehaviour:
   collider: {fileID: 2725914300521792078}
   enemyAttackPoint: {fileID: 2725914300330984808}
   enemyAttackRange: 1
+  boss: 0
   enemyAttack: 25
 --- !u!114 &2725914300521792076
 MonoBehaviour:
@@ -189,8 +189,13 @@ MonoBehaviour:
   HitSound: Ghul Attack
   DeathSound: Ghul Death
   health: 20
+  maxHealth: 100
   animator: {fileID: 2725914300505668676}
+  healthBar: {fileID: 0}
   renderer: {fileID: 2725914300505668679}
+  healthPotion: {fileID: 2921825873372370470, guid: 4dc89b85330a48643a160513a944db5f, type: 3}
+  manaPotion: {fileID: 7765763372643908701, guid: 4e8f3684372f9134582ae686a5b1109b, type: 3}
+  enemyAI: {fileID: 2725914300521792067}
 --- !u!50 &2725914300521792077
 Rigidbody2D:
   serializedVersion: 4

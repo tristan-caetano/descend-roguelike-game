@@ -146,20 +146,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 968dd4fb3a59c3840a2e02fe6e4331a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackSound: Ghlug Attack
   playerAtt: {fileID: 0}
   playerLayers:
     serializedVersion: 2
     m_Bits: 64
   target: {fileID: 0}
-  speed: 150
+  speed: 300
   nextWaypointDistance: 3
   enemy: {fileID: 9137905112570307780}
   animator: {fileID: 9137905114388045077}
   collider: {fileID: 9137905112570307782}
   enemyAttackPoint: {fileID: 9137905113498332741}
   enemyAttackRange: 1
+  boss: 0
   enemyAttack: 25
+  magicSpell: {fileID: 0}
 --- !u!114 &9137905112570307780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,9 +175,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HitSound: Ghlug Attack
   DeathSound: Ghlug Death
-  health: 250
+  health: 150
+  maxHealth: 150
   animator: {fileID: 9137905114388045077}
+  healthBar: {fileID: 0}
   renderer: {fileID: 9137905114388045074}
+  healthPotion: {fileID: 2921825873372370470, guid: 4dc89b85330a48643a160513a944db5f, type: 3}
+  manaPotion: {fileID: 7765763372643908701, guid: 4e8f3684372f9134582ae686a5b1109b, type: 3}
+  enemyAI: {fileID: 9137905112570307781}
+  boss: 0
 --- !u!50 &9137905112570307779
 Rigidbody2D:
   serializedVersion: 4

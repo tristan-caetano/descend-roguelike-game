@@ -26,9 +26,9 @@ public class EnemyAI : MonoBehaviour {
     // Variables that allow the enemy to track the player
     Path path;
     int currentWaypoint = 0;
-    bool reachedEndOfPath = false;
     public float nextWaypointDistance = 3f;
     Seeker seeker;
+    float enemyDis = 1.5f;
 
     // Standard attributes of the enemy so that it can move, animate, hit, and check health
     public EnemyAttributes enemy;
@@ -37,10 +37,16 @@ public class EnemyAI : MonoBehaviour {
     public Collider2D collider;
     public Transform enemyAttackPoint;
     public float enemyAttackRange = 1f;
+    public byte boss = 0;
     
     // Gets the player info and does damage
     Collider2D hitInfoLocal = null;
     public int enemyAttack = 5;
+
+    // Boss magic info
+    public GameObject magicSpell;
+    int x = 0;
+    bool readyToFire = true;
     
 
     // Gets the rigidbody and seeker for tracking, starts tracking
@@ -50,6 +56,10 @@ public class EnemyAI : MonoBehaviour {
         rb = GetComponent<Rigidbody2D>();
         
         InvokeRepeating("UpdatePath", 0f, .5f);
+
+        if(boss > 0){
+            enemyDis *= 2f;
+        }
         
     }
 
@@ -78,28 +88,41 @@ public class EnemyAI : MonoBehaviour {
         float pythagDis = Mathf.Sqrt(Mathf.Pow(Mathf.Abs(target.position.x - rb.position.x) + Mathf.Abs(target.position.y - rb.position.y), 2f));
 
         // If the player is close enough and the enemy is alive
-        if(enemy.getHealth() > 0 && pythagDis < 20){
+        if(enemy.health > 0 && pythagDis < 20){
 
             // Enabling the collider if the player is close enough and the enemy is alive
             collider.enabled = true;
 
             // Attacks player if they are close enough
-            if (enemy.getHealth() > 0 && playerAtt.getHealth() > 0 && pythagDis < 1.5f){
+            if (enemy.health > 0 && playerAtt.health > 0 && pythagDis < enemyDis){
             //    FindObjectOfType<AudioManager>().Play(AttackSound);
                 animator.SetTrigger("isAttack");
                 Attack(hitInfoLocal);
             }
 
+            // Attacks player if they are close enough
+            if (enemy.health > 0 && playerAtt.health > 0 && pythagDis > 5 && boss == 1){
+            //    FindObjectOfType<AudioManager>().Play(AttackSound);
+                
+                if(readyToFire){
+                    animator.SetTrigger("isAttack");
+                    for(x = 0; x < 10; x ++){
+                        shootAOE();
+                   }
+                    readyToFire = false;
+                    StartCoroutine(StartCooldown());
+                }
+            }
+
             // Pathing code
             if(path == null){
+                currSpeed = speed;
                 return;
             }
             if(currentWaypoint >= path.vectorPath.Count){
-                reachedEndOfPath = true;
-                currSpeed = 0;
+                currSpeed = speed;
                 return;
             }else{
-                reachedEndOfPath = false;
                 currSpeed = speed;
             }
 
@@ -138,6 +161,7 @@ public class EnemyAI : MonoBehaviour {
             target  = mainPlayer.transform;
             playerAtt = mainPlayer.GetComponent<PlayerAttributes>();
         }else{
+            
             return;
         }
     }
@@ -152,14 +176,14 @@ public class EnemyAI : MonoBehaviour {
         if(hitInfo == null){return;}
 
         // Making sure only to attack if the enemy is alive
-        if(enemy.getHealth() > 0){
+        if(enemy.health > 0){
 
                 Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(enemyAttackPoint.position, enemyAttackRange, playerLayers);
 
                 // Actually damaging the player if they are found in the collider
                 foreach(Collider2D player in hitPlayer){
                     PlayerAttributes currPlayer = hitInfo.GetComponent<PlayerAttributes>();
-                    if(currPlayer.getHealth() != null){
+                    if(currPlayer.health > 0){
                         currPlayer.TakeDamage(enemyAttack);
                     }
             }
@@ -170,5 +194,37 @@ public class EnemyAI : MonoBehaviour {
             collider.enabled = false;
             return;
         }
+    }
+
+    // Enemy shooting spell
+    void shootAOE(){
+
+        // Getting the direction of the mouseclick for firing the spell and playing the correct animation
+        Vector3 difference = target.transform.position - gameObject.transform.position;
+        float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+
+            // If the mouse is clicked and the player is alive
+            if(enemy.health > 0){
+
+                // Animate the casting
+                
+                FindObjectOfType<AudioManager>().Play("Shoot Spell");
+
+                // Get the direction and distance from the mouse click
+                float distance = difference.magnitude;
+                Vector2 direction = difference / distance;
+                direction.Normalize();
+                rb.velocity = Vector3.zero;
+
+                // Cast the spell
+                Instantiate(magicSpell, gameObject.transform.position, Quaternion.Euler(0.0f, 0.0f, rotationZ));
+            }
+    }
+
+    // Cooldown timer
+    public IEnumerator StartCooldown(){
+        readyToFire = false;
+        yield return new WaitForSeconds(2.5f);
+        readyToFire = true;
     }
 }

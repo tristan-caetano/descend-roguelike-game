@@ -160,7 +160,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 968dd4fb3a59c3840a2e02fe6e4331a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackSound: Gug Attack
   playerAtt: {fileID: 0}
   playerLayers:
     serializedVersion: 2
@@ -173,7 +172,9 @@ MonoBehaviour:
   collider: {fileID: 6017569226793986054}
   enemyAttackPoint: {fileID: 6017569225748025692}
   enemyAttackRange: 1
+  boss: 0
   enemyAttack: 15
+  magicSpell: {fileID: 0}
 --- !u!114 &6017569226793986053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,9 +189,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HitSound: Gug Attack
   DeathSound: Gug Death
-  health: 150
+  health: 100
+  maxHealth: 100
   animator: {fileID: 6017569225650196000}
+  healthBar: {fileID: 0}
   renderer: {fileID: 6017569225650196005}
+  healthPotion: {fileID: 2921825873372370470, guid: 4dc89b85330a48643a160513a944db5f, type: 3}
+  manaPotion: {fileID: 7765763372643908701, guid: 4e8f3684372f9134582ae686a5b1109b, type: 3}
+  enemyAI: {fileID: 6017569226793986050}
+  boss: 0
 --- !u!50 &6017569226793986052
 Rigidbody2D:
   serializedVersion: 4
@@ -204,7 +211,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 1.5
+  m_LinearDrag: 1
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
@@ -244,9 +251,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.036816776, y: -0.16772108}
+  m_Offset: {x: -0.016767561, y: -0.13353585}
   serializedVersion: 2
-  m_Radius: 0.47729057
+  m_Radius: 0.5543151
 --- !u!1001 &8708377350006901410
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -254,13 +261,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6017569226793986049}
     m_Modifications:
+    - target: {fileID: 3123506219835966592, guid: b55ed6fb84ed6df418370887d6220bdc, type: 3}
+      propertyPath: m_Radius
+      value: 0.28686816
+      objectReference: {fileID: 0}
+    - target: {fileID: 3123506219835966592, guid: b55ed6fb84ed6df418370887d6220bdc, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.0067427754
+      objectReference: {fileID: 0}
     - target: {fileID: 3123506219835966593, guid: b55ed6fb84ed6df418370887d6220bdc, type: 3}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3123506219835966593, guid: b55ed6fb84ed6df418370887d6220bdc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.007
       objectReference: {fileID: 0}
     - target: {fileID: 3123506219835966593, guid: b55ed6fb84ed6df418370887d6220bdc, type: 3}
       propertyPath: m_LocalPosition.y
