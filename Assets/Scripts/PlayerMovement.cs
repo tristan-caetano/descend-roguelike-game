@@ -41,13 +41,15 @@ public class PlayerMovement : MonoBehaviour
     public GameObject winMenuUI;
 
     // Make sure player can't move when game is paused
-    bool canMove = false;
+    public bool canMove = false;
     
     // Getting player input, making sure the player is alive, and animating the player
     void Update()
     {
 
-        if(canMove){
+        
+
+        // if(canMove){
 
             if(winPoint == null){
                 winPoint = GameObject.Find("WinPoint");
@@ -55,15 +57,16 @@ public class PlayerMovement : MonoBehaviour
 
             // Making sure the player is alive
             if(player.health > 0){
-
+                Debug.Log("WALK");   
+                
                 // Finds the hypotenuse to check the distance between the player and enemy
-                float winDis = Mathf.Sqrt(Mathf.Pow(Mathf.Abs(winPoint.transform.position.x - rb.position.x) + Mathf.Abs(winPoint.transform.position.y - rb.position.y), 2f));
+                //float winDis = Mathf.Sqrt(Mathf.Pow(Mathf.Abs(winPoint.transform.position.x - rb.position.x) + Mathf.Abs(winPoint.transform.position.y - rb.position.y), 2f));
 
-                if(winDis < 1.5f){
-                    FindObjectOfType<AudioManager>().Play("Win");
-                    winMenuUI.SetActive(true);
-                    Time.timeScale = 0f;
-                }
+                // if(winDis < 1.5f){
+                //     FindObjectOfType<AudioManager>().Play("Win");
+                //     winMenuUI.SetActive(true);
+                //     Time.timeScale = 0f;
+                // }
 
                 // Sprint when user holds down left shift
                 // if (Input.GetKey(KeyCode.LeftShift))
@@ -80,6 +83,8 @@ public class PlayerMovement : MonoBehaviour
                 // if(diffTime >= 30){diffTime = 30;}
                 // manaBar.SetMana(diffTime);
                 
+                
+
                 // Heal when user presses f
                 if (Input.GetKey(KeyCode.F) && player.health < player.maxHealth && player.mana > 20 && canHeal)
                 {
@@ -94,6 +99,8 @@ public class PlayerMovement : MonoBehaviour
                     StartCoroutine(HealCooldown());
                 }
 
+                
+
                 // Player movement input
                 movement.x = Input.GetAxisRaw("Horizontal");
                 movement.y = Input.GetAxisRaw("Vertical");
@@ -103,9 +110,9 @@ public class PlayerMovement : MonoBehaviour
                 animator.SetFloat("Vertical", movement.y);
                 animator.SetFloat("Speed", movement.sqrMagnitude);
             }
-        } else {
-            StartCoroutine(StartGameCooldown());
-        }
+        // } else {
+        //     StartCoroutine(StartGameCooldown());
+        // }
     }
 
     // Actually moving the player and attack cooldown
