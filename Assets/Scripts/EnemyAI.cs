@@ -45,8 +45,13 @@ public class EnemyAI : MonoBehaviour {
 
     // Boss magic info
     public GameObject magicSpell;
+    public GameObject magicSpell2;
+    public GameObject magicSpell3;
+    public GameObject magicSpell4;
     int x = 0;
     bool readyToFire = true;
+    public byte castAmt = 5;
+    byte currCast = 0;
     
 
     // Gets the rigidbody and seeker for tracking, starts tracking
@@ -106,9 +111,27 @@ public class EnemyAI : MonoBehaviour {
                 
                 if(readyToFire){
                     animator.SetTrigger("isAttack");
-                    for(x = 0; x < 10; x ++){
-                        shootAOE();
+                    for(x = 0; x < castAmt; x ++){
+
+                        if(magicSpell){shootAOE(magicSpell);}
+                        if(magicSpell2){shootAOE(magicSpell2);}
+                            
                    }
+                    readyToFire = false;
+                    StartCoroutine(StartCooldown());
+                }
+            // Final Boss spell
+            }else if(enemy.health > 0 && playerAtt.health > 0 && pythagDis > 5 && boss == 3){
+                
+                if(readyToFire){
+                    animator.SetTrigger("isCast");
+
+                        if(currCast == 0){shootAOE(magicSpell); currCast ++; readyToFire = false;}
+                        else if(currCast == 1){shootAOE(magicSpell2); currCast ++; readyToFire = false;}
+                        else if(currCast == 2){shootAOE(magicSpell3); currCast ++; readyToFire = false;}
+                        else if(currCast == 3){shootAOE(magicSpell4); currCast ++; readyToFire = false;}
+                        else{currCast = 0;}
+                            
                     readyToFire = false;
                     StartCoroutine(StartCooldown());
                 }
@@ -197,7 +220,7 @@ public class EnemyAI : MonoBehaviour {
     }
 
     // Enemy shooting spell
-    void shootAOE(){
+    void shootAOE(GameObject currSpell){
 
         // Getting the direction of the mouseclick for firing the spell and playing the correct animation
         Vector3 difference = target.transform.position - gameObject.transform.position;
@@ -217,7 +240,7 @@ public class EnemyAI : MonoBehaviour {
                 rb.velocity = Vector3.zero;
 
                 // Cast the spell
-                Instantiate(magicSpell, gameObject.transform.position, Quaternion.Euler(0.0f, 0.0f, rotationZ));
+                Instantiate(currSpell, gameObject.transform.position, Quaternion.Euler(0.0f, 0.0f, rotationZ));
             }
     }
 

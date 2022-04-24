@@ -12,9 +12,9 @@ public class EnemySpell : MonoBehaviour
 
 // Explosion effect after the spell hits something
 public GameObject impactEffect;
-// GameObject mainPlayer;
+GameObject mainEnemy;
 public Collider2D thisCollider;
-public Collider2D playerCollider;
+public Collider2D enemyCollider;
 
 // Speed of the spell
 public float speed = 20f;
@@ -41,17 +41,17 @@ public Rigidbody2D rb;
 public bool bounce;
 
 // Linger enemy info
-EnemyAttributes lingerEnemy;
+PlayerAttributes lingerPlayer;
 
     // Making sure the spell flies in the right direction, and then destroys it if it hasnt hit anything in 10 seconds
     void Start(){
 
-        // while(mainPlayer == null && bounce){
-        //     mainPlayer = GameObject.Find("Main_Player");
-        //     playerCollider = mainPlayer.GetComponent<Collider2D>();
-        // }
+        while(mainEnemy == null && bounce){
+            mainEnemy = GameObject.Find("The_Sister");
+            enemyCollider = mainEnemy.GetComponent<Collider2D>();
+        }
 
-        // if(bounce){Physics2D.IgnoreCollision(thisCollider, playerCollider);}
+        if(bounce){Physics2D.IgnoreCollision(thisCollider, enemyCollider);}
 
         rb.velocity = transform.right * speed;
         initSpeed = rb.velocity.magnitude;
@@ -73,11 +73,11 @@ EnemyAttributes lingerEnemy;
 
         if(lingerTimer){
             // Ignoring the players hitbox
-            if(lingerEnemy.tag != "Player"){
+            if(lingerPlayer.tag != "Enemies"){
 
                     // If an enemy is found, they take damage
-                    if(lingerEnemy != null){
-                        lingerEnemy.TakeDamage(damage);
+                    if(lingerPlayer != null){
+                        lingerPlayer.TakeDamage(damage);
                         // FindObjectOfType<AudioManager>().Play("Spell Hit");
                     }
 
@@ -122,12 +122,11 @@ EnemyAttributes lingerEnemy;
             // TODO: implement linger for boss
         } else {
             // Getting the enemy info
-            lingerEnemy = hitInfo.GetComponent<EnemyAttributes>();
-            lingerEnemy = hitInfo.GetComponent<EnemyAttributes>();
+            lingerPlayer = hitInfo.GetComponent<PlayerAttributes>();
             lingerTimer = true;
         }
     }
 
     // If the spell hits something
-    void OnTriggerExit2D(Collider2D hitInfo){lingerEnemy = null; lingerTimer = false;}
+    void OnTriggerExit2D(Collider2D hitInfo){lingerPlayer = null; lingerTimer = false;}
 }

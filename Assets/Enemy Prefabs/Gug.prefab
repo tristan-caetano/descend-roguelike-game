@@ -166,7 +166,7 @@ MonoBehaviour:
     m_Bits: 64
   target: {fileID: 0}
   speed: 550
-  nextWaypointDistance: 3
+  nextWaypointDistance: 1
   enemy: {fileID: 6017569226793986053}
   animator: {fileID: 6017569225650196000}
   collider: {fileID: 6017569226793986054}

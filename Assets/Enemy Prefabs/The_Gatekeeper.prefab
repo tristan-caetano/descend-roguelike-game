@@ -177,10 +177,12 @@ MonoBehaviour:
   animator: {fileID: 193368074829510648}
   collider: {fileID: 193368074418465697}
   enemyAttackPoint: {fileID: 1800895386380767332}
-  enemyAttackRange: 200
+  enemyAttackRange: 5
   boss: 1
   enemyAttack: 20
   magicSpell: {fileID: 8362788612473781797, guid: 9e75f873892c6b9499b2af893d2e621a, type: 3}
+  magicSpell2: {fileID: 2109578942605693039, guid: ca74633efab677649bb224f4975719de, type: 3}
+  castAmt: 5
 --- !u!114 &-3133308328400391875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,7 +205,7 @@ MonoBehaviour:
   healthPotion: {fileID: 2921825873372370470, guid: 4dc89b85330a48643a160513a944db5f, type: 3}
   manaPotion: {fileID: 7765763372643908701, guid: 4e8f3684372f9134582ae686a5b1109b, type: 3}
   enemyAI: {fileID: -4648684423004966407}
-  boss: 0
+  boss: 1
 --- !u!1 &193368074829510645
 GameObject:
   m_ObjectHideFlags: 0
