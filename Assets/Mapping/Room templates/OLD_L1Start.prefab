@@ -3778,7 +3778,7 @@ GameObject:
   - component: {fileID: 6347708557106717684}
   - component: {fileID: 5117674304968302166}
   m_Layer: 0
-  m_Name: L1Start
+  m_Name: OLD_L1Start
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
