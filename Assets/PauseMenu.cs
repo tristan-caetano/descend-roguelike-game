@@ -52,7 +52,7 @@ public class PauseMenu : MonoBehaviour {
         Debug.Log("Quitting game...");
         pauseMenuUI.SetActive(false);
         FindObjectOfType<AudioManager>().Play("Click");
-        SceneManager.LoadScene("Mapping");
+        SceneManager.LoadScene("New_Mapping");
     }
 
 }
