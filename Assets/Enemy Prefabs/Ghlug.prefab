@@ -154,6 +154,7 @@ MonoBehaviour:
   speed: 300
   nextWaypointDistance: 1
   enemy: {fileID: 9137905112570307780}
+  GFX: {fileID: 9137905114388045074}
   animator: {fileID: 9137905114388045077}
   collider: {fileID: 9137905112570307782}
   enemyAttackPoint: {fileID: 9137905113498332741}
@@ -161,6 +162,10 @@ MonoBehaviour:
   boss: 0
   enemyAttack: 25
   magicSpell: {fileID: 0}
+  magicSpell2: {fileID: 0}
+  magicSpell3: {fileID: 0}
+  magicSpell4: {fileID: 0}
+  castAmt: 5
 --- !u!114 &9137905112570307780
 MonoBehaviour:
   m_ObjectHideFlags: 0

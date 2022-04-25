@@ -323,6 +323,7 @@ MonoBehaviour:
   speed: 450
   nextWaypointDistance: 1
   enemy: {fileID: 798206146634344745}
+  GFX: {fileID: 6717532065465282543}
   animator: {fileID: 6717532065465282540}
   collider: {fileID: 6717532067201725365}
   enemyAttackPoint: {fileID: 5145815711382898800}

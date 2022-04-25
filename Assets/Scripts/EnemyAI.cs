@@ -29,9 +29,11 @@ public class EnemyAI : MonoBehaviour {
     public float nextWaypointDistance = 3f;
     Seeker seeker;
     float enemyDis = 1.5f;
+    bool canTrack = false;
 
     // Standard attributes of the enemy so that it can move, animate, hit, and check health
     public EnemyAttributes enemy;
+    public SpriteRenderer GFX;
     Rigidbody2D rb;
     public Animator animator;
     public Collider2D collider;
@@ -57,20 +59,50 @@ public class EnemyAI : MonoBehaviour {
     // Gets the rigidbody and seeker for tracking, starts tracking
     void Start()
     {
-        seeker = GetComponent<Seeker>();
-        rb = GetComponent<Rigidbody2D>();
-        
-        InvokeRepeating("UpdatePath", 0f, .5f);
 
-        if(boss > 0){
-            enemyDis *= 2f;
+        Debug.Log("START");
+
+        // Keeps checking if the player value is still null
+        while(mainPlayer == null){
+            mainPlayer = GameObject.Find("Main_Player");
+            target  = mainPlayer.transform;
+            playerAtt = mainPlayer.GetComponent<PlayerAttributes>();
+            rb = GetComponent<Rigidbody2D>();
         }
+
+        Debug.Log("START2");
+
+        bool dontStart = true;
+
+        while(dontStart){    
+            // Finds the hypotenuse to check the distance between the player and enemy
+            float pythagDis = Mathf.Sqrt(Mathf.Pow(Mathf.Abs(target.position.x - rb.position.x) + Mathf.Abs(target.position.y - rb.position.y), 2f));
+
+            if(enemy.health > 0 && pythagDis < 20){
+                Debug.Log("ENABLED");
+
+                dontStart = false;
+                seeker = GetComponent<Seeker>();
+                
+                InvokeRepeating("UpdatePath", 0f, .5f);
+                GFX.enabled = false;
+
+                if(boss > 0){
+                    enemyDis *= 2f;
+                }
+            } else{
+                Debug.Log("DISABLED");
+                GFX.enabled = false;
+
+            }
+    }
         
     }
 
     // Methods relating to pathing.
     void UpdatePath(){
-        if (seeker.IsDone())
+        
+        if (seeker.IsDone() && canTrack)
             seeker.StartPath(rb.position, target.position, OnPathComplete);
     }
 
@@ -94,6 +126,8 @@ public class EnemyAI : MonoBehaviour {
 
         // If the player is close enough and the enemy is alive
         if(enemy.health > 0 && pythagDis < 20){
+
+            canTrack = true;
 
             // Enabling the collider if the player is close enough and the enemy is alive
             collider.enabled = true;
@@ -186,6 +220,7 @@ public class EnemyAI : MonoBehaviour {
 
             // Disabling the collider if the enemy is dead or if the player is too far
             collider.enabled = false;
+            canTrack = false;
             return;
         }
     }
@@ -193,15 +228,7 @@ public class EnemyAI : MonoBehaviour {
     // Initializing the player as a gameobject so that the enemy can recognize and track the player
     void Update(){
 
-        // Keeps checking if the player value is still null
-        if(mainPlayer == null){
-            mainPlayer = GameObject.Find("Main_Player");
-            target  = mainPlayer.transform;
-            playerAtt = mainPlayer.GetComponent<PlayerAttributes>();
-        }else{
-            
-            return;
-        }
+        
     }
 
     // Gets hit info if the collider is triggered
