@@ -138,6 +138,7 @@ MonoBehaviour:
   speed: 500
   nextWaypointDistance: 1
   enemy: {fileID: 7074939314048803179}
+  GFX: {fileID: 7074939314066251623}
   animator: {fileID: 7074939314066251619}
   collider: {fileID: 7074939314048803177}
   enemyAttackPoint: {fileID: 7074939314780743247}
@@ -367,6 +368,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc6890b489ce33a4cbc08bf83e680d5a, type: 3}
+--- !u!1 &7074939314066251623 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8331986333261858375, guid: fc6890b489ce33a4cbc08bf83e680d5a, type: 3}
+  m_PrefabInstance: {fileID: 1264969155495778592}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7074939314066251618 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8331986333261858370, guid: fc6890b489ce33a4cbc08bf83e680d5a, type: 3}

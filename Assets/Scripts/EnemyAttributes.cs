@@ -92,9 +92,9 @@ public class EnemyAttributes : MonoBehaviour
         }
     }
 
-    void FixedUpdate(){
-        healthBar.SetHealth(health);
-    }
+    // void FixedUpdate(){
+    //     healthBar.SetHealth(health);
+    // }
 
     // Enemy plays dead animation, and is removed from the scene
     void Die(){

@@ -190,7 +190,7 @@ PrefabInstance:
     - target: {fileID: 3587912464029853888, guid: b9ad633df43426d488ff2cd9ce5cf8d9, type: 3}
       propertyPath: GFX
       value: 
-      objectReference: {fileID: 6013278433213161651}
+      objectReference: {fileID: 6013278433213161660}
     - target: {fileID: 3587912464029853888, guid: b9ad633df43426d488ff2cd9ce5cf8d9, type: 3}
       propertyPath: boss
       value: 0
