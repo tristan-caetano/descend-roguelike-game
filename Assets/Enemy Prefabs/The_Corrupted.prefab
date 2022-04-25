@@ -320,17 +320,19 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   target: {fileID: 0}
-  speed: 400
+  speed: 700
   nextWaypointDistance: 3
   enemy: {fileID: 7637483184775292233}
   animator: {fileID: 4600270810265559948}
   collider: {fileID: 4600270810693386197}
   enemyAttackPoint: {fileID: 2704299559625589776}
   enemyAttackRange: 5
-  boss: 1
+  boss: 2
   enemyAttack: 20
   magicSpell: {fileID: 2217286440711411405, guid: a78605cadda86134aa2ab604f2811d2f, type: 3}
   magicSpell2: {fileID: 0}
+  magicSpell3: {fileID: 0}
+  magicSpell4: {fileID: 0}
   castAmt: 1
 --- !u!114 &7637483184775292233
 MonoBehaviour:

@@ -120,6 +120,21 @@ public class EnemyAI : MonoBehaviour {
                     readyToFire = false;
                     StartCoroutine(StartCooldown());
                 }
+            // Second Boss spell
+            }else if (enemy.health > 0 && playerAtt.health > 0 && pythagDis > 1 && boss == 2){
+            //    FindObjectOfType<AudioManager>().Play(AttackSound);
+                
+                if(readyToFire){
+                    for(x = 0; x < castAmt; x ++){
+
+                        if(magicSpell){shootAOE(magicSpell);}
+                        if(magicSpell2){shootAOE(magicSpell2);}
+                            
+                   }
+                    readyToFire = false;
+                    StartCoroutine(StartCooldown2());
+                }
+
             // Final Boss spell
             }else if(enemy.health > 0 && playerAtt.health > 0 && pythagDis > 5 && boss == 3){
                 
@@ -133,7 +148,7 @@ public class EnemyAI : MonoBehaviour {
                         else{currCast = 0;}
                             
                     readyToFire = false;
-                    StartCoroutine(StartCooldown());
+                    StartCoroutine(StartCooldown3());
                 }
             }
 
@@ -248,6 +263,20 @@ public class EnemyAI : MonoBehaviour {
     public IEnumerator StartCooldown(){
         readyToFire = false;
         yield return new WaitForSeconds(2.5f);
+        readyToFire = true;
+    }
+
+    // Cooldown timer 2nd boss
+    public IEnumerator StartCooldown2(){
+        readyToFire = false;
+        yield return new WaitForSeconds(1f);
+        readyToFire = true;
+    }
+
+    // Cooldown timer final boss
+    public IEnumerator StartCooldown3(){
+        readyToFire = false;
+        yield return new WaitForSeconds(1.5f);
         readyToFire = true;
     }
 }
