@@ -146,6 +146,8 @@ MonoBehaviour:
   enemyAttack: 20
   magicSpell: {fileID: 8362788612473781797, guid: 9e75f873892c6b9499b2af893d2e621a, type: 3}
   magicSpell2: {fileID: 0}
+  magicSpell3: {fileID: 0}
+  magicSpell4: {fileID: 0}
   castAmt: 5
 --- !u!114 &7074939314048803179
 MonoBehaviour:
@@ -159,8 +161,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2364c1c040ade9459bec793f9b105eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HitSound: Ghul Attack
-  DeathSound: Ghul Death
+  HitSound: Cthulhu Hit
+  DeathSound: Cthulhu Death
   health: 150
   maxHealth: 150
   animator: {fileID: 7074939314066251619}
