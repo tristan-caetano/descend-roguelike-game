@@ -46,7 +46,7 @@ public class Cheats : MonoBehaviour
         } 
 
         // Press home key to activate cheats
-        if(Input.GetKeyDown(KeyCode.Home)){
+        if(Input.GetKeyDown(KeyCode.LeftShift)){
             if(isCheatReady){
                 Debug.Log("Cheats Disabled");
                 isCheatReady = false;
@@ -61,11 +61,14 @@ public class Cheats : MonoBehaviour
         if(Input.GetKeyDown("f2") && isCheatReady){noClip();}
         if(Input.GetKeyDown("f3") && isCheatReady){fastSpeed();}
         if(Input.GetKeyDown("f4") && isCheatReady){noCoolDown();}
-        
+        if(Input.GetKeyDown("f5") && isCheatReady){addMana();}
     }
 
-    // Adds 100 health to player
-    void addHealth(){playerAtt.health += 100; Debug.Log("Player Health: " + playerAtt.health);}
+    // Adds 30 health to player
+    void addHealth(){playerAtt.health += 30; Debug.Log("Player Health: " + playerAtt.health);}
+
+    // Adds 30 mana to the player
+    void addMana(){playerAtt.mana += 30; Debug.Log("Player Mana: " + playerAtt.mana);}
 
     // Removes and enables player collision
     void noClip(){

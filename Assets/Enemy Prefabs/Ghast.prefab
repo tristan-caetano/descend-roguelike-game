@@ -104,6 +104,14 @@ PrefabInstance:
       value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 3587912464029853884, guid: b9ad633df43426d488ff2cd9ce5cf8d9, type: 3}
+      propertyPath: health
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 3587912464029853884, guid: b9ad633df43426d488ff2cd9ce5cf8d9, type: 3}
+      propertyPath: enemyAI
+      value: 
+      objectReference: {fileID: 2876003196483817056}
+    - target: {fileID: 3587912464029853884, guid: b9ad633df43426d488ff2cd9ce5cf8d9, type: 3}
       propertyPath: HitSound
       value: Ghast Attack
       objectReference: {fileID: 0}
@@ -116,9 +124,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6013278433213161651}
     - target: {fileID: 3587912464029853884, guid: b9ad633df43426d488ff2cd9ce5cf8d9, type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3587912464029853884, guid: b9ad633df43426d488ff2cd9ce5cf8d9, type: 3}
       propertyPath: DeathSound
       value: Ghast Death
       objectReference: {fileID: 0}
+    - target: {fileID: 3587912464029853884, guid: b9ad633df43426d488ff2cd9ce5cf8d9, type: 3}
+      propertyPath: manaPotion
+      value: 
+      objectReference: {fileID: 7765763372643908701, guid: 4e8f3684372f9134582ae686a5b1109b, type: 3}
+    - target: {fileID: 3587912464029853884, guid: b9ad633df43426d488ff2cd9ce5cf8d9, type: 3}
+      propertyPath: healthPotion
+      value: 
+      objectReference: {fileID: 2921825873372370470, guid: 4dc89b85330a48643a160513a944db5f, type: 3}
     - target: {fileID: 3587912464029853885, guid: b9ad633df43426d488ff2cd9ce5cf8d9, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -168,6 +188,14 @@ PrefabInstance:
       value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 3587912464029853888, guid: b9ad633df43426d488ff2cd9ce5cf8d9, type: 3}
+      propertyPath: GFX
+      value: 
+      objectReference: {fileID: 6013278433213161660}
+    - target: {fileID: 3587912464029853888, guid: b9ad633df43426d488ff2cd9ce5cf8d9, type: 3}
+      propertyPath: boss
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3587912464029853888, guid: b9ad633df43426d488ff2cd9ce5cf8d9, type: 3}
       propertyPath: speed
       value: 450
       objectReference: {fileID: 0}
@@ -181,7 +209,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3587912464029853888, guid: b9ad633df43426d488ff2cd9ce5cf8d9, type: 3}
       propertyPath: enemyAttack
-      value: 15
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3587912464029853888, guid: b9ad633df43426d488ff2cd9ce5cf8d9, type: 3}
+      propertyPath: nextWaypointDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3587912464029853889, guid: b9ad633df43426d488ff2cd9ce5cf8d9, type: 3}
+      propertyPath: m_LinearDrag
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3587912464029853891, guid: b9ad633df43426d488ff2cd9ce5cf8d9, type: 3}
       propertyPath: m_IsTrigger
@@ -202,3 +238,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3587912464029853885, guid: b9ad633df43426d488ff2cd9ce5cf8d9, type: 3}
   m_PrefabInstance: {fileID: 1595205327827789472}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2876003196483817056 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3587912464029853888, guid: b9ad633df43426d488ff2cd9ce5cf8d9, type: 3}
+  m_PrefabInstance: {fileID: 1595205327827789472}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 968dd4fb3a59c3840a2e02fe6e4331a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

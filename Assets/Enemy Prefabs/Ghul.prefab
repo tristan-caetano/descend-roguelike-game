@@ -160,20 +160,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 968dd4fb3a59c3840a2e02fe6e4331a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackSound: Ghul Attack
   playerAtt: {fileID: 0}
   playerLayers:
     serializedVersion: 2
     m_Bits: 64
   target: {fileID: 0}
   speed: 950
-  nextWaypointDistance: 3
+  nextWaypointDistance: 1
   enemy: {fileID: 2725914300521792076}
+  GFX: {fileID: 2725914300505668672}
   animator: {fileID: 2725914300505668676}
   collider: {fileID: 2725914300521792078}
   enemyAttackPoint: {fileID: 2725914300330984808}
   enemyAttackRange: 1
+  boss: 0
   enemyAttack: 25
+  magicSpell: {fileID: 0}
+  magicSpell2: {fileID: 0}
+  magicSpell3: {fileID: 0}
+  magicSpell4: {fileID: 0}
+  castAmt: 5
 --- !u!114 &2725914300521792076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,8 +195,14 @@ MonoBehaviour:
   HitSound: Ghul Attack
   DeathSound: Ghul Death
   health: 20
+  maxHealth: 100
   animator: {fileID: 2725914300505668676}
+  healthBar: {fileID: 0}
   renderer: {fileID: 2725914300505668679}
+  healthPotion: {fileID: 2921825873372370470, guid: 4dc89b85330a48643a160513a944db5f, type: 3}
+  manaPotion: {fileID: 7765763372643908701, guid: 4e8f3684372f9134582ae686a5b1109b, type: 3}
+  enemyAI: {fileID: 2725914300521792067}
+  boss: 0
 --- !u!50 &2725914300521792077
 Rigidbody2D:
   serializedVersion: 4
@@ -255,8 +267,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 2725914300521792064}
     m_Modifications:
     - target: {fileID: 8331986333261858368, guid: fc6890b489ce33a4cbc08bf83e680d5a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331986333261858368, guid: fc6890b489ce33a4cbc08bf83e680d5a, type: 3}
       propertyPath: m_SortingOrder
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331986333261858369, guid: fc6890b489ce33a4cbc08bf83e680d5a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8331986333261858370, guid: fc6890b489ce33a4cbc08bf83e680d5a, type: 3}
       propertyPath: m_RootOrder
@@ -308,6 +328,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc6890b489ce33a4cbc08bf83e680d5a, type: 3}
+--- !u!1 &2725914300505668672 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8331986333261858375, guid: fc6890b489ce33a4cbc08bf83e680d5a, type: 3}
+  m_PrefabInstance: {fileID: 6229971360286226951}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2725914300505668677 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8331986333261858370, guid: fc6890b489ce33a4cbc08bf83e680d5a, type: 3}

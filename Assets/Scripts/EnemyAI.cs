@@ -19,6 +19,13 @@ public class EnemyAI : MonoBehaviour {
     public Transform target;
     GameObject mainPlayer;
 
+    // Making sure the enemies are only active when their bosses are dead
+    GameObject boss1;
+    GameObject boss2;
+    EnemyAttributes[] bossAtt;
+    int[] bossHealth;
+    public byte bossReq = 0;
+
     // Denotes the top speed and current speed of the enemy
     public float speed = 200f;
     float currSpeed;
@@ -26,47 +33,64 @@ public class EnemyAI : MonoBehaviour {
     // Variables that allow the enemy to track the player
     Path path;
     int currentWaypoint = 0;
-    bool reachedEndOfPath = false;
     public float nextWaypointDistance = 3f;
     Seeker seeker;
+    float enemyDis = 1.5f;
+    bool canTrack = false;
 
     // Standard attributes of the enemy so that it can move, animate, hit, and check health
     public EnemyAttributes enemy;
+    //public SpriteRenderer GFX;
+    public GameObject GFX;
     Rigidbody2D rb;
     public Animator animator;
     public Collider2D collider;
     public Transform enemyAttackPoint;
     public float enemyAttackRange = 1f;
+    public byte boss = 0;
     
     // Gets the player info and does damage
     Collider2D hitInfoLocal = null;
     public int enemyAttack = 5;
+
+    // Boss magic info
+    public GameObject magicSpell;
+    public GameObject magicSpell2;
+    public GameObject magicSpell3;
+    public GameObject magicSpell4;
+    int x = 0;
+    bool readyToFire = true;
+    public byte castAmt = 5;
+    byte currCast = 0;
     
 
     // Gets the rigidbody and seeker for tracking, starts tracking
     void Start()
     {
-        seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
-        
+        seeker = GetComponent<Seeker>();
         InvokeRepeating("UpdatePath", 0f, .5f);
-        
+        if(boss > 0){
+            enemyDis *= 2f;
+        }
     }
 
     // Methods relating to pathing.
     void UpdatePath(){
-        if (seeker.IsDone())
+        
+        if (seeker.IsDone() && canTrack)
             seeker.StartPath(rb.position, target.position, OnPathComplete);
     }
 
     void OnPathComplete(Path p) {
-        if(!p.error) {
+        if(!p.error && canTrack) {
             path = p;
             currentWaypoint = 0;
         }
     }
 
     public Vector2 getDirection(){
+        
         return new Vector2(rb.velocity.x, rb.velocity.y);
     }
 
@@ -78,28 +102,76 @@ public class EnemyAI : MonoBehaviour {
         float pythagDis = Mathf.Sqrt(Mathf.Pow(Mathf.Abs(target.position.x - rb.position.x) + Mathf.Abs(target.position.y - rb.position.y), 2f));
 
         // If the player is close enough and the enemy is alive
-        if(enemy.getHealth() > 0 && pythagDis < 20){
+        if(enemy.health > 0 && pythagDis < 13){
+            seeker.enabled = true;
+            canTrack = true;
 
             // Enabling the collider if the player is close enough and the enemy is alive
             collider.enabled = true;
 
             // Attacks player if they are close enough
-            if (enemy.getHealth() > 0 && playerAtt.getHealth() > 0 && pythagDis < 1.5f){
+            if (enemy.health > 0 && playerAtt.health > 0 && pythagDis < enemyDis){
             //    FindObjectOfType<AudioManager>().Play(AttackSound);
                 animator.SetTrigger("isAttack");
                 Attack(hitInfoLocal);
             }
 
+            // Attacks player if they are close enough
+            if (enemy.health > 0 && playerAtt.health > 0 && pythagDis > 5 && boss == 1){
+            //    FindObjectOfType<AudioManager>().Play(AttackSound);
+                
+                if(readyToFire){
+                    animator.SetTrigger("isAttack");
+                    for(x = 0; x < castAmt; x ++){
+
+                        if(magicSpell){shootAOE(magicSpell);}
+                        if(magicSpell2){shootAOE(magicSpell2);}
+                            
+                   }
+                    readyToFire = false;
+                    StartCoroutine(StartCooldown());
+                }
+            // Second Boss spell
+            }else if (enemy.health > 0 && playerAtt.health > 0 && pythagDis > 1 && boss == 2){
+            //    FindObjectOfType<AudioManager>().Play(AttackSound);
+                
+                if(readyToFire){
+                    for(x = 0; x < castAmt; x ++){
+
+                        if(magicSpell){shootAOE(magicSpell);}
+                        if(magicSpell2){shootAOE(magicSpell2);}
+                            
+                   }
+                    readyToFire = false;
+                    StartCoroutine(StartCooldown2());
+                }
+
+            // Final Boss spell
+            }else if(enemy.health > 0 && playerAtt.health > 0 && pythagDis > 5 && boss == 3){
+                
+                if(readyToFire){
+                    animator.SetTrigger("isCast");
+
+                        if(currCast == 0){shootAOE(magicSpell); currCast ++; readyToFire = false;}
+                        else if(currCast == 1){shootAOE(magicSpell2); currCast ++; readyToFire = false;}
+                        else if(currCast == 2){shootAOE(magicSpell3); currCast ++; readyToFire = false;}
+                        else if(currCast == 3){shootAOE(magicSpell4); currCast ++; readyToFire = false;}
+                        else{currCast = 0;}
+                            
+                    readyToFire = false;
+                    StartCoroutine(StartCooldown3());
+                }
+            }
+
             // Pathing code
             if(path == null){
+                currSpeed = speed;
                 return;
             }
             if(currentWaypoint >= path.vectorPath.Count){
-                reachedEndOfPath = true;
-                currSpeed = 0;
+                currSpeed = speed;
                 return;
             }else{
-                reachedEndOfPath = false;
                 currSpeed = speed;
             }
 
@@ -125,20 +197,19 @@ public class EnemyAI : MonoBehaviour {
 
             // Disabling the collider if the enemy is dead or if the player is too far
             collider.enabled = false;
+            seeker.enabled = false;
+            canTrack = false;
             return;
         }
     }
 
     // Initializing the player as a gameobject so that the enemy can recognize and track the player
     void Update(){
-
         // Keeps checking if the player value is still null
-        if(mainPlayer == null){
+        while(mainPlayer == null && boss1 == null && boss2 == null){
             mainPlayer = GameObject.Find("Main_Player");
             target  = mainPlayer.transform;
-            playerAtt = mainPlayer.GetComponent<PlayerAttributes>();
-        }else{
-            return;
+            playerAtt = mainPlayer.GetComponent<PlayerAttributes>();   
         }
     }
 
@@ -152,14 +223,14 @@ public class EnemyAI : MonoBehaviour {
         if(hitInfo == null){return;}
 
         // Making sure only to attack if the enemy is alive
-        if(enemy.getHealth() > 0){
+        if(enemy.health > 0){
 
                 Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(enemyAttackPoint.position, enemyAttackRange, playerLayers);
 
                 // Actually damaging the player if they are found in the collider
                 foreach(Collider2D player in hitPlayer){
                     PlayerAttributes currPlayer = hitInfo.GetComponent<PlayerAttributes>();
-                    if(currPlayer.getHealth() != null){
+                    if(currPlayer.health > 0){
                         currPlayer.TakeDamage(enemyAttack);
                     }
             }
@@ -170,5 +241,51 @@ public class EnemyAI : MonoBehaviour {
             collider.enabled = false;
             return;
         }
+    }
+
+    // Enemy shooting spell
+    void shootAOE(GameObject currSpell){
+
+        // Getting the direction of the mouseclick for firing the spell and playing the correct animation
+        Vector3 difference = target.transform.position - gameObject.transform.position;
+        float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+
+            // If the mouse is clicked and the player is alive
+            if(enemy.health > 0){
+
+                // Animate the casting
+                
+                FindObjectOfType<AudioManager>().Play("Shoot Spell");
+
+                // Get the direction and distance from the mouse click
+                float distance = difference.magnitude;
+                Vector2 direction = difference / distance;
+                direction.Normalize();
+                rb.velocity = Vector3.zero;
+
+                // Cast the spell
+                Instantiate(currSpell, gameObject.transform.position, Quaternion.Euler(0.0f, 0.0f, rotationZ));
+            }
+    }
+
+    // Cooldown timer
+    public IEnumerator StartCooldown(){
+        readyToFire = false;
+        yield return new WaitForSeconds(2.5f);
+        readyToFire = true;
+    }
+
+    // Cooldown timer 2nd boss
+    public IEnumerator StartCooldown2(){
+        readyToFire = false;
+        yield return new WaitForSeconds(1f);
+        readyToFire = true;
+    }
+
+    // Cooldown timer final boss
+    public IEnumerator StartCooldown3(){
+        readyToFire = false;
+        yield return new WaitForSeconds(1.5f);
+        readyToFire = true;
     }
 }

@@ -14,7 +14,9 @@ public class PauseMenu : MonoBehaviour {
 
     GameObject mainMenuInstance;
     GameObject settingsMenuInstance;
+    GameObject storyMenuInstance;
     GameObject controlsMenuInstance;
+    GameObject creditsMenuInstance;
 
     void Update() {
     if(mainMenuInstance == null) {
@@ -28,6 +30,50 @@ public class PauseMenu : MonoBehaviour {
                 }
             }
         }
+
+    if(settingsMenuInstance == null) {
+    settingsMenuInstance = GameObject.Find("OptionMenu");
+    } else {
+            if (!settingsMenuInstance.activeSelf && Input.GetKeyDown(KeyCode.Escape)) {
+                    Resume();
+            }
+        }
+
+    if(controlsMenuInstance == null) {
+        controlsMenuInstance = GameObject.Find("ControlMenu");
+    } else {
+            if (!controlsMenuInstance.activeSelf && Input.GetKeyDown(KeyCode.Escape)) {
+                if(GameIsPaused) {
+                    Resume();
+                } else {
+                    Pause();
+                }
+            }
+        }
+
+    if(storyMenuInstance == null) {
+        storyMenuInstance = GameObject.Find("StoryMenu");
+    } else {
+            if (!storyMenuInstance.activeSelf && Input.GetKeyDown(KeyCode.Escape)) {
+                if(GameIsPaused) {
+                    Resume();
+                } else {
+                    Pause();
+                }
+            }
+        }
+
+    if(creditsMenuInstance == null) {
+        creditsMenuInstance = GameObject.Find("CreditsMenu");
+    } else {
+            if (!creditsMenuInstance.activeSelf && Input.GetKeyDown(KeyCode.Escape)) {
+                if(GameIsPaused) {
+                    Resume();
+                } else {
+                    Pause();
+                }
+            }
+        }            
     }
 
     public void Resume() {
@@ -52,7 +98,7 @@ public class PauseMenu : MonoBehaviour {
         Debug.Log("Quitting game...");
         pauseMenuUI.SetActive(false);
         FindObjectOfType<AudioManager>().Play("Click");
-        SceneManager.LoadScene("Mapping");
+        SceneManager.LoadScene("New_Mapping");
     }
 
 }
