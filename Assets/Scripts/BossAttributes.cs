@@ -12,6 +12,7 @@ public class BossAttributes : MonoBehaviour
     // Enemy sounds
     public string HitSound;
     public string DeathSound;
+    public string BossWinSound;
 
     // Enemy health
     public int health = 100;
@@ -57,6 +58,7 @@ public class BossAttributes : MonoBehaviour
         // If the enemy dies, call die method
         if(health <= 0){
             Die();
+            FindObjectOfType<AudioManager>().Play(BossWinSound);
         
         // If they are alive, play the hit animation
         }

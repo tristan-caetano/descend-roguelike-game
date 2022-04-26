@@ -350,6 +350,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HitSound: KrampusEdl Hit
   DeathSound: KrampusEdl Death
+  BossWinSound: Boss Win
+  health: 400
+  maxHealth: 400
   health: 350
   maxHealth: 350
   animator: {fileID: 4600270810265559948}
