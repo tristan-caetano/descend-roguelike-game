@@ -349,6 +349,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HitSound: Sister Hit
   DeathSound: Sister Death
+  BossWinSound: Boss Win
   health: 400
   maxHealth: 400
   animator: {fileID: 6717532065465282540}
