@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5562132318884322336}
   - component: {fileID: 2614527684569900800}
   - component: {fileID: 7962535974324043108}
+  - component: {fileID: 287575848796910794}
   m_Layer: 0
   m_Name: South
   m_TagString: Untagged
@@ -77,6 +78,20 @@ PlatformEffector2D:
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
+--- !u!114 &287575848796910794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 831312274162160894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a06fcdc599e63844586970dead4d0e7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boxCollider2D: {fileID: 2614527684569900800}
+  enemy: {fileID: 3665823157705249380}
 --- !u!1 &2441328133032477160
 GameObject:
   m_ObjectHideFlags: 0
@@ -20708,6 +20723,7 @@ GameObject:
   - component: {fileID: 7061259105191551626}
   - component: {fileID: 993539787297433436}
   - component: {fileID: 4103623896790781591}
+  - component: {fileID: 4383929204836130992}
   m_Layer: 0
   m_Name: North
   m_TagString: Untagged
@@ -20774,6 +20790,20 @@ PlatformEffector2D:
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
+--- !u!114 &4383929204836130992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6000258326258125248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a06fcdc599e63844586970dead4d0e7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boxCollider2D: {fileID: 993539787297433436}
+  enemy: {fileID: 3665823157705249380}
 --- !u!1 &7313101914803037011
 GameObject:
   m_ObjectHideFlags: 0
@@ -22134,6 +22164,7 @@ GameObject:
   - component: {fileID: 3892091376366211272}
   - component: {fileID: 1372888640501324012}
   - component: {fileID: 8686738503195384941}
+  - component: {fileID: 2529169673058332170}
   m_Layer: 0
   m_Name: West
   m_TagString: Untagged
@@ -22200,6 +22231,20 @@ PlatformEffector2D:
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
+--- !u!114 &2529169673058332170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8234273679669936903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a06fcdc599e63844586970dead4d0e7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boxCollider2D: {fileID: 1372888640501324012}
+  enemy: {fileID: 3665823157705249380}
 --- !u!1 &8581533878612708449
 GameObject:
   m_ObjectHideFlags: 0
@@ -22211,6 +22256,7 @@ GameObject:
   - component: {fileID: 6837230657513497651}
   - component: {fileID: 432641609850030629}
   - component: {fileID: 3876444961551642001}
+  - component: {fileID: 5719635430029360556}
   m_Layer: 0
   m_Name: East
   m_TagString: Untagged
@@ -22277,6 +22323,20 @@ PlatformEffector2D:
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
+--- !u!114 &5719635430029360556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8581533878612708449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a06fcdc599e63844586970dead4d0e7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boxCollider2D: {fileID: 432641609850030629}
+  enemy: {fileID: 3665823157705249380}
 --- !u!1001 &27575594439056710
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22463,6 +22523,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6717532067201725360, guid: 2f930feefe01e4943b082620a63943da, type: 3}
   m_PrefabInstance: {fileID: 4164795013663849293}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3665823157705249380 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 798206146634344745, guid: 2f930feefe01e4943b082620a63943da, type: 3}
+  m_PrefabInstance: {fileID: 4164795013663849293}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2364c1c040ade9459bec793f9b105eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5294568313802095042
 PrefabInstance:
   m_ObjectHideFlags: 0
