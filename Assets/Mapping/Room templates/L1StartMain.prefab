@@ -6769,7 +6769,7 @@ PrefabInstance:
       objectReference: {fileID: 1375261882443029714}
     - target: {fileID: 7205377627562473182, guid: 98f5612bc067aa24182e59b61ee05929, type: 3}
       propertyPath: attackRange
-      value: 0.9
+      value: 1.1
       objectReference: {fileID: 0}
     - target: {fileID: 7205377627562473182, guid: 98f5612bc067aa24182e59b61ee05929, type: 3}
       propertyPath: attackDamage

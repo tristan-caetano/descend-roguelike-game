@@ -320,6 +320,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   target: {fileID: 0}
+  bossReq: 2
   speed: 450
   nextWaypointDistance: 1
   enemy: {fileID: 798206146634344745}

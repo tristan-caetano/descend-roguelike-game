@@ -4729,7 +4729,7 @@ MonoBehaviour:
   playerCollider: {fileID: 0}
   speed: 0.5
   manaUsage: 15
-  damage: 2
+  damage: 3
   collateral: 1
   linger: 1
   spellAliveDur: 10

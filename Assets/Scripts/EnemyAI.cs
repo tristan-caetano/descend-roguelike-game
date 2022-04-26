@@ -19,6 +19,13 @@ public class EnemyAI : MonoBehaviour {
     public Transform target;
     GameObject mainPlayer;
 
+    // Making sure the enemies are only active when their bosses are dead
+    GameObject boss1;
+    GameObject boss2;
+    EnemyAttributes[] bossAtt;
+    int[] bossHealth;
+    public byte bossReq = 0;
+
     // Denotes the top speed and current speed of the enemy
     public float speed = 200f;
     float currSpeed;
@@ -95,7 +102,7 @@ public class EnemyAI : MonoBehaviour {
         float pythagDis = Mathf.Sqrt(Mathf.Pow(Mathf.Abs(target.position.x - rb.position.x) + Mathf.Abs(target.position.y - rb.position.y), 2f));
 
         // If the player is close enough and the enemy is alive
-        if(enemy.health > 0 && pythagDis < 20){
+        if(enemy.health > 0 && pythagDis < 13){
             seeker.enabled = true;
             canTrack = true;
 
@@ -199,13 +206,11 @@ public class EnemyAI : MonoBehaviour {
     // Initializing the player as a gameobject so that the enemy can recognize and track the player
     void Update(){
         // Keeps checking if the player value is still null
-        while(mainPlayer == null){
+        while(mainPlayer == null && boss1 == null && boss2 == null){
             mainPlayer = GameObject.Find("Main_Player");
             target  = mainPlayer.transform;
-            playerAtt = mainPlayer.GetComponent<PlayerAttributes>();
-            
+            playerAtt = mainPlayer.GetComponent<PlayerAttributes>();   
         }
-        
     }
 
     // Gets hit info if the collider is triggered
