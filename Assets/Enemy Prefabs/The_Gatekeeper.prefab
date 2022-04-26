@@ -171,6 +171,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   target: {fileID: 0}
+  bossReq: 0
   speed: 400
   nextWaypointDistance: 3
   enemy: {fileID: -3133308328400391875}
@@ -200,8 +201,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HitSound: Krampus Hit
   DeathSound: Krampus Death
-  health: 400
-  maxHealth: 400
+  health: 300
+  maxHealth: 300
   animator: {fileID: 193368074829510648}
   healthBar: {fileID: 0}
   renderer: {fileID: 193368074829510651}
