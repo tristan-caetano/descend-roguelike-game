@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 
 public class DialogueVertexAnimator {
-    public bool textAnimating = false;
+    public bool textAnimating = true;
     private bool stopAnimating = false;
 
     private readonly TMP_Text textBox;

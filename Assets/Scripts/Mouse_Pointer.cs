@@ -32,6 +32,13 @@ public class Mouse_Pointer : MonoBehaviour
     // Make sure player can't move when game is paused
     bool canMove = false;
 
+    // Player dialogue
+    public DialogueManager dlScript;
+    bool fireCast = false;
+    bool getDark = false;
+    bool getPoison = false;
+    bool getBounce = false;
+
     // Update is called once per frame
     void Update()
     {
@@ -54,6 +61,25 @@ public class Mouse_Pointer : MonoBehaviour
                 // Getting spell info
                 spellPickup = currMagicDrop.GetComponent<SpellPickup>();
                 magicName = spellPickup.magicName;
+
+
+                // Dialogue for spells
+                if(magicName == "Dark Spell" && !getDark){
+
+                    StartCoroutine(DialogueCooldown1());
+                    getDark = true;
+
+                } else if(magicName == "Poison Spell" && !getPoison){
+
+                    StartCoroutine(DialogueCooldown2());
+                    getPoison = true;
+
+                } else if(magicName == "Epic Spell" && !getBounce){
+
+                    StartCoroutine(DialogueCooldown3());
+                    getBounce = true;
+
+                }
 
                 // If the mouse is clicked and the player is alive
                 if(Input.GetMouseButtonDown(0) && playerAtt.health > 0 && playerAtt.mana > 5 && spellPickup != null){
@@ -78,6 +104,13 @@ public class Mouse_Pointer : MonoBehaviour
 
                     // Start cooldown
                     StartCoroutine(StartCooldown());
+
+                    if(!fireCast){
+                        StartCoroutine(DialogueCooldown());
+                        fireCast = true;
+                    }
+
+                    
                 }
             }
             else{return;}
@@ -123,5 +156,37 @@ public class Mouse_Pointer : MonoBehaviour
         canMove = false;
         yield return new WaitForSeconds(.1f);
         canMove = true;
+    }
+
+    // Dialogue
+    public IEnumerator DialogueCooldown(){
+        yield return new WaitForSeconds(11f);
+        dlScript.PlayDialogue10();
+        yield return new WaitForSeconds(4f);
+        dlScript.RemoveDialogue();
+    }
+
+    // Dialogue
+    public IEnumerator DialogueCooldown1(){
+        yield return new WaitForSeconds(1f);
+        dlScript.PlayDialogue11();
+        yield return new WaitForSeconds(4f);
+        dlScript.RemoveDialogue();
+    }
+    
+    // Dialogue
+    public IEnumerator DialogueCooldown2(){
+        yield return new WaitForSeconds(1f);
+        dlScript.PlayDialogue12();
+        yield return new WaitForSeconds(4f);
+        dlScript.RemoveDialogue();
+    }
+
+    // Dialogue
+    public IEnumerator DialogueCooldown3(){
+        yield return new WaitForSeconds(1f);
+        dlScript.PlayDialogue13();
+        yield return new WaitForSeconds(4f);
+        dlScript.RemoveDialogue();
     }
 }

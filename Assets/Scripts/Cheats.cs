@@ -46,7 +46,7 @@ public class Cheats : MonoBehaviour
         } 
 
         // Press home key to activate cheats
-        if(Input.GetKeyDown(KeyCode.Home)){
+        if(Input.GetKeyDown(KeyCode.LeftShift)){
             if(isCheatReady){
                 Debug.Log("Cheats Disabled");
                 isCheatReady = false;
@@ -62,7 +62,6 @@ public class Cheats : MonoBehaviour
         if(Input.GetKeyDown("f3") && isCheatReady){fastSpeed();}
         if(Input.GetKeyDown("f4") && isCheatReady){noCoolDown();}
         if(Input.GetKeyDown("f5") && isCheatReady){addMana();}
-        
     }
 
     // Adds 30 health to player

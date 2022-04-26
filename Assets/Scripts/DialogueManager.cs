@@ -9,7 +9,7 @@ public class DialogueManager : MonoBehaviour
     public AudioClip typingClip;
     public AudioSourceGroup audioSourceGroup;
 
-    public Button playDialogue1Button;
+    public GameObject playDialogue1;
     public Button playDialogue2Button;
     public Button playDialogue3Button;
 
@@ -47,75 +47,78 @@ public class DialogueManager : MonoBehaviour
     private DialogueVertexAnimator dialogueVertexAnimator;
     void Awake() {
         dialogueVertexAnimator = new DialogueVertexAnimator(textBox, audioSourceGroup);
-        playDialogue1Button.onClick.AddListener(delegate { PlayDialogue6(); });
         playDialogue2Button.onClick.AddListener(delegate { PlayDialogue10(); });
         playDialogue3Button.onClick.AddListener(delegate { PlayDialogue8(); });
     }
 
-    private void PlayDialogue1() {
+    public void PlayDialogue1() {
         PlayDialogue(dialogue1);
     }
 
-    private void PlayDialogue2() {
+    public void PlayDialogue2() {
         PlayDialogue(dialogue2);
     }
 
-    private void PlayDialogue3() {
+    public void PlayDialogue3() {
         PlayDialogue(dialogue3);
     }
 
-    private void PlayDialogue4() {
+    public void PlayDialogue4() {
         PlayDialogue(dialogue4);
     }
 
-    private void PlayDialogue5() {
+    public void PlayDialogue5() {
         PlayDialogue(dialogue5);
     }
 
-    private void PlayDialogue6() {
+    public void PlayDialogue6() {
         PlayDialogue(dialogue6);
     }
 
-    private void PlayDialogue7() {
+    public void PlayDialogue7() {
         PlayDialogue(dialogue7);
     }
 
-    private void PlayDialogue8() {
+    public void PlayDialogue8() {
         PlayDialogue(dialogue8);
     }
 
-    private void PlayDialogue9() {
+    public void PlayDialogue9() {
         PlayDialogue(dialogue9);
     }
 
-    private void PlayDialogue10() {
+    public void PlayDialogue10() {
         PlayDialogue(dialogue10);
     }
 
-    private void PlayDialogue11() {
+    public void PlayDialogue11() {
         PlayDialogue(dialogue11);
     }
 
-    private void PlayDialogue12() {
+    public void PlayDialogue12() {
         PlayDialogue(dialogue12);
     }
 
-    private void PlayDialogue13() {
+    public void PlayDialogue13() {
         PlayDialogue(dialogue13);
     }
 
-    private void PlayDialogue14() {
+    public void PlayDialogue14() {
         PlayDialogue(dialogue14);
     }
 
-    private void PlayDialogue15() {
+    public void PlayDialogue15() {
         PlayDialogue(dialogue15);
     }
 
+    public void RemoveDialogue() {
+        PlayDialogue(" ");
+    }
+
     private Coroutine typeRoutine = null;
-    void PlayDialogue(string message) {
+    public void PlayDialogue(string message) {
         this.EnsureCoroutineStopped(ref typeRoutine);
-        dialogueVertexAnimator.textAnimating = false;
+        dialogueVertexAnimator.textAnimating = true;
         List<DialogueCommand> commands = DialogueUtility.ProcessInputString(message, out string totalTextMessage);
         typeRoutine = StartCoroutine(dialogueVertexAnimator.AnimateTextIn(commands, totalTextMessage, typingClip, null));
     }
